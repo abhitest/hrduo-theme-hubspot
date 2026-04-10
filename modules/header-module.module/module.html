@@ -1,0 +1,35 @@
+<header class="header">
+    <div class="content-wrapper">
+        <div class="headerInnersec">
+            <div class="headerlogo">
+                {% set href = module.logo_group.logo_link.url.href %}
+                    {% if module.logo_group.logo_link.url.type is equalto "EMAIL_ADDRESS" %}
+                    {% set href = "mailto:" + href %}
+                    {% elif module.logo_group.logo_link.url.type is equalto "PHONE_NUMBER" %}
+                    {% set href = "tel:" + href %}
+                    {% endif %}
+                    <a
+                    {% if module.logo_group.logo_link.url.type is equalto "CALL_TO_ACTION"  %}
+                        href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+                    {% else %}
+                        href="{{ href|escape_url }}"
+                    {% endif %}
+                    {% if module.logo_group.logo_link.open_in_new_tab %}
+                        target="_blank"
+                    {% endif %}
+                    {% if module.logo_group.logo_link.rel %}
+                        rel="{{ module.logo_group.logo_link.rel|escape_attr }}"
+                    {% endif %}
+                    >
+                    <img src="{{ module.logo_group.logo.src }}" alt="{{ module.logo_group.logo.alt }}">
+                    </a>
+            </div>
+            <div class="headerNav">
+
+            </div>
+            <div class="headerbtns">
+
+            </div>
+        </div>
+    </div>
+</header>

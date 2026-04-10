@@ -1,0 +1,577 @@
+[
+{
+  "label": "Custom Style",
+"name": "custom_style",
+"display_width": null,
+"expanded": false,
+"group_occurrence_meta": null,
+"id": "custom_style",
+"locked": false,
+"required": false,
+"tab": "CONTENT",
+"type": "group",
+"children": [
+{
+"label": "Custom Class",
+"name": "custom_class",
+"id": "custom_class",
+"type": "text"
+},
+
+{
+    "label": "Section ID",
+    "name": "section_id",
+"allow_new_line": false,
+"display_width": null,
+"id": "section_id",
+"locked": false,
+"required": false,
+"type": "text"
+}
+],
+"default": {
+"container_choice": "content-wrapper"
+}
+},
+{
+  "label": "Content",
+  "name": "content_group",
+  "display_width": null,
+  "expanded": false,
+  "id": "content_group",
+  "locked": false,
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group",
+  "children": [
+    {
+      "label": "Title",
+      "name": "title",
+      "id": "title",
+      "type": "text",
+      "default": "Welcome to My HubSpot Theme"
+    },
+       {
+        "name": "title_heading",
+        "label": "Title Heading Class",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "use small caps like(h3,h5,h6)",
+        "help_text": "",
+        "default": null 
+        },
+    {
+      "label": "Content",
+      "name": "content",
+      "id": "content",
+      "type": "richtext",
+      "default": "<p>This is a simple module to get you started with building your own HubSpot themes. You can edit this content from the page editor.</p>"
+    },
+     {
+        "label": "Want CTA",
+        "name": "want_cta",
+        "required": false,
+        "locked": false,
+        "type": "boolean",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": false
+     },
+     {
+     "name": "cta_group",
+     "label": "CTA group",
+     "required": false,
+     "locked": false,
+     "inline_help_text": "",
+     "help_text": "",
+     "type": "group",
+     "default": null,
+     "occurrence" : {
+      "default" : 1
+      },
+      "visibility": {
+       "controlling_field_path": "content_group.want_cta",
+       "controlling_value_regex": "true",
+       "operator": "EQUAL"
+      }, 
+    "children": [
+        {
+        "name": "cta_choice",
+        "label": "CTA Choice",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "inline_help_text": "",
+        "help_text": "",
+        "choices": [
+        [
+          "normalcta",
+          "Normal CTA"
+        ],
+        [
+          "hubspotCTA",
+          "Hubspot CTA"
+        ]
+        ],
+        "type": "choice",
+        "placeholder": "",
+        "default": "normalcta" 
+        },
+        {
+        "name": "choice_cta_style",
+        "label": "Choice CTA Style",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "inline_help_text": "",
+        "help_text": "",
+        "choices": [
+        [
+          "button",
+          "Primary CTA"
+        ],
+        [
+          "secondary_button",
+          "Secondary CTA"
+        ],
+        [
+          "tertiary_button",
+          "Tertiary CTA"
+        ]
+        ],
+        "type": "choice",
+        "placeholder": "",
+        "default": "button"
+       },
+       {
+       "name": "button_alignment",
+       "label": "Button Alignment",
+       "required": false,
+       "locked": false,
+       "display": "select",
+       "inline_help_text": "",
+       "help_text": "",
+       "choices": [
+       [
+         "text-left",
+         "Left"
+       ],
+       [
+         "text-center",
+         "Center"
+       ],
+       [
+         "text-right",
+         "Right"
+       ]
+       ],
+       "type": "choice",
+       "placeholder": "",
+       "default": null 
+      },
+      {
+      "name": "want_arrow",
+      "label": "Want Arrow",
+      "required": false,
+      "locked": false,
+      "type": "boolean",
+      "display":"toggle",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": false 
+      },
+      {
+      "name": "button_text",
+      "label": "Button Text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Click Here",
+      "visibility": {
+       "controlling_field_path": "content_group.cta_group.cta_choice",
+       "controlling_value_regex": "normalcta",
+       "operator": "EQUAL"
+      }
+      },
+      {
+      "name" : "button_link",
+      "label" : "Button Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "visibility": {
+       "controlling_field_path": "content_group.cta_group.cta_choice",
+       "controlling_value_regex": "normalcta",
+       "operator": "EQUAL"
+      }
+      },
+      {
+      "name": "hubspot_cta",
+      "label": "HubSpot CTA",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "cta",
+      "default": null,
+      "visibility": {
+       "controlling_field_path": "content_group.cta_group.cta_choice",
+       "controlling_value_regex": "hubspotCTA",
+       "operator": "EQUAL"
+      }
+    },
+      {
+      "name": "override_button_style",
+      "label": "Override Button Style",
+      "required": false,
+      "locked": false,
+      "type": "boolean",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": false 
+    },
+     {
+     "name": "button_style_group",
+     "label": "Button Style Group",
+     "required": false,
+     "locked": false,
+     "type": "group",
+     "inline_help_text": "",
+     "help_text": "",
+     "visibility": {
+       "controlling_field_path": "content_group.cta_group.override_button_style",
+       "controlling_value_regex": "true",
+       "operator": "EQUAL"
+      },
+  
+     "children": [
+      {
+      "name": "btn_bg_color",
+      "label": "Button Background Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#000",
+        "opacity": 100 } 
+      },
+      {
+      "name": "btn_text_color",
+      "label": "Text Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#ffffff",
+        "opacity": 100 } 
+      },
+      {
+      "name": "btn_border_color",
+      "label": "Border Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#000",
+        "opacity": 100 } 
+      },
+      {
+      "name": "btn_bg_color_hover",
+      "label": "Background color on hover",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#ffffff",
+        "opacity": 100 } 
+      },
+      {
+      "name": "btn_text_color_hover",
+      "label": "Text Hover Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#ffffff",
+        "opacity": 100 } 
+      },
+      {
+      "name": "btn_border_color_hover",
+      "label": "Button border Hover Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#ffffff",
+        "opacity": 100 } 
+      }
+    ]
+     
+    }
+    ]
+     },
+    {
+      "label": "Repeating Items",
+      "name": "repeating_items",
+      "id": "items",
+      "type": "group",
+    "occurrence": {
+      "default": 4,
+      "min": 1,
+      "max": 4
+    },
+      "children": [
+        {
+          "label": "Box Title",
+          "name": "box_title",
+          "id": "box_title",
+          "type": "text",
+          "default": "Welcome to My HubSpot Theme"
+        }
+      ]
+    }
+  ]
+},
+
+{
+"name": "style",
+"label": "Styles",
+"type": "group",
+"tab": "STYLE",
+"children": [
+  {
+  "name": "background_property",
+  "label": "Background Property",
+  "required": false,
+  "locked": false,
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+    "children": [
+      {
+      "name": "background_choice",
+      "label": "Select Background Type",
+      "required": false,
+      "locked": false,
+      "display": "select",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+      [
+        "bgImage",
+        "Background Image"
+      ],
+      [
+        "bgColor",
+        "Background Color"
+      ],
+      [
+        "gredient",
+        "Background Gredient"
+      ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": null
+     },
+     {
+     "name": "background_image",
+     "label": "Background Image",
+     "required": false,
+     "locked": false,
+     "inline_help_text": "",
+     "help_text": "",
+     "responsive": true,
+     "resizable": true,
+     "show_loading" : false,
+     "type": "image",
+     "default": {
+       "size_type" : "auto",
+       "src": "",
+       "alt": null,
+       "loading": "disabled"
+      },
+      "visibility": {
+          "controlling_field_path": "style.background_property.background_choice",
+       "controlling_value_regex": "bgImage",
+       "operator": "EQUAL"
+
+     }
+    },
+    {
+    "name": "background_color",
+    "label": "Background Color",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "type": "color",
+    "visibility": {
+      "controlling_field_path": "style.background_property.background_choice",
+       "controlling_value_regex": "bgColor",
+       "operator": "EQUAL"
+      
+    }    
+    },
+    {
+    "name": "background_gredient",
+    "label": "Background Gradient",
+    "required": false,
+    "locked": false,
+    "type": "gradient",
+    "inline_help_text": "",
+    "help_text": "",
+
+    "visibility": {
+      "controlling_field_path": "style.background_property.background_choice",
+       "controlling_value_regex": "gredient",
+       "operator": "EQUAL"
+      
+    }
+    }
+    ]
+  },
+  {
+  "name": "spacing",
+  "label": "Spacing",
+  "required": false,
+  "locked": false,
+
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+    "children": [
+      {
+      "name": "desktop_spacing",
+      "label": "Desktop Spacing",
+      "required": false,
+      "locked": false,
+      "type": "spacing",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {
+        "padding": {
+         "top": {
+          "value": 50,
+          "units": "px"
+         },
+         "bottom": {
+          "value": 50,
+          "units": "px"
+         },
+         "left": {
+          "value": null,
+          "units": null
+         },
+         "right": {
+          "value": null,
+          "units": null
+         }
+        }
+       }
+       
+      
+      
+
+      },
+      {
+      "name": "tab_spacing",
+      "label": "Tab Spacing",
+      "required": false,
+      "locked": false,
+      "type": "spacing",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {
+        "padding": {
+         "top": {
+          "value": 50,
+          "units": "px"
+         },
+         "bottom": {
+          "value": 50,
+          "units": "px"
+         },
+         "left": {
+          "value": null,
+          "units": null
+         },
+         "right": {
+          "value": null,
+          "units": null
+         }
+        }
+       }
+      },
+      {
+      "name": "mobile_spacing",
+      "label": "Mobile Spacing",
+      "required": false,
+      "locked": false,
+      "type": "spacing",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {
+        "padding": {
+         "top": {
+          "value": 50,
+          "units": "px"
+         },
+         "bottom": {
+          "value": 50,
+          "units": "px"
+         },
+         "left": {
+          "value": null,
+          "units": null
+         },
+         "right": {
+          "value": null,
+          "units": null
+         }
+        }
+       }
+      }
+    ]
+    
+}
+]
+}
+]
