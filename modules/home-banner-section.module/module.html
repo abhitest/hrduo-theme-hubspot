@@ -4,7 +4,7 @@
     <div class="content-wrapper">
       {# Custum Width Option #}
       <div class="customWidthOption HomeBannerInSec">
-        <div class="HomeBannerTitleSection">
+        <div class="HomeBannerTitleSection  {% if module.content_group.image %} pb75 {% endif %}">
           {% if module.content_group.tag %}
           <div class="HomeBannerTag">
             <p>{{ module.content_group.tag }}</p>
@@ -34,7 +34,7 @@
 %}
             </div>
             {% if module.content_group.form_bt_text %}
-            <div class="HomeBannerFormText pt20 p3"> 
+            <div class="HomeBannerFormText pt20 p3 white_color"> 
                 {{ module.content_group.form_bt_text  }}
             </div>
             {% endif %}
@@ -43,7 +43,7 @@
 
         </div>
            {% if module.content_group.image %}
-          <div class="HomeBannerImagesec pt75">
+          <div class="HomeBannerImagesec ">
             <img src="{{ module.content_group.image.src }}" alt="{{ module.content_group.image.alt_text }}">
           </div>
           {% endif %}
@@ -91,9 +91,7 @@
 .HomeBannerInSec .HomeBannerTitleSection .HomeBannerTag:before {  background: linear-gradient(180deg, rgba({{ module.style.background_property.background_color.color|convert_rgb }},0) 0%, rgba({{ module.style.background_property.background_color.color|convert_rgb }},0) 100%), linear-gradient(0deg, rgba({{ module.style.background_property.background_color.color|convert_rgb }},100%), rgba({{ module.style.background_property.background_color.color|convert_rgb }},100%)) padding-box, linear-gradient(106.39deg, rgba(255, 255, 255, 0.25) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0.25) 100%); border-box;    border: 1px solid transparent;    content: "";    height: 100%;    left: 0;    position: absolute;    top: 0;    width: 100%;    border-radius: 46px;    box-sizing: content-box;}    
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
-        position:relative;
-        z-index:0;
-      
+        position:relative;      
         {{ module.style.spacing.desktop_spacing.css }}
        
         {% if module.style.background_property.background_choice == 'bgImage'  %}

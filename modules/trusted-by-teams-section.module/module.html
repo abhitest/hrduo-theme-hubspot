@@ -1,76 +1,28 @@
-<div class="{{ name }} baseModuleStyle  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle TrustedbyteamSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
-    <div class="content-wrapper">
+    
       {# Custum Width Option #}
-      <div class="customWidthOption">
+      <div class="customWidthOption TrustedbyteamInSec">
         {% if  module.content_group.title  %}
-        <div class="moduleTitle">
+        <div class="moduleTitle TrustedbyteamTitle p3 text-center purple_color " >
           {{ module.content_group.title }}
         </div>
           {% endif %}
-          {% if module.content_group.content %}
-          <div class="moduleContent pt20">
-            {{ module.content_group.content }}
-          </div>
-          {% endif %}
-          {# Button and Cta Option #}
 
-          {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center gap20 pt20">
-            {% for item in module.content_group.cta_group %}
-            {% set CTA = item %}
-            <div class="cta-section">
-              {% if CTA.cta_choice == "normalcta" %}
-              {% if CTA.button_text && CTA.button_link.url.href %}
-              <div class="{{ CTA.choice_cta_style }}  {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %} basebutton-{{ loop.index }}">
-                {% set href = CTA.button_link.url.href %}
-                {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
-                {% set href = "mailto:" + href %}
-                {% endif %}
-                {% if CTA.button_link.url.type is equalto "PHONE_NUMBER" %}
-                {% set href = "tel:" + href %}
-                {% endif %}
-
-                <a href="{{ href }}"
-                   {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
-                   {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
-                   >
-                  {{ CTA.button_text }}
-                  {% if CTA.want_arrow %}
-                    <span class="arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect x="13.2887" y="14.5453" width="7" height="1" rx="0.25" transform="rotate(-45 13.2887 14.5453)" fill="white" stroke="white" stroke-width="0.5"/>
-                    <rect x="13.9958" y="5.35291" width="7" height="1" rx="0.25" transform="rotate(45 13.9958 5.35291)" fill="white" stroke="white" stroke-width="0.5"/>
-                    <rect x="0.5" y="9.80273" width="16.9958" height="1" rx="0.25" fill="white" stroke="white" stroke-width="0.5"/>
-                  </svg>
-                    </span>
-                  {% endif %}
-
-                </a>
+        <div class="TrustedbyteamLogoBoxSec pt50">
+          {% for logo in module.content_group.logo_group %}
+          <div class="TrustedbyteamLogoBox"> 
+              <div class="TrustedbyteamLogoBoxIn">
+                <img src="{{ logo.image.src|escape_url }}" alt="{{ logo.image.alt }}" />
               </div>
-              {% endif %}
-              {% elif  CTA.cta_choice == 'hubspotCTA' %}
-
-              {% if CTA.hubspot_cta && CTA.hubspot_cta != null %}
-              <div class="{{ CTA.choice_cta_style }} {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %}">
-                {% cta guid="{{ CTA.hubspot_cta }}" %}
-              </div>
-              {% endif %}
-
-              {% endif %}
-            </div>
-            {% endfor %}
           </div>
-          {% endif %}
-
-          {# End Button and Cta Option #}
+          {% endfor %}
+        </div>  
       </div>
           {# End Custum Width Option #}
 
 
-
-    </div>
   </div>
 
 </div>
@@ -109,7 +61,6 @@
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;
-      
         {{ module.style.spacing.desktop_spacing.css }}
        
         {% if module.style.background_property.background_choice == 'bgImage'  %}

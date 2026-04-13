@@ -1,0 +1,112 @@
+<div class="{{ name }} baseModuleStyle ComparetwoColSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+  <div class="baseModuleParent"> 
+    <div class="content-wrapper">
+      {# Custum Width Option #}
+      <div class="customWidthOption compareTwoColInSec">
+        
+        <div class="compareTwoColBoxSec d_flex align_start gap20">
+          {% for item in module.content_group.compare_group %}
+          <div class="compareTwoColBox {% if item.select_group == 'with_hr_duo' %}with-hr-duo{% else %}without-hr-duo{% endif %}">
+            <div class="compareTwoColBoxTitle">
+              <h4>{{ item.box_title }}</h4>
+            </div>
+            <div class="compareTwoColListBoxMain">
+              {% for list_item in item.list_content %}
+              <div class="compareTwoColListBox">
+                <div class="compareTwoColListBoxLogo">
+                  {% if item.select_group == 'with_hr_duo' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+<rect x="1.50439" y="7.95532" width="6.25" height="1.25" rx="0.3125" transform="rotate(45 1.50439 7.95532)" fill="white" stroke="white" stroke-width="1.5"/>
+<rect x="13.8787" y="4.4198" width="12.5" height="1.25" rx="0.3125" transform="rotate(135 13.8787 4.4198)" fill="white" stroke="white" stroke-width="1.5"/>
+</svg>
+                  {% elif item.select_group == 'without_hr_duo' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<rect x="4.86081" y="3.97693" width="12.5" height="1.25" rx="0.3125" transform="rotate(45 4.86081 3.97693)" fill="#6347FF" stroke="#6347FF" stroke-width="1.5"/>
+<rect x="13.6997" y="4.86084" width="12.5" height="1.25" rx="0.3125" transform="rotate(135 13.6997 4.86084)" fill="#6347FF" stroke="#6347FF" stroke-width="1.5"/>
+</svg>
+                  {% endif %}
+
+                </div>
+                <div class="compareTwoColListBoxIn">
+                  <div class="compareTwoColListBoxTitle">
+                    <h6>{{ list_item.list_title }}</h6>
+                  </div>
+                  <div class="compareTwoColListBoxCnt pt5 p2">
+                    {{ list_item.list_content }}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="compareTwoColBoxBTCol">
+              <div class="compareTwoColBoxBTtitle medium">
+                <h6>{{ item.bottom_content.box_title }}</h6>
+              </div>
+              <div class="compareTwoColBoxBTCnt pt5 p2">
+                {{ item.bottom_content.box_content }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>  
+          {# End Custum Width Option #}
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    {% require_css %}
+    
+   
+    <style>
+
+{#       {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1024px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

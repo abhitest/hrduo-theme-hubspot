@@ -1,10 +1,11 @@
-<div class="{{ name }} baseModuleStyle  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle CounterSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption">
-        {% if  module.content_group.title  %}
+      <div class="customWidthOption CounterInSec">
+        <div class="Countertitlesection">
+ {% if  module.content_group.title  %}
         <div class="moduleTitle">
           {{ module.content_group.title }}
         </div>
@@ -14,6 +15,8 @@
             {{ module.content_group.content }}
           </div>
           {% endif %}
+        </div>
+       
           {# Button and Cta Option #}
 
           {% if module.content_group.want_cta %}

@@ -880,7 +880,7 @@
             }
           },
           "default": {
-            "color": "#FFFFFF",
+            "color": "#6347FF",
             "size": 16,
             "size_unit": "px"
           }

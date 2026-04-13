@@ -45,27 +45,15 @@
   "type": "group",
   "children": [
     {
-      "label": "Title",
-      "name": "title",
-      "id": "title",
-      "type": "text",
-      "default": "Welcome to My HubSpot Theme"
-    },
-       {
-        "name": "title_heading",
-        "label": "Title Heading Class",
-        "required": false,
-        "locked": false,
-        "validation_regex": "",
-        "validation_error_message": "",
-        "allow_new_line": false,
-        "show_emoji_picker": false,
-        "type": "text",
-        "placeholder": "",
-        "inline_help_text": "use small caps like(h3,h5,h6)",
-        "help_text": "",
-        "default": null 
-        },
+    "name": "title",
+    "label": "Title",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": null 
+  },
     {
       "label": "Content",
       "name": "content",
@@ -346,27 +334,7 @@
      
     }
     ]
-     },
-    {
-      "label": "Repeating Items",
-      "name": "repeating_items",
-      "id": "items",
-      "type": "group",
-    "occurrence": {
-      "default": 4,
-      "min": 1,
-      "max": 4
-    },
-      "children": [
-        {
-          "label": "Box Title",
-          "name": "box_title",
-          "id": "box_title",
-          "type": "text",
-          "default": "Welcome to My HubSpot Theme"
-        }
-      ]
-    }
+     }
   ]
 },
 
