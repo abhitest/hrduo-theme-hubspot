@@ -35,14 +35,158 @@ $(document).ready(function() {
     cssEase: 'linear',
     pauseOnFocus: false,
     pauseOnHover: false,
+    variableWidth: true,
   });
   
+$(document).on("click", ".FAQBoxSection .FAQBox .FAQBoxTitleBox", function(){
+    $(this).next().slideToggle().closest(".FAQBox").toggleClass("active").siblings(".FAQBox").removeClass("active").find(".FAQBoxCnt").slideUp();
+})
+
+
+$(document).on("click", ".FeaturetabBoxTitleCol", function () {
+
+    let $currentBox = $(this).closest(".FeaturetabBox");
+    let $content = $(this).next();
+
+    if ($currentBox.hasClass("active")) return;
+
+    $content.stop(true, true).slideDown(300);
+
+    $currentBox.addClass("active").siblings(".FeaturetabBox").removeClass("active").find(".FeaturetabBoxContent").stop(true, true).slideUp(300);
+
+    
+    let $currentH5 = $(this).find("h5");
+    let $currentH4 = $(this).find("h4");
+
+    $currentH5.stop(true, true).animate(
+        { opacity: 0, top: "-8px" },
+        250,
+        "swing",
+        function () {
+            $(this).hide();
+
+            $currentH4
+                .css({
+                    display: "block",
+                    opacity: 0,
+                    top: "8px",
+                    position: "relative"
+                })
+                .stop(true, true)
+                .animate(
+                    { opacity: 1, top: "0px" },
+                    250,
+                    "swing"
+                );
+        }
+    );
+
+    $currentBox.siblings(".FeaturetabBox").each(function () {
+
+        let $h5 = $(this).find("h5");
+        let $h4 = $(this).find("h4");
+
+        $h4.stop(true, true).hide().css({ opacity: 0, top: "0px" });
+        $h5.stop(true, true).show().css({ opacity: 1, top: "0px" });
+
+    });
+
+});
+
+
 });    
+
+
+function inVisible(element) {
+    //Checking if the element is
+    //visible in the viewport
+    var WindowTop = $(window).scrollTop();
+    var WindowBottom = WindowTop + $(window).height();
+    var ElementTop = element.offset().top;
+    var ElementBottom = ElementTop + element.height();
+    //animating the element if it is
+    //visible in the viewport
+    if ((ElementBottom <= WindowBottom) && ElementTop >= WindowTop)
+      animate(element);
+  }
+  function animate(element) {
+    //Animating the element if not animated before
+    if (!element.hasClass('ms-animated')) {
+      var maxval = element.data('max');
+      var html = element.html();
+      element.addClass("ms-animated");
+      $({
+        countNum: element.html()
+      }).animate({
+        countNum: maxval
+      }, {
+        //duration 5 seconds
+        duration: 2000,
+        easing: 'linear',
+        step: function() {
+          element.html(Math.floor(this.countNum) + html);
+        },
+        complete: function() {
+          element.html(this.countNum + html);
+        }
+      });
+    }
+  }
+    $(function() {
+        $(window).scroll(function() {
+        $(".counternumber[data-max]").each(function() {
+            inVisible($(this));
+        });
+        })
+    });
 
 
 $(window).on('load resize',function() {
   equalheight('.PlatformThreeColumnBoxCntIn');
+  setEqualHeights();
 });
+
+function setEqualHeights() {
+
+    let $leftWrap = $(".without-hr-duo");
+    let $rightWrap = $(".with-hr-duo");
+
+    let $leftItems = $leftWrap.find(".compareTwoColListBox");
+    let $rightItems = $rightWrap.find(".compareTwoColListBox");
+
+    $leftItems.css("height", "auto");
+    $rightItems.css("height", "auto");
+    $(".compareTwoColBoxBTCol").css("height", "auto");
+
+    $leftItems.each(function (index) {
+
+        let leftHeight = $(this).outerHeight();
+        let rightHeight = $rightItems.eq(index).outerHeight();
+
+        let maxHeight = Math.max(leftHeight, rightHeight);
+
+        $(this).css("height", maxHeight);
+        $rightItems.eq(index).css("height", maxHeight);
+
+    });
+
+    let $leftBottom = $leftWrap.find(".compareTwoColBoxBTCol");
+    let $rightBottom = $rightWrap.find(".compareTwoColBoxBTCol");
+
+    if ($leftBottom.length && $rightBottom.length) {
+
+        let leftBottomHeight = $leftBottom.outerHeight();
+        let rightBottomHeight = $rightBottom.outerHeight();
+
+        let maxBottomHeight = Math.max(leftBottomHeight, rightBottomHeight);
+
+        $leftBottom.css("height", maxBottomHeight);
+        $rightBottom.css("height", maxBottomHeight);
+    }
+}
+
+
+setTimeout(setEqualHeights, 300);
 
 // Equal Height Function
 equalheight = function(container){

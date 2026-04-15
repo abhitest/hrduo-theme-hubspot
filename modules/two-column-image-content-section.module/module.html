@@ -1,46 +1,41 @@
-<div class="{{ name }} baseModuleStyle CounterSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle TwoColumnImgCntSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption CounterInSec">
-        <div class="Countertitlesection text-center white_color">
- {% if  module.content_group.title  %}
-        <div class="moduleTitle CounterTitle semibold">
+      <div class="customWidthOption TwoColumnImgCntinSec">
+        <div class="TwoColumnImgCntBoxSec d_flex align_center gap20">
+            {% if module.content_group.image %}
+          <div class="TwoColumnImgCntImgcol">
+              <img src="{{ module.content_group.image.src }}" alt="{{ module.content_group.image.alt }}" width="610" height="620">
+          </div>
+          {% endif %}
+          <div class="TwoColumnImgCntCol">
+            <div class="TwoColumnImgCntColIn">
+
+            
+            {% if module.content_group.tag_text %}
+            <div class="TwoColumnImgCntTag p3 bold purple_color">
+              <p><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<path d="M7 0C7 3.86599 10.134 7 14 7C10.134 7 7 10.134 7 14C7 10.134 3.86599 7 0 7C3.86599 7 7 3.86599 7 0Z" fill="#6347FF"/>
+</svg></span>{{ module.content_group.tag_text }}</p>
+            </div>
+            {% endif %}
+         
+        {% if  module.content_group.title  %}
+        <div class="moduleTitle TwoColumnImgCntTitle pt10">
           {{ module.content_group.title }}
         </div>
           {% endif %}
           {% if module.content_group.content %}
-          <div class="moduleContent pt20 CounterContent">
+          <div class="moduleContent pt10 TwoColumnImgCntContent secondary_60_color">
             {{ module.content_group.content }}
           </div>
           {% endif %}
-        </div>
-       
-
-        <div class="CounterBoxSection pt50 d_flex align_start white_color">
-          {% for item in module.content_group.counter_group %}
-          <div class="CounterBox">
-            <div class="CounterBoxNumber">
-              <h4 class="h1">
-                <span class="counternumber" data-max="{{ item.box_number }}"></span>
-                <span>{{ item.box_special_characters }}</span>
-              </h2>
-            </div>
-            {% if item.box_content %}
-            <div class="CounterBoxText pt15">
-              <p>{{ item.box_content }}</p>
-            </div>
-            {% endif %}
-          </div>
-          {% endfor %}
-        </div>
-
-
           {# Button and Cta Option #}
 
           {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center Countercta gap20 pt50 flex_center">
+          <div class="moduleCTA d_flex align_center TwoColumnImgCntCTA gap20 pt40">
             {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
@@ -59,7 +54,7 @@
                    {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
                    {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
                    >
-                  {{ CTA.button_text }}
+                  <span class="text_gradient">{{ CTA.button_text }}</span>
                   {% if CTA.want_arrow %}
                     <span class="arrow">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -88,6 +83,9 @@
           {% endif %}
 
           {# End Button and Cta Option #}
+          </div>
+           </div>
+        </div>
       </div>
           {# End Custum Width Option #}
 
@@ -142,7 +140,6 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-        margin : 0 20px; border-radius: 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}

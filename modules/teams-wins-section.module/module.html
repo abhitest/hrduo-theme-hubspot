@@ -1,51 +1,36 @@
-<div class="{{ name }} baseModuleStyle CounterSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle TeamswinSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption CounterInSec">
-        <div class="Countertitlesection text-center white_color">
- {% if  module.content_group.title  %}
-        <div class="moduleTitle CounterTitle semibold">
+      <div class="customWidthOption TeamswinInSec">
+        {% if  module.content_group.title  %}
+        <div class="moduleTitle TeamswinTitle white_color text-center">
           {{ module.content_group.title }}
         </div>
           {% endif %}
-          {% if module.content_group.content %}
-          <div class="moduleContent pt20 CounterContent">
-            {{ module.content_group.content }}
-          </div>
-          {% endif %}
-        </div>
-       
 
-        <div class="CounterBoxSection pt50 d_flex align_start white_color">
-          {% for item in module.content_group.counter_group %}
-          <div class="CounterBox">
-            <div class="CounterBoxNumber">
-              <h4 class="h1">
-                <span class="counternumber" data-max="{{ item.box_number }}"></span>
-                <span>{{ item.box_special_characters }}</span>
-              </h2>
+        <div class="TeamswinBoxSection d_flex gap20 pt50">
+          {% for item in module.content_group.team_box_group %}
+          <div class="TeamswinBox">
+            <div class="TeamswinBoxQuoteIcon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+<path d="M27.4999 9.375C31.2969 9.375 34.3749 12.453 34.3749 16.25C34.3749 19.0545 32.915 21.768 30.736 22.2916C29.8955 22.4936 29.2261 23.5722 29.37 24.8035C29.5625 26.4516 31.0529 28.1167 34.0038 29.4289C34.6609 29.7211 34.3858 30.7095 33.6723 30.6202C25.9816 29.6573 20.6506 24.6435 20.625 17.5498C20.6249 12.6713 23.5071 9.375 27.4999 9.375Z" fill="#6347FF"/>
+<path d="M12.4999 9.375C16.2969 9.375 19.3749 12.453 19.3749 16.25C19.3749 19.0545 17.915 21.768 15.736 22.2916C14.8955 22.4936 14.2261 23.5722 14.37 24.8035C14.5625 26.4516 16.0529 28.1167 19.0038 29.4289C19.6609 29.7211 19.3858 30.7095 18.6723 30.6202C10.9816 29.6573 5.65058 24.6435 5.625 17.5498C5.62491 12.6713 8.50715 9.375 12.4999 9.375Z" fill="#6347FF"/>
+</svg>
             </div>
             {% if item.box_content %}
-            <div class="CounterBoxText pt15">
-              <p>{{ item.box_content }}</p>
+            <div class="TeamswinBoxCnt pt20 white_color">
+              {{ item.box_content }}
             </div>
             {% endif %}
-          </div>
-          {% endfor %}
-        </div>
 
-
-          {# Button and Cta Option #}
-
-          {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center Countercta gap20 pt50 flex_center">
-            {% for item in module.content_group.cta_group %}
-            {% set CTA = item %}
+          <div class="moduleCTA d_flex align_center TeamswinBoxCTA gap20 pt50">
+            {% for item2 in item.cta_group %}
+            {% set CTA = item2 %}
             <div class="cta-section">
               {% if CTA.cta_choice == "normalcta" %}
-              {% if CTA.button_text %}
+              {% if CTA.button_text  %}
               <div class="{{ CTA.choice_cta_style }}  {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %} basebutton-{{ loop.index }}">
                 {% set href = CTA.button_link.url.href %}
                 {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
@@ -59,7 +44,7 @@
                    {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
                    {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
                    >
-                  {{ CTA.button_text }}
+                  <span class="btn_text_gradient">{{ CTA.button_text }}</span>
                   {% if CTA.want_arrow %}
                     <span class="arrow">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -85,7 +70,14 @@
             </div>
             {% endfor %}
           </div>
-          {% endif %}
+          </div>
+          {% endfor %}
+
+        </div>
+
+          {# Button and Cta Option #}
+
+        
 
           {# End Button and Cta Option #}
       </div>
@@ -142,7 +134,7 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-        margin : 0 20px; border-radius: 30px;
+        margin : 0 20px;  border-radius : 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}

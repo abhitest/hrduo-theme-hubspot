@@ -1,0 +1,136 @@
+<div class="{{ name }} baseModuleStyle FeaturetabSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+  <div class="baseModuleParent"> 
+    <div class="content-wrapper">
+      {# Custum Width Option #}
+      <div class="customWidthOption FeaturetabInSection">
+        <div class="Featuretabtitlesec text-center">
+          {% if  module.content_group.title  %}
+        <div class="moduleTitle FeaturetabTitle">
+          {{ module.content_group.title }}
+        </div>
+          {% endif %}
+          {% if module.content_group.content %}
+          <div class="moduleContent pt20 FeaturetabContent secondary_60_color">
+            {{ module.content_group.content }}
+          </div>
+          {% endif %}
+        </div>
+        
+
+        <div class="FeaturetabBoxSection pt75 d_flex align_start gap20">
+          <div class="FeaturetabBoxmain">
+            {% for item in module.content_group.faq_group %}
+            {% set tab = item %}
+            <div class="FeaturetabBox {% if loop.first %}active{% endif %}">
+              <div class="FeaturetabBoxTitleCol">
+                <div class="FeaturetabBoxTitle">
+                  <h5 class="black_color" style="{% if loop.first %} display: none {% endif %}">{{ tab.box_title }}</h5>
+                  <h4 class="purple_color" style="{% if loop.first %} display : block {% endif %}">{{ tab.box_title }}</h4>
+                </div>
+                <div class="FeaturetabBoxArrow">
+                  <i></i>
+                  <i></i>
+                </div>
+              </div>
+
+              <div class="FeaturetabBoxContent" style="{% if loop.first %} display: block {% else %} display : none {% endif %}">
+                <div class="FeaturetabBoxCnt dark_purple_color ">
+                  {{ tab.box_content }}
+                </div>
+                {% set CTA = tab.button_group %}
+                <div class="FeaturetabBoxbtn pt30">
+                  
+                     {% set href = CTA.button_link.url.href %}
+                {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + href %}
+                {% endif %}
+                {% if CTA.button_link.url.type is equalto "PHONE_NUMBER" %}
+                {% set href = "tel:" + href %}
+                {% endif %}
+
+                <a href="{{ href }}" class="purple_color medium"
+                   {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                   {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
+                   >
+                  {{ CTA.button_text }}
+                    <span class="arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+<rect x="4.24194" y="9.58618" width="6.99775" height="1" rx="0.25" transform="rotate(-45 4.24194 9.58618)" fill="#6347FF" stroke="#6347FF"/>
+<rect x="4.94824" y="0.396484" width="6.99874" height="1" rx="0.25" transform="rotate(45 4.94824 0.396484)" fill="#6347FF" stroke="#6347FF"/>
+</svg>
+                    </span>
+                </a>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+          </div>
+          <div class="FeaturetabBoxImageBox">
+            <div class="FeaturetabBoxImage">
+              <img src="{{ module.content_group.image.src }}" alt="{{ module.content_group.image.alt }}">
+            </div>
+            
+          </div>
+        </div>
+
+  
+      </div>
+          {# End Custum Width Option #}
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    {% require_css %}
+   
+    <style>
+
+{#       {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1024px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

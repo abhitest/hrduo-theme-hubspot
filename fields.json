@@ -911,11 +911,11 @@
           "type": "color",
           "inherited_value": {
             "property_value_paths": {
-              "color": "theme.global_colors.purple_color.color"
+              "color": "theme.global_colors.white_color.color"
             }
           },
           "default": {
-            "opacity": 0
+            "opacity": 100
           }
         }
       ]
@@ -2396,7 +2396,7 @@
           "type": "color",
           "inherited_value": {
             "property_value_paths": {
-              "color": "theme.global_colors.secondary.color"
+              "color": "theme.global_colors.dark_navy_blue_color.color"
             }
           },
           "default": {

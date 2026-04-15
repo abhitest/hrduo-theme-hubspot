@@ -1,46 +1,25 @@
-<div class="{{ name }} baseModuleStyle CounterSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle automatetwoColSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption CounterInSec">
-        <div class="Countertitlesection text-center white_color">
- {% if  module.content_group.title  %}
-        <div class="moduleTitle CounterTitle semibold">
+      <div class="customWidthOption automatetwoColInSec">
+        <div class="automatetwoColBoxSec d_flex align_center">
+          <div class="automatetwoColBoxLTCol">
+        {% if  module.content_group.title  %}
+        <div class="moduleTitle automatetwoColTitle white_color">
           {{ module.content_group.title }}
         </div>
           {% endif %}
           {% if module.content_group.content %}
-          <div class="moduleContent pt20 CounterContent">
+          <div class="moduleContent pt10 automatetwoColContent white_75_color">
             {{ module.content_group.content }}
           </div>
           {% endif %}
-        </div>
-       
-
-        <div class="CounterBoxSection pt50 d_flex align_start white_color">
-          {% for item in module.content_group.counter_group %}
-          <div class="CounterBox">
-            <div class="CounterBoxNumber">
-              <h4 class="h1">
-                <span class="counternumber" data-max="{{ item.box_number }}"></span>
-                <span>{{ item.box_special_characters }}</span>
-              </h2>
-            </div>
-            {% if item.box_content %}
-            <div class="CounterBoxText pt15">
-              <p>{{ item.box_content }}</p>
-            </div>
-            {% endif %}
-          </div>
-          {% endfor %}
-        </div>
-
-
           {# Button and Cta Option #}
 
           {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center Countercta gap20 pt50 flex_center">
+          <div class="moduleCTA d_flex align_center gap20 pt30 automatetwoColbtn">
             {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
@@ -59,7 +38,7 @@
                    {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
                    {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
                    >
-                  {{ CTA.button_text }}
+                  <span class="text_gradient">{{ CTA.button_text }}</span>
                   {% if CTA.want_arrow %}
                     <span class="arrow">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -88,6 +67,11 @@
           {% endif %}
 
           {# End Button and Cta Option #}
+          </div>
+          <div class="automatetwoColBoxRTCol">
+            <img src="{{ module.content_group.image.src|escape_url }}" alt="{{ module.content_group.image.alt }}">
+          </div>
+          </div>
       </div>
           {# End Custum Width Option #}
 
@@ -142,7 +126,7 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-        margin : 0 20px; border-radius: 30px;
+        margin : 0 20px; border-radius : 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}

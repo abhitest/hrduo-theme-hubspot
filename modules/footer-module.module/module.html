@@ -1,0 +1,44 @@
+<footer class="footer">
+    <div class="footershape">
+<svg xmlns="http://www.w3.org/2000/svg" width="1395" height="616" viewBox="0 0 1395 616" fill="none">
+<g opacity="0.5" filter="url(#filter0_f_4002_246)">
+<circle cx="677" cy="264" r="218" fill="#6347FF"/>
+</g>
+<g opacity="0.75" filter="url(#filter1_f_4002_246)">
+<circle cx="377" cy="564" r="218" fill="#6347FF"/>
+</g>
+<defs>
+<filter id="filter0_f_4002_246" x="-41" y="-454" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_4002_246"/>
+</filter>
+<filter id="filter1_f_4002_246" x="-341" y="-154" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_4002_246"/>
+</filter>
+</defs>
+</svg>
+    </div>
+    <div class="content-wrapper">
+        <div class="footerinSec pt100">
+            <div class="FooterMenuSec d_flex align_start gap20">
+                {% for item in module.footer_menu_group %}
+                <div class="FooterMenuBox">
+                    <div class="FooterMenuTitle p2 white_color medium">
+                        <p>{{ item.menu_title }}</p>
+                    </div>
+                    <div class="FooterMenu white_75_color p3">    
+                       {% simple_menu menu_tree="{{ item.menu }}" %}
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="FooterLogo">
+                <img src="{{ module.logo_image.src }}" alt="footer logo">
+            </div>
+        </div>
+    </div>
+</footer>

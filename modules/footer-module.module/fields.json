@@ -1,0 +1,62 @@
+[
+  {
+  "name": "footer_menu_group",
+  "label": "Footer Menu Group",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": 5,
+    "sorting_label_field": null,
+    "default": 5
+  },
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "children": [
+    {
+    "name": "menu_title",
+    "label": "Menu Title",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Platform" 
+    },
+    {
+    "name": "menu",
+    "label": "Menu",
+    "required": false,
+    "locked": false,
+    "type": "simplemenu",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": [] 
+  }
+  ],
+  "default": [] 
+  },
+  {
+  "name": "logo_image",
+  "label": "Logo Image",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "responsive": true,
+  "resizable": true,
+  "show_loading" : false,
+  "type": "image",
+  "default": {
+    "size_type" : "auto",
+    "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Layer_1%20(10).svg",
+    "alt": "Layer_1 (10)",
+    "loading": "disabled"}
+  }
+]

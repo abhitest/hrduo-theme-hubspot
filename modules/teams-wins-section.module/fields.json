@@ -48,93 +48,36 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Powerful technology that delivers results in every industry</h3>"
-  }, {
-    "id" : "content",
-    "name" : "content",
-    "label" : "Content",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>"
+    "default": "<h3>Wins from teams just like yours</h3>"
   }, 
+
   {
-  "name": "counter_group",
-  "label": "Counter Group",
+  "name": "team_box_group",
+  "label": "Team Box Group",
   "required": false,
   "locked": false,
   "occurrence": {
     "min": null,
     "max": null,
     "sorting_label_field": null,
-    "default": 5
+    "default": 2
   },
-  
   "type": "group",
   "inline_help_text": "",
   "help_text": "",
   "children": [
     {
-    "name" : "box_number",
-    "label" : "Box Number",
-    "required" : false,
-    "locked" : false,
-    "display" : "text",
-    "step" : 1,
-    "type" : "number",
-    "min" : null,
-    "max" : null,
-    "inline_help_text": "",
-    "help_text": "",
-    "default" : "84" 
-    },
-    {
-    "name": "box_special_characters",
-    "label": "Box Special Characters",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "%" 
-    },
-    {
     "name": "box_content",
     "label": "Box Content",
     "required": false,
     "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
+    "type": "richtext",
     "inline_help_text": "",
     "help_text": "",
-    "default": "Lorem ipsum dolor sit amet." 
-    }
-  ]
-  },
-  {
-    "id" : "content_group.want_cta",
-    "name" : "want_cta",
-    "label" : "Want CTA",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "display" : "checkbox",
-    "display_width" : null,
-    "type" : "boolean",
-    "default" : true
-  }, {
-    "id" : "content_group.cta_group",
+    "default": "<h4>HR Duo has given us the structure, visibility, and control we needed across a busy, multi-site construction environment.</h4>"
+    },
+
+     {
     "name" : "cta_group",
     "label" : "CTA group",
     "help_text" : "",
@@ -147,16 +90,8 @@
       "sorting_label_field" : null,
       "default" : 1
     },
-    "visibility" : {
-      "controlling_field" : null,
-      "controlling_field_path" : "content_group.want_cta",
-      "controlling_value_regex" : "true",
-      "property" : null,
-      "operator" : "EQUAL",
-      "access" : null
-    },
-    "children" : [ {
-      "id" : "content_group.cta_group.cta_choice",
+    "children" : [ 
+      {
       "name" : "cta_choice",
       "label" : "CTA Choice",
       "help_text" : "",
@@ -172,8 +107,8 @@
       "display_width" : null,
       "type" : "choice",
       "default" : "normalcta"
-    }, {
-      "id" : "content_group.cta_group.choice_cta_style",
+    }, 
+    {
       "name" : "choice_cta_style",
       "label" : "Choice CTA Style",
       "help_text" : "",
@@ -188,9 +123,10 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default" : "secondary_button"
-    }, {
-      "id" : "content_group.cta_group.button_alignment",
+      "default" : "button"
+    }, 
+    {
+    
       "name" : "button_alignment",
       "label" : "Button Alignment",
       "help_text" : "",
@@ -204,10 +140,8 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default":"text-center"
+      "type" : "choice"
     }, {
-      "id" : "content_group.cta_group.want_arrow",
       "name" : "want_arrow",
       "label" : "Want Arrow",
       "help_text" : "",
@@ -217,9 +151,8 @@
       "display" : "toggle",
       "display_width" : null,
       "type" : "boolean",
-      "default" : false
+      "default" : true
     }, {
-      "id" : "content_group.cta_group.button_text",
       "name" : "button_text",
       "label" : "Button Text",
       "help_text" : "",
@@ -229,7 +162,7 @@
       "validation_error_message" : "",
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.cta_choice",
+        "controlling_field_path" : "content_group.team_box_group.cta_group.cta_choice",
         "controlling_value_regex" : "normalcta",
         "property" : null,
         "operator" : "EQUAL",
@@ -239,9 +172,8 @@
       "allow_new_line" : false,
       "display_width" : null,
       "type" : "text",
-      "default" : "Request demo"
+      "default" : "Read full story"
     }, {
-      "id" : "content_group.cta_group.button_link",
       "name" : "button_link",
       "label" : "Button Link",
       "help_text" : "",
@@ -250,7 +182,7 @@
       "locked" : false,
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.cta_choice",
+        "controlling_field_path" : "content_group.team_box_group.cta_group.cta_choice",
         "controlling_value_regex" : "normalcta",
         "property" : null,
         "operator" : "EQUAL",
@@ -270,7 +202,6 @@
         "no_follow" : false
       }
     }, {
-      "id" : "content_group.cta_group.hubspot_cta",
       "name" : "hubspot_cta",
       "label" : "HubSpot CTA",
       "help_text" : "",
@@ -279,7 +210,7 @@
       "locked" : false,
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.cta_choice",
+        "controlling_field_path" : "content_group.team_box_group.cta_group.cta_choice",
         "controlling_value_regex" : "hubspotCTA",
         "property" : null,
         "operator" : "EQUAL",
@@ -288,7 +219,6 @@
       "display_width" : null,
       "type" : "cta"
     }, {
-      "id" : "content_group.cta_group.override_button_style",
       "name" : "override_button_style",
       "label" : "Override Button Style",
       "help_text" : "",
@@ -300,7 +230,6 @@
       "type" : "boolean",
       "default" : false
     }, {
-      "id" : "content_group.cta_group.button_style_group",
       "name" : "button_style_group",
       "label" : "Button Style Group",
       "help_text" : "",
@@ -309,14 +238,13 @@
       "locked" : false,
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.override_button_style",
+        "controlling_field_path" : "content_group.team_box_group.cta_group.override_button_style",
         "controlling_value_regex" : "true",
         "property" : null,
         "operator" : "EQUAL",
         "access" : null
       },
       "children" : [ {
-        "id" : "content_group.cta_group.button_style_group.btn_bg_color",
         "name" : "btn_bg_color",
         "label" : "Button Background Color",
         "help_text" : "",
@@ -330,7 +258,6 @@
           "opacity" : 100
         }
       }, {
-        "id" : "content_group.cta_group.button_style_group.btn_text_color",
         "name" : "btn_text_color",
         "label" : "Text Color",
         "help_text" : "",
@@ -344,7 +271,6 @@
           "opacity" : 100
         }
       }, {
-        "id" : "content_group.cta_group.button_style_group.btn_border_color",
         "name" : "btn_border_color",
         "label" : "Border Color",
         "help_text" : "",
@@ -358,7 +284,6 @@
           "opacity" : 100
         }
       }, {
-        "id" : "content_group.cta_group.button_style_group.btn_bg_color_hover",
         "name" : "btn_bg_color_hover",
         "label" : "Background color on hover",
         "help_text" : "",
@@ -372,7 +297,6 @@
           "opacity" : 100
         }
       }, {
-        "id" : "content_group.cta_group.button_style_group.btn_text_color_hover",
         "name" : "btn_text_color_hover",
         "label" : "Text Hover Color",
         "help_text" : "",
@@ -386,7 +310,6 @@
           "opacity" : 100
         }
       }, {
-        "id" : "content_group.cta_group.button_style_group.btn_border_color_hover",
         "name" : "btn_border_color_hover",
         "label" : "Button border Hover Color",
         "help_text" : "",
@@ -411,7 +334,13 @@
     "group_occurrence_meta" : null,
     "display_width" : null,
     "type" : "group"
-  } ],
+  } 
+
+  ]
+}
+
+ 
+],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
@@ -431,8 +360,7 @@
     "inline_help_text" : "",
     "required" : false,
     "locked" : false,
-    "children" : [ 
-      {
+    "children" : [ {
       "id" : "style.background_property.background_choice",
       "name" : "background_choice",
       "label" : "Select Background Type",
@@ -448,7 +376,7 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default": "bgColor"
+      "default" : "bgColor"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -495,7 +423,7 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#6347FF",
+        "color" : "#202640",
         "opacity" : 100,
         "hex" : null,
         "rgba" : null,
