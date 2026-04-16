@@ -37,8 +37,7 @@
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ 
-    {
+  "children" : [ {
     "id" : "title",
     "name" : "title",
     "label" : "Title",
@@ -48,26 +47,35 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<h2>FAQs</h2>"
+    "default" : "<h2>Your Human Resource software solution shouldn’t sit in silos</h2>"
+  }, {
+    "id" : "content",
+    "name" : "content",
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "richtext",
+    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>"
   },
   {
-  "name": "faq_group",
-  "label": "FAQ Group",
+  "name": "section_group",
+  "label": "section Group",
   "required": false,
   "locked": false,
   "occurrence": {
     "min": null,
     "max": null,
     "sorting_label_field": null,
-    "default": 6
+    "default": 3
   },
   "type": "group",
   "inline_help_text": "",
   "help_text": "",
   "children": [
     {
-    "name": "box_title",
-    "label": "Box Title",
+    "name": "title",
+    "label": "Title",
     "required": false,
     "locked": false,
     "validation_regex": "",
@@ -78,21 +86,105 @@
     "placeholder": "",
     "inline_help_text": "",
     "help_text": "",
-    "default": "How much IT resource is actually required for implementation?" 
+    "default": "Operations" 
     },
     {
-    "name": "box_content",
-    "label": "Box Content",
+    "name": "list_group",
+    "label": "List Group",
     "required": false,
     "locked": false,
-    "type": "richtext",
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 10
+    },
+    "type": "group",
     "inline_help_text": "",
     "help_text": "",
-    "default": "<p>Minimal. Because our transformation engine handles the complex mapping between your systems and the banks, your IT team doesn’t need to write custom code. Their primary role is simply providing a secure location for your ERP to drop or pick up files.</p>\n" 
-  }
-  ],
-  "default": [] 
-}
+    "children": [
+      {
+      "name": "list_text",
+      "label": "List Text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Attendance" 
+    }
+    ]
+     },
+      {
+      "name": "bottom_content",
+      "label": "Bottom Content",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Lorem ipsum dolor sit amet, aliqua adipiscing elit."
+     },
+     {
+     "name": "style_group",
+     "label": "Style Group",
+     "required": false,
+     "locked": false,
+     "children": [
+       {
+     "name": "list_icon_color",
+     "label": "Icon Background Color and Text Color",
+     "required": false,
+     "locked": false,
+     "inline_help_text": "",
+     "help_text": "",
+     "type": "color",
+     "default": {
+       "color": "#BF3D94",
+       "opacity": 100 } 
+      },
+      {
+      "name": "background_color",
+      "label": "Background Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#FDF2F9",
+        "opacity": 100 } 
+      },
+      {
+      "name": "border_color",
+      "label": "Border Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#61A546",
+        "opacity": 25 } 
+      }
+     ],
+     "type": "group",
+     "inline_help_text": "",
+     "help_text": "",
+     "default": {} }
+  ]
+ }
+
 ],
   "tab" : "CONTENT",
   "expanded" : false,

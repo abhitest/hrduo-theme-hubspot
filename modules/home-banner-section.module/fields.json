@@ -279,7 +279,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {
@@ -309,7 +309,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {

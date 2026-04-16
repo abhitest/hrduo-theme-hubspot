@@ -576,11 +576,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "left" : {

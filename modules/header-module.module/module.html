@@ -1,6 +1,6 @@
 <header class="header">
     <div class="content-wrapper">
-        <div class="headerInnersec">
+        <div class="headerInnersec d_flex align_center">
             <div class="headerlogo">
                 {% set href = module.logo_group.logo_link.url.href %}
                     {% if module.logo_group.logo_link.url.type is equalto "EMAIL_ADDRESS" %}
@@ -24,11 +24,114 @@
                     <img src="{{ module.logo_group.logo.src }}" alt="{{ module.logo_group.logo.alt }}">
                     </a>
             </div>
-            <div class="headerNav">
-
-            </div>
-            <div class="headerbtns">
-
+            <div class="headerRTCol  d_flex align_center">
+                <div class="headerburgermenu">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+                <div class="headermenuCol">
+                    <div class="headerNav white_color p2">
+                      {% menu id="{{ module.menu }}" %}
+                    </div>
+                       <div class="headerbtnsec headerbtnsecmobile d_flex align_center gap30" style="display: none;">
+                    <div class="headerloginbtn p2 white_color">
+               {% set href = module.button_group.login_button_settings.button_link.url.href %}
+{% if module.button_group.login_button_settings.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% elif module.button_group.login_button_settings.button_link.url.type is equalto "PHONE_NUMBER" %}
+  {% set href = "tel:" + href %}
+{% endif %}
+<a
+  {% if module.button_group.login_button_settings.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+  {% else %}
+    href="{{ href|escape_url }}"
+  {% endif %}
+  {% if module.button_group.login_button_settings.button_link.open_in_new_tab %}
+    target="_blank"
+  {% endif %}
+  {% if module.button_group.login_button_settings.button_link.rel %}
+    rel="{{ module.button_group.login_button_settings.button_link.rel|escape_attr }}"
+  {% endif %}
+  >
+  {{ module.button_group.login_button_settings.button_text }}
+</a>
+                    </div>
+                    <div class="headerdemobtn secondary_button">
+{% set href = module.button_group.demo_button_settings.button_link.url.href %}
+{% if module.button_group.demo_button_settings.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% elif module.button_group.demo_button_settings.button_link.url.type is equalto "PHONE_NUMBER" %}
+  {% set href = "tel:" + href %}
+{% endif %}
+<a
+  {% if module.button_group.demo_button_settings.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+  {% else %}
+    href="{{ href|escape_url }}"
+  {% endif %}
+  {% if module.button_group.demo_button_settings.button_link.open_in_new_tab %}
+    target="_blank"
+  {% endif %}
+  {% if module.button_group.demo_button_settings.button_link.rel %}
+    rel="{{ module.button_group.demo_button_settings.button_link.rel|escape_attr }}"
+  {% endif %}
+  >
+  <span class="text_gradient">{{ module.button_group.demo_button_settings.button_text }}</span>
+</a>
+                    </div>
+                </div>
+                </div>
+                <div class="headerbtnsec d_flex align_center gap30">
+                    <div class="headerloginbtn p2 white_color">
+               {% set href = module.button_group.login_button_settings.button_link.url.href %}
+{% if module.button_group.login_button_settings.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% elif module.button_group.login_button_settings.button_link.url.type is equalto "PHONE_NUMBER" %}
+  {% set href = "tel:" + href %}
+{% endif %}
+<a
+  {% if module.button_group.login_button_settings.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+  {% else %}
+    href="{{ href|escape_url }}"
+  {% endif %}
+  {% if module.button_group.login_button_settings.button_link.open_in_new_tab %}
+    target="_blank"
+  {% endif %}
+  {% if module.button_group.login_button_settings.button_link.rel %}
+    rel="{{ module.button_group.login_button_settings.button_link.rel|escape_attr }}"
+  {% endif %}
+  >
+  {{ module.button_group.login_button_settings.button_text }}
+</a>
+                    </div>
+                    <div class="headerdemobtn secondary_button">
+{% set href = module.button_group.demo_button_settings.button_link.url.href %}
+{% if module.button_group.demo_button_settings.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% elif module.button_group.demo_button_settings.button_link.url.type is equalto "PHONE_NUMBER" %}
+  {% set href = "tel:" + href %}
+{% endif %}
+<a
+  {% if module.button_group.demo_button_settings.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+    href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+  {% else %}
+    href="{{ href|escape_url }}"
+  {% endif %}
+  {% if module.button_group.demo_button_settings.button_link.open_in_new_tab %}
+    target="_blank"
+  {% endif %}
+  {% if module.button_group.demo_button_settings.button_link.rel %}
+    rel="{{ module.button_group.demo_button_settings.button_link.rel|escape_attr }}"
+  {% endif %}
+  >
+  <span class="text_gradient">{{ module.button_group.demo_button_settings.button_text }}</span>
+</a>
+                    </div>
+                </div>
+            
             </div>
         </div>
     </div>

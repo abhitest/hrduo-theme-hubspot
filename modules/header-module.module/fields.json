@@ -42,7 +42,122 @@
       },
       "open_in_new_tab" : false,
       "no_follow" : false
-    } }
+    } 
+  }
+ 
   ],
-  "default": {} }
+  "default": {} 
+},
+ {
+  "name": "menu",
+  "label": "Menu",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "type": "menu",
+  "placeholder": "",
+  "default": null 
+  },
+  {
+  "name": "button_group",
+  "label": "Button Group",
+  "required": false,
+  "locked": false,
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "children": [
+    {
+    "name": "login_button_settings",
+    "label": "Login Button Settings",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+      {
+      "name": "button_text",
+      "label": "Button Text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Login" 
+      },
+      {
+      "name" : "button_link",
+      "label" : "Button Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      } 
+      }
+    ]
+   },
+    {
+    "name": "demo_button_settings",
+    "label": "Demo Button Settings",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+      {
+      "name": "button_text",
+      "label": "Button Text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Request demo" 
+      },
+      {
+      "name" : "button_link",
+      "label" : "Button Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      } 
+      }
+    ]
+   }
+  ]
+}
 ]

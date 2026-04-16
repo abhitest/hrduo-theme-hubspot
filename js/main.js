@@ -24,6 +24,10 @@
 
 
 $(document).ready(function() {
+
+    $(document).on("click",".headerburgermenu", function(){
+    $(this).toggleClass("active").next().slideToggle()
+})
  
   $(".TrustedbyteamLogoBoxSec").slick({
       autoplay: true,
@@ -91,6 +95,48 @@ $(document).on("click", ".FeaturetabBoxTitleCol", function () {
 
     });
 
+});
+
+
+$(".softwaresolutionBoxSec .softwaresolutionBox").each(function () {
+    var $box = $(this);
+    var $thislist = $box.find(".softwaresolutionBoxListgrp ul li");
+    var $thisbtn = $box.find(".softwaresolutionBoxArrow");
+
+    // Initial state
+    $thislist.hide().slice(0, 5).show();
+
+    $thisbtn.click(function () {
+
+        // 🔥 CLOSE ALL OTHER BOXES
+        $(".softwaresolutionBoxSec .softwaresolutionBox").not($box).each(function () {
+            var $otherBox = $(this);
+            var $otherList = $otherBox.find(".softwaresolutionBoxListgrp ul li");
+            var $otherBtn = $otherBox.find(".softwaresolutionBoxArrow");
+
+            $otherList.hide().slice(0, 5).show();
+            $otherBtn.removeClass("active");
+            $otherBox.removeClass("active");
+        });
+
+        // 🔁 TOGGLE CURRENT BOX
+        if ($thisbtn.hasClass("active")) {
+            $thislist.hide().slice(0, 5).show();
+            $thisbtn.removeClass("active");
+            $box.removeClass("active");
+            return;
+        }
+
+        // ➕ SHOW NEXT ITEMS
+        var hiddenItems = $thislist.filter(":hidden").slice(0, 5);
+        hiddenItems.fadeIn("slow");
+
+        // ✅ WHEN FULLY OPEN
+        if ($thislist.filter(":hidden").length === 0) {
+            $thisbtn.addClass("active");
+            $box.addClass("active");
+        }
+    });
 });
 
 

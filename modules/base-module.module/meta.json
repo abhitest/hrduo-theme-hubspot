@@ -5,6 +5,7 @@
   "global": false,
   "help_text": "",
   "content_types": [
+    "SITE_PAGE",
     "LANDING_PAGE",
     "BLOG_POST",
     "BLOG_LISTING",

@@ -6,7 +6,7 @@
       <div class="customWidthOption HomeBannerInSec">
         <div class="HomeBannerTitleSection  {% if module.content_group.image %} pb75 {% endif %}">
           {% if module.content_group.tag %}
-          <div class="HomeBannerTag">
+          <div class="HomeBannerTag p3">
             <p>{{ module.content_group.tag }}</p>
           </div>
           {% endif %}
@@ -58,31 +58,7 @@
 </div>
 
     {% require_css %}
-    <style>
-     {% scope_css %}
-      /****  Button Style  *****/
-      {% for item in module.content_group.cta_group %}
-            {% set CTA = item %}
-      {% if CTA.override_button_style %}
 
-      .baseModuleStyle .basebutton-{{ loop.index }} a{
-        background:{{ CTA.button_style_group.btn_bg_color.css}};
-        color:{{ CTA.button_style_group.btn_text_color.css }};
-        border-color:{{ CTA.button_style_group.btn_border_color.css }};
-      }
-
-      .baseModuleStyle .basebutton-{{ loop.index }} a:hover {
-        background-color:{{ CTA.button_style_group.btn_bg_color_hover.css}};
-        color:{{ CTA.button_style_group.btn_text_color_hover.css }};
-        border-color : {{ CTA.button_style_group.btn_border_color_hover.css }};
-      }
-
-      {% endif %}
-      {% endfor %}
-      /****  End Button Style  ****/
-     {% end_scope_css %}
-    </style>
-    
    
     <style>
 
@@ -115,7 +91,7 @@
       {# End Desktop Styling #}
 
       {# Tablet Styling #}
-      @media(max-width:1024px){
+      @media(max-width:1300px){
         .{{name}}.baseModuleStyle{
            {{  module.style.spacing.tab_spacing.css }}
         } 
@@ -124,7 +100,8 @@
       {# Mobile Styling #}
       @media(max-width:767px){
         .{{name}}.baseModuleStyle{
-          {{ module.style.spacing.mobile_spacing.css  }}
+          {{ module.style.spacing.mobile_spacing.css  }};
+           
         } 
       }
       

@@ -1,0 +1,131 @@
+<div class="{{ name }} baseModuleStyle softwaresolutionSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+  <div class="baseModuleParent"> 
+    <div class="content-wrapper">
+      {# Custum Width Option #}
+      <div class="customWidthOption softwaresolutionInSec">
+        <div class="softwaresolutionTitleSec">
+              {% if  module.content_group.title  %}
+        <div class="moduleTitle softwaresolutionTitle">
+          {{ module.content_group.title }}
+        </div>
+          {% endif %}
+          {% if module.content_group.content %}
+          <div class="moduleContent pt20 softwaresolutionContent secondary_60_color">
+            {{ module.content_group.content }}
+          </div>
+          {% endif %}
+        </div>
+    
+        <div class="softwaresolutionBoxSec pt50 d_flex align_start gap20">
+          {% for item in module.content_group.section_group %}
+          <div class="softwaresolutionBox softwaresolutionBox-{{ loop.index }}">
+            <div class="softwaresolutionBoxtitlesec d_flex align_center gap10 space_between">
+              <div class="softwaresolutionBoxTitle">
+                <h4>{{ item.title }}</h4>
+              </div>
+              <div class="softwaresolutionBoxArrow">
+                <i></i>
+                <i></i>
+              </div>
+            </div>
+            <div class="softwaresolutionBoxListgrp p20-0">
+              <ul>
+                {% for list in item.list_group %}
+                  <li >
+                    <div class="d_flex align_center softwaresolutionBoxListitems">
+
+                    
+                    <span class="listarrow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+<rect x="1.49365" y="7.42395" width="5.25007" height="1.75" rx="0.4375" transform="rotate(45 1.49365 7.42395)" fill="white" stroke="white" stroke-width="0.875"/>
+<rect x="12.6301" y="3.7124" width="12.2491" height="1.75" rx="0.4375" transform="rotate(135 12.6301 3.7124)" fill="white" stroke="white" stroke-width="0.875"/>
+</svg>
+                    </span>
+                    
+                      <h5 class="listcontent">{{ list.list_text }}</h5>
+                    </div>
+                  </li>
+                {% endfor %}
+
+              </ul>
+            </div>
+            {% if  item.bottom_content  %}
+            <div class="softwaresolutionBoxText">
+              <p>{{ item.bottom_content }}</p>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+          {# End Custum Width Option #}
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    {% require_css %}
+    <style>
+      {% for item in module.content_group.section_group %}
+         .{{name}} .softwaresolutionBox-{{ loop.index }} {
+            Background-color: {{ item.style_group.background_color.css }};
+            border: 1px solid {{ item.style_group.border_color.css }}
+         }
+         .{{name}}  .softwaresolutionBoxSec .softwaresolutionBox-{{ loop.index }} .softwaresolutionBoxtitlesec .softwaresolutionBoxArrow { background-color: {{ item.style_group.list_icon_color.css }}; }
+         .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxText * { color : {{ item.style_group.list_icon_color.css }} }
+         .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxListgrp li h5 { color : {{ item.style_group.list_icon_color.css }} }
+         .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxListgrp li .listarrow { background-color : {{ item.style_group.list_icon_color.css }} }
+      {% endfor %}
+    </style>
+
+    <style>
+
+{#       {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}
