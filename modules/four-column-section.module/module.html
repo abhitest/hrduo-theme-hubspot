@@ -1,70 +1,57 @@
-<div class="{{ name }} baseModuleStyle  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle FourColumnSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption">
-        {% if  module.content_group.title  %}
-        <div class="moduleTitle">
-          {{ module.content_group.title }}
-        </div>
-          {% endif %}
-          {% if module.content_group.content %}
-          <div class="moduleContent pt20">
-            {{ module.content_group.content }}
+      <div class="customWidthOption FourColumnInSec">
+        {% if module.content_group.hide_title_section %}
+        {% else %}
+        <div class="FourColumnTitleSec pb75 text-center">
+          {% if module.content_group.sub_title %}
+          <div class="FourColumnSubTitle purple_color p3 medium">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<path d="M9 3C9 6.86599 12.134 10 16 10C12.134 10 9 13.134 9 17C9 13.134 5.86599 10 2 10C5.86599 10 9 6.86599 9 3Z" fill="#6347FF"/>
+</svg>
+            </span>
+            <p>{{ module.content_group.sub_title }}</p>
           </div>
           {% endif %}
-          {# Button and Cta Option #}
+          {% if  module.content_group.title  %}
+          <div class="moduleTitle FourColumnTitle pt30">
+            {{ module.content_group.title }}
+          </div>
+            {% endif %}
+            {% if module.content_group.content %}
+            <div class="moduleContent pt20 FourColumnContent secondary_60_color">
+              {{ module.content_group.content }}
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
 
-          {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center gap20 pt20">
-            {% for item in module.content_group.cta_group %}
-            {% set CTA = item %}
-            <div class="cta-section">
-              {% if CTA.cta_choice == "normalcta" %}
-              {% if CTA.button_text %}
-              <div class="{{ CTA.choice_cta_style }}  {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %} basebutton-{{ loop.index }}">
-                {% set href = CTA.button_link.url.href %}
-                {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
-                {% set href = "mailto:" + href %}
-                {% endif %}
-                {% if CTA.button_link.url.type is equalto "PHONE_NUMBER" %}
-                {% set href = "tel:" + href %}
-                {% endif %}
-
-                <a href="{{ href }}"
-                   {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
-                   {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
-                   >
-                  {{ CTA.button_text }}
-                  {% if CTA.want_arrow %}
-                    <span class="arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect x="13.2887" y="14.5453" width="7" height="1" rx="0.25" transform="rotate(-45 13.2887 14.5453)" fill="white" stroke="white" stroke-width="0.5"/>
-                    <rect x="13.9958" y="5.35291" width="7" height="1" rx="0.25" transform="rotate(45 13.9958 5.35291)" fill="white" stroke="white" stroke-width="0.5"/>
-                    <rect x="0.5" y="9.80273" width="16.9958" height="1" rx="0.25" fill="white" stroke="white" stroke-width="0.5"/>
-                  </svg>
-                    </span>
-                  {% endif %}
-
-                </a>
+          <div class="FourColumnBoxSection d_flex gap20">
+            {% for item in module.content_group.column_group %}
+            <div class="FourColumnBox"> 
+              {% if item.box_logo.src %}
+              <div class="FourColumnBoxLogo" style="background-color: {{ item.logo_background_color.css }};">
+                <img src="{{ item.box_logo.src }}" alt="{{ item.box_logo.alt }}">
               </div>
               {% endif %}
-              {% elif  CTA.cta_choice == 'hubspotCTA' %}
-
-              {% if CTA.hubspot_cta && CTA.hubspot_cta != null %}
-              <div class="{{ CTA.choice_cta_style }} {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %}">
-                {% cta guid="{{ CTA.hubspot_cta }}" %}
+              {% if item.box_title %}
+              <div class="FourColumnBoxTitle lh12">
+                <h5>{{ item.box_title }}</h5>
               </div>
               {% endif %}
-
+              {% if item.box_content %}
+              <div class="FourColumnBoxCnt dark_navy_blue_75_color">
+                {{ item.box_content }}
+              </div>
               {% endif %}
             </div>
             {% endfor %}
           </div>
-          {% endif %}
 
-          {# End Button and Cta Option #}
       </div>
           {# End Custum Width Option #}
 

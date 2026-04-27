@@ -48,7 +48,7 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Powerful technology that delivers results in every industry</h3>"
+    "default": "<h1>Workforce operations starts with visibility</h1>"
   }, {
     "id" : "content",
     "name" : "content",
@@ -57,97 +57,8 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>"
-  }, 
-  {
-  "name": "column_choice",
-  "label": "Column Choice",
-  "required": false,
-  "locked": false,
-  "display": "select",
-  "inline_help_text": "",
-  "help_text": "",
-  "choices": [
-  [
-    "three_column",
-    "Three Column"
-  ],
-  [
-    "four_column",
-    "Four Column"
-  ],
-  [
-    "five_column",
-    "Five Column"
-  ]
-  ],
-  "type": "choice",
-  "placeholder": "",
-  "default": "five_column" 
-},
-  {
-  "name": "counter_group",
-  "label": "Counter Group",
-  "required": false,
-  "locked": false,
-  "occurrence": {
-    "min": null,
-    "max": null,
-    "sorting_label_field": null,
-    "default": 5
-  },
-  
-  "type": "group",
-  "inline_help_text": "",
-  "help_text": "",
-  "children": [
-    {
-    "name" : "box_number",
-    "label" : "Box Number",
-    "required" : false,
-    "locked" : false,
-    "display" : "text",
-    "step" : 1,
-    "type" : "number",
-    "min" : null,
-    "max" : null,
-    "inline_help_text": "",
-    "help_text": "",
-    "default" : "84" 
-    },
-    {
-    "name": "box_special_characters",
-    "label": "Box Special Characters",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "%" 
-    },
-    {
-    "name": "box_content",
-    "label": "Box Content",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "Lorem ipsum dolor sit amet." 
-    }
-  ]
-  },
-  {
+    "default" : "<p>Track time, manage attendance, process payroll, and onboard contractors with connected tools that simplify operations.</p>"
+  }, {
     "id" : "content_group.want_cta",
     "name" : "want_cta",
     "label" : "Want CTA",
@@ -214,7 +125,7 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default" : "secondary_button"
+      "default" : "button"
     }, {
       "id" : "content_group.cta_group.button_alignment",
       "name" : "button_alignment",
@@ -230,8 +141,7 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default":"text-center"
+      "type" : "choice"
     }, {
       "id" : "content_group.cta_group.want_arrow",
       "name" : "want_arrow",
@@ -437,7 +347,26 @@
     "group_occurrence_meta" : null,
     "display_width" : null,
     "type" : "group"
-  } ],
+  },
+  {
+  "name": "image",
+  "label": "Image",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "responsive": true,
+  "resizable": true,
+  "show_loading" : false,
+  "type": "image",
+  "default": {
+    "size_type" : "auto",
+    "src": "https://hrduo.com/hubfs/hrduo-theme-2026/Home-Banner-img.avif",
+    "alt": "Home-Banner-img",
+    "loading": "disabled"}
+  }
+
+],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
@@ -457,8 +386,7 @@
     "inline_help_text" : "",
     "required" : false,
     "locked" : false,
-    "children" : [ 
-      {
+    "children" : [ {
       "id" : "style.background_property.background_choice",
       "name" : "background_choice",
       "label" : "Select Background Type",
@@ -573,7 +501,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 100,
+            "value" : 170,
             "units" : "px"
           },
           "bottom" : {
@@ -587,6 +515,12 @@
           "right" : {
             "value" : null,
             "units" : null
+          }
+        },
+        "margin" : {
+          "top" : {
+            "value" : 20,
+            "units" : "px"
           }
         }
       }
@@ -603,7 +537,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 70,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {
@@ -633,7 +567,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {

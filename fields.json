@@ -1387,6 +1387,271 @@
       ]
     }
   ]
+        },
+        {
+  "label": "Quaternary Buttons",
+  "name": "quaternary_buttons",
+  "type": "group",
+  "children": [
+    {
+      "label": "Text",
+      "name": "text",
+      "type": "group",
+      "children": [
+        {
+          "label": "Font",
+          "name": "font",
+          "type": "font",
+          "inherited_value": {
+            "property_value_paths": {
+              "fallback": "theme.global_fonts.primary.fallback",
+              "font": "theme.global_fonts.primary.font",
+              "font_set": "theme.global_fonts.primary.font_set"
+            }
+          },
+          "default": {
+            "color": "#FFF",
+            "size": 16,
+            "size_unit": "px"
+          }
+        },
+        {
+          "label": "Transform",
+          "name": "transform",
+          "type": "choice",
+          "choices": [
+            ["none", "None"],
+            ["capitalize", "Capitalize"],
+            ["uppercase", "Uppercase"],
+            ["lowercase", "Lowercase"]
+          ],
+          "display": "select",
+          "default": "none"
+        }
+      ]
+    },
+    {
+      "label": "Background",
+      "name": "background",
+      "type": "group",
+      "children": [
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "color",
+          "inherited_value": {
+            "property_value_paths": {
+              "color": "theme.global_colors.white_color.color"
+            }
+          },
+          "default": {
+            "opacity": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Border",
+      "name": "border",
+      "type": "group",
+      "children": [
+        {
+          "label": "Border",
+          "name": "border",
+          "type": "border",
+          "inherited_value": {
+            "property_value_paths": {
+              "top.color": "theme.buttons_group.quaternary_buttons.background.color.color",
+              "right.color": "theme.buttons_group.quaternary_buttons.background.color.color",
+              "bottom.color": "theme.buttons_group.quaternary_buttons.background.color.color",
+              "left.color": "theme.buttons_group.quaternary_buttons.background.color.color"
+            }
+          },
+          "default": {
+            "top": {
+              "width": {
+                "value": 1,
+                "units": "px"
+              },
+              "opacity": 100,
+              "style": "solid",
+              "color": "#FFF"
+            },
+            "right": {
+              "width": {
+                "value": 1,
+                "units": "px"
+              },
+              "opacity": 100,
+              "style": "solid",
+              "color": "#FFF"
+            },
+            "bottom": {
+              "width": {
+                "value": 1,
+                "units": "px"
+              },
+              "opacity": 100,
+              "style": "solid",
+              "color": "#FFF"
+            },
+            "left": {
+              "width": {
+                "value": 1,
+                "units": "px"
+              },
+              "opacity": 100,
+              "style": "solid",
+              "color": "#FFF"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "Corner",
+      "name": "corner",
+      "type": "group",
+      "children": [
+        {
+          "label": "Radius",
+          "name": "radius",
+          "type": "number",
+          "display": "text",
+          "max": 100,
+          "step": 1,
+          "suffix": "px",
+          "default": 46
+        }
+      ]
+    },
+    {
+      "label": "Spacing",
+      "name": "spacing",
+      "type": "group",
+      "children": [
+        {
+          "label": "Spacing",
+          "name": "spacing",
+          "type": "spacing",
+          "visibility": {
+            "hidden_subfields": {
+              "margin": true
+            }
+          },
+          "default": {
+            "padding": {
+              "top": {
+                "value": 14,
+                "units": "px"
+              },
+              "right": {
+                "value": 24,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 14,
+                "units": "px"
+              },
+              "left": {
+                "value": 24,
+                "units": "px"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hover",
+      "name": "hover",
+      "type": "group",
+      "children": [
+        {
+          "label": "Text",
+          "name": "text",
+          "type": "group",
+          "children": [
+            {
+              "label": "Color",
+              "name": "color",
+              "type": "color",
+              "default": {
+                "color": "#6347FF",
+                "opacity": 100
+              }
+            }
+          ]
+        },
+        {
+          "label": "Background",
+          "name": "background",
+          "type": "group",
+          "children": [
+            {
+              "label": "Color",
+              "name": "color",
+              "type": "color",
+              "default": {
+                "opacity": 100,
+                "color": "#FFF"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Border",
+          "name": "border",
+          "type": "group",
+          "children": [
+            {
+              "label": "Border",
+              "name": "border",
+              "type": "border",
+              "default": {
+                "top": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#FFF"
+                },
+                "right": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#FFF"
+                },
+                "bottom": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#FFF"
+                },
+                "left": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#FFF"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
         }
     ]
 },

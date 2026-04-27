@@ -37,45 +37,72 @@
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ {
-    "id" : "title",
-    "name" : "title",
-    "label" : "Title",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<h2>Your Human Resource software solution shouldn’t sit in silos</h2>"
-  }, {
-    "id" : "content",
-    "name" : "content",
-    "label" : "Content",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>"
-  },
-  {
-  "name": "section_group",
-  "label": "section Group",
-  "required": false,
-  "locked": false,
-  "occurrence": {
-    "min": null,
-    "max": null,
-    "sorting_label_field": null,
-    "default": 3
-  },
-  "type": "group",
-  "inline_help_text": "",
-  "help_text": "",
-  "children": [
+  "children" : [ 
     {
-    "name": "title",
-    "label": "Title",
+    "name": "slider_group",
+    "label": "Slider Group",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": 3
+    },
+    "children": [
+      {
+      "name": "rtl_slider",
+      "label": "RTL Slider",
+      "required": false,
+      "locked": false,
+      "type": "boolean",
+      "display": "toggle",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": false 
+      },
+      {
+      "name": "logo_group",
+      "label": "Image Group",
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": null,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 8
+      },
+      "children": [
+        {
+        "name": "box_image",
+        "label": "Box Image",
+        "required": false,
+        "locked": false,
+        "inline_help_text": "",
+        "help_text": "",
+        "responsive": true,
+        "resizable": true,
+        "show_loading" : false,
+        "type": "image",
+        "default": {
+          "size_type" : "auto",
+          "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Group%201000002841%20(1).png",
+          "alt": "Group 1000002841 (1)",
+          "loading": "disabled"}
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": [] }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": ""
+  },
+    {
+    "name": "tag",
+    "label": "Tag",
     "required": false,
     "locked": false,
     "validation_regex": "",
@@ -86,117 +113,30 @@
     "placeholder": "",
     "inline_help_text": "",
     "help_text": "",
-    "default": "Operations" 
-    },
+    "default": "The problem" 
+  },
     {
-    "name": "list_group",
-    "label": "List Group",
-    "required": false,
-    "locked": false,
-    "occurrence": {
-      "min": null,
-      "max": null,
-      "sorting_label_field": null,
-      "default": 10
-    },
-    "type": "group",
-    "inline_help_text": "",
-    "help_text": "",
-    "children": [
-      {
-      "name": "list_text",
-      "label": "List Text",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Attendance" 
-    }
-    ]
-     },
-      {
-      "name": "bottom_content",
-      "label": "Bottom Content",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Lorem ipsum dolor sit amet, aliqua adipiscing elit."
-     },
-     {
-     "name": "style_group",
-     "label": "Style Group",
-     "required": false,
-     "locked": false,
-     "children": [
-      {
-     "name": "list_color",
-     "label": "Icon Background Color",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "color",
-     "default": {
-       "color": "#BF3D94",
-       "opacity": 100 } 
-      },
-       {
-     "name": "list_icon_color",
-     "label": "Text Color",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "color",
-     "default": {
-       "color": "#BF3D94",
-       "opacity": 100 } 
-      },
-      {
-      "name": "background_color",
-      "label": "Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#FDF2F9",
-        "opacity": 100 } 
-      },
-      {
-      "name": "border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#61A546",
-        "opacity": 25 } 
-      }
-     ],
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "default": {} }
-  ]
- }
-
+    "id" : "title",
+    "name" : "title",
+    "label" : "Title",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "richtext",
+    "default": "<h3>Expiring certifications. Manual timesheets. Multi-site visibility gaps. Let’s fix that</h3>"
+  },
+   {
+    "id" : "content",
+    "name" : "content",
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "richtext",
+    "default" : "<p>Operations teams struggle to coordinate schedules across multiple locations while tracking subcontractor hours and safety documentation - often relying on manual records that can’t keep pace with the field.</p><p>And when your workforce management is disconnected from your site operations, payroll inaccuracies stack up, compliance risks emerge, and project productivity takes a hit.</p>"
+  }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -331,11 +271,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 150,
+            "value" : 0,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 150,
+            "value" : 0,
             "units" : "px"
           },
           "left" : {
@@ -361,11 +301,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 70,
+            "value" : 0,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 70,
+            "value" : 0,
             "units" : "px"
           },
           "left" : {
@@ -391,11 +331,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 0,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 0,
             "units" : "px"
           },
           "left" : {

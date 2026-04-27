@@ -1,4 +1,4 @@
-<div class="{{ name }} baseModuleStyle BookDemoCTASection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle BookDemoCTASection  {% if module.content_group.list_group|length %} {%  else %} BookDemoCTANLSection {% endif %} {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <div class="BookDemoCTAshape"> 
 <svg xmlns="http://www.w3.org/2000/svg" width="270" height="522" viewBox="0 0 270 522" fill="none">
 <path d="M-130 493.401C-130 604.287 -41.5131 692.774 70.6261 692.774C182.765 692.774 270 604.287 270 493.401C270 382.514 181.513 292.774 70.6261 292.774C-40.2609 292.774 -130 381.261 -130 493.401ZM70.6261 229.053C181.513 229.053 270 140.566 270 29.6788C270 -81.2081 181.513 -170.947 70.6261 -170.947C-40.2609 -170.947 -130 -82.4603 -130 29.6788C-130 141.818 -41.5131 229.053 70.6261 229.053Z" fill="#312480"/>
@@ -74,6 +74,7 @@
 
           {# End Button and Cta Option #}
 
+          {% if module.content_group.list_group|length %}
           <div class="BookDemoCTAListBoxSec pt50">
             <ul class="d_flex align_center gap5">
               {% for item in module.content_group.list_group %}
@@ -89,6 +90,7 @@
             </ul>
            
           </div>
+          {% endif %}
 
 
       </div>

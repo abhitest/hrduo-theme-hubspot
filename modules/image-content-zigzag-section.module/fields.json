@@ -39,6 +39,53 @@
   "locked" : false,
   "children" : [ 
     {
+    "name": "column_group",
+    "label": "Column Group",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+       {
+    "id" : "content_group.image",
+    "name" : "image",
+    "label" : "Image",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://www.hrduo.com/hubfs/hrduo-theme-2026/feature-image.png",
+      "alt" : "feature-img",
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "content_group.tag_text",
+    "name" : "tag_text",
+    "label" : "Tag Text",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "validation_error_message" : "",
+    "placeholder" : "",
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  }, {
     "id" : "title",
     "name" : "title",
     "label" : "Title",
@@ -48,7 +95,7 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Powerful technology that delivers results in every industry</h3>"
+    "default" : "<h3>Real-time visibility into your entire frontline workforce</h3>"
   }, {
     "id" : "content",
     "name" : "content",
@@ -57,97 +104,8 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>"
-  }, 
-  {
-  "name": "column_choice",
-  "label": "Column Choice",
-  "required": false,
-  "locked": false,
-  "display": "select",
-  "inline_help_text": "",
-  "help_text": "",
-  "choices": [
-  [
-    "three_column",
-    "Three Column"
-  ],
-  [
-    "four_column",
-    "Four Column"
-  ],
-  [
-    "five_column",
-    "Five Column"
-  ]
-  ],
-  "type": "choice",
-  "placeholder": "",
-  "default": "five_column" 
-},
-  {
-  "name": "counter_group",
-  "label": "Counter Group",
-  "required": false,
-  "locked": false,
-  "occurrence": {
-    "min": null,
-    "max": null,
-    "sorting_label_field": null,
-    "default": 5
-  },
-  
-  "type": "group",
-  "inline_help_text": "",
-  "help_text": "",
-  "children": [
-    {
-    "name" : "box_number",
-    "label" : "Box Number",
-    "required" : false,
-    "locked" : false,
-    "display" : "text",
-    "step" : 1,
-    "type" : "number",
-    "min" : null,
-    "max" : null,
-    "inline_help_text": "",
-    "help_text": "",
-    "default" : "84" 
-    },
-    {
-    "name": "box_special_characters",
-    "label": "Box Special Characters",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "%" 
-    },
-    {
-    "name": "box_content",
-    "label": "Box Content",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "Lorem ipsum dolor sit amet." 
-    }
-  ]
-  },
-  {
+    "default" : "<p>Eliminate manual timesheets and guesswork with HR Duo's flexible time-tracking system. Clock in via mobile, desktop, or automatic geofence, giving you real-time visibility into your frontline workforce while keeping compliance seamless.</p><ul><li>Vulputate mollis dolor donec eget urnases.</li><li>Vulputate mollis dolor donec eget urnases.</li><li>Vulputate mollis dolor donec eget urnases.</li><li>Vulputate mollis dolor donec eget urnases.</li></ul>"
+  }, {
     "id" : "content_group.want_cta",
     "name" : "want_cta",
     "label" : "Want CTA",
@@ -158,9 +116,8 @@
     "display" : "checkbox",
     "display_width" : null,
     "type" : "boolean",
-    "default" : true
+    "default" : false
   }, {
-    "id" : "content_group.cta_group",
     "name" : "cta_group",
     "label" : "CTA group",
     "help_text" : "",
@@ -175,14 +132,13 @@
     },
     "visibility" : {
       "controlling_field" : null,
-      "controlling_field_path" : "content_group.want_cta",
+      "controlling_field_path" : "content_group.column_group.want_cta",
       "controlling_value_regex" : "true",
       "property" : null,
       "operator" : "EQUAL",
       "access" : null
     },
     "children" : [ {
-      "id" : "content_group.cta_group.cta_choice",
       "name" : "cta_choice",
       "label" : "CTA Choice",
       "help_text" : "",
@@ -199,7 +155,6 @@
       "type" : "choice",
       "default" : "normalcta"
     }, {
-      "id" : "content_group.cta_group.choice_cta_style",
       "name" : "choice_cta_style",
       "label" : "Choice CTA Style",
       "help_text" : "",
@@ -214,9 +169,8 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default" : "secondary_button"
+      "default" : "button"
     }, {
-      "id" : "content_group.cta_group.button_alignment",
       "name" : "button_alignment",
       "label" : "Button Alignment",
       "help_text" : "",
@@ -230,10 +184,8 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default":"text-center"
+      "type" : "choice"
     }, {
-      "id" : "content_group.cta_group.want_arrow",
       "name" : "want_arrow",
       "label" : "Want Arrow",
       "help_text" : "",
@@ -243,7 +195,7 @@
       "display" : "toggle",
       "display_width" : null,
       "type" : "boolean",
-      "default" : false
+      "default" : true
     }, {
       "id" : "content_group.cta_group.button_text",
       "name" : "button_text",
@@ -255,7 +207,7 @@
       "validation_error_message" : "",
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.cta_choice",
+        "controlling_field_path" : "content_group.column_group.cta_group.cta_choice",
         "controlling_value_regex" : "normalcta",
         "property" : null,
         "operator" : "EQUAL",
@@ -265,7 +217,7 @@
       "allow_new_line" : false,
       "display_width" : null,
       "type" : "text",
-      "default" : "Request demo"
+      "default" : "Explore HR Duo"
     }, {
       "id" : "content_group.cta_group.button_link",
       "name" : "button_link",
@@ -276,7 +228,7 @@
       "locked" : false,
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.cta_choice",
+        "controlling_field_path" : "content_group.column_group.cta_group.cta_choice",
         "controlling_value_regex" : "normalcta",
         "property" : null,
         "operator" : "EQUAL",
@@ -296,7 +248,7 @@
         "no_follow" : false
       }
     }, {
-      "id" : "content_group.cta_group.hubspot_cta",
+      
       "name" : "hubspot_cta",
       "label" : "HubSpot CTA",
       "help_text" : "",
@@ -305,7 +257,7 @@
       "locked" : false,
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.cta_choice",
+        "controlling_field_path" : "content_group.column_group.cta_group.cta_choice",
         "controlling_value_regex" : "hubspotCTA",
         "property" : null,
         "operator" : "EQUAL",
@@ -314,7 +266,6 @@
       "display_width" : null,
       "type" : "cta"
     }, {
-      "id" : "content_group.cta_group.override_button_style",
       "name" : "override_button_style",
       "label" : "Override Button Style",
       "help_text" : "",
@@ -326,7 +277,6 @@
       "type" : "boolean",
       "default" : false
     }, {
-      "id" : "content_group.cta_group.button_style_group",
       "name" : "button_style_group",
       "label" : "Button Style Group",
       "help_text" : "",
@@ -335,7 +285,7 @@
       "locked" : false,
       "visibility" : {
         "controlling_field" : null,
-        "controlling_field_path" : "content_group.cta_group.override_button_style",
+        "controlling_field_path" : "content_group.column_group.cta_group.override_button_style",
         "controlling_value_regex" : "true",
         "property" : null,
         "operator" : "EQUAL",
@@ -437,7 +387,14 @@
     "group_occurrence_meta" : null,
     "display_width" : null,
     "type" : "group"
-  } ],
+  } 
+    ],
+    "default": [] }
+
+   
+
+
+],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
@@ -457,8 +414,7 @@
     "inline_help_text" : "",
     "required" : false,
     "locked" : false,
-    "children" : [ 
-      {
+    "children" : [ {
       "id" : "style.background_property.background_choice",
       "name" : "background_choice",
       "label" : "Select Background Type",
@@ -473,8 +429,7 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default": "bgColor"
+      "type" : "choice"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -521,8 +476,8 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#6347FF",
-        "opacity" : 100,
+        "color" : null,
+        "opacity" : null,
         "hex" : null,
         "rgba" : null,
         "rgb" : null
@@ -573,11 +528,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 100,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 100,
+            "value" : 150,
             "units" : "px"
           },
           "left" : {

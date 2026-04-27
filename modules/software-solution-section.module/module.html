@@ -51,7 +51,7 @@
               </ul>
             </div>
             {% if  item.bottom_content  %}
-            <div class="softwaresolutionBoxText">
+            <div class="softwaresolutionBoxText p2 lh13">
               <p>{{ item.bottom_content }}</p>
             </div>
             {% endif %}
@@ -76,10 +76,10 @@
             Background-color: {{ item.style_group.background_color.css }};
             border: 1px solid {{ item.style_group.border_color.css }}
          }
-         .{{name}}  .softwaresolutionBoxSec .softwaresolutionBox-{{ loop.index }} .softwaresolutionBoxtitlesec .softwaresolutionBoxArrow { background-color: {{ item.style_group.list_icon_color.css }}; }
+         .{{name}}  .softwaresolutionBoxSec .softwaresolutionBox-{{ loop.index }} .softwaresolutionBoxtitlesec .softwaresolutionBoxArrow { background-color: {{ item.style_group.list_color.css }}; }
          .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxText * { color : {{ item.style_group.list_icon_color.css }} }
          .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxListgrp li h5 { color : {{ item.style_group.list_icon_color.css }} }
-         .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxListgrp li .listarrow { background-color : {{ item.style_group.list_icon_color.css }} }
+         .{{name}} .softwaresolutionBox-{{ loop.index }}  .softwaresolutionBoxListgrp li .listarrow { background-color : {{ item.style_group.list_color.css }} }
       {% endfor %}
     </style>
 

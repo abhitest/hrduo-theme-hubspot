@@ -1,46 +1,24 @@
-<div class="{{ name }} baseModuleStyle CounterSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle TwoColumnBannerSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption CounterInSec">
-        <div class="Countertitlesection text-center white_color">
- {% if  module.content_group.title  %}
-        <div class="moduleTitle CounterTitle semibold">
+      <div class="customWidthOption TwoColumnBannerInSec d_flex align_center gap50">
+          <div class="TwoColumnBannerLTCol">      
+        {% if  module.content_group.title  %}
+        <div class="moduleTitle TwoColumnBannerTitle white_color">
           {{ module.content_group.title }}
         </div>
           {% endif %}
           {% if module.content_group.content %}
-          <div class="moduleContent pt20 CounterContent">
+          <div class="moduleContent pt20 TwoColumnBannerContent white_color">
             {{ module.content_group.content }}
           </div>
           {% endif %}
-        </div>
-       
-
-        <div class="CounterBoxSection pt50 d_flex align_start white_color {{ module.content_group.column_choice }}">
-          {% for item in module.content_group.counter_group %}
-          <div class="CounterBox">
-            <div class="CounterBoxNumber">
-              <h4 class="h1">
-                <span class="counternumber" data-max="{{ item.box_number }}"></span>
-                <span>{{ item.box_special_characters }}</span>
-              </h2>
-            </div>
-            {% if item.box_content %}
-            <div class="CounterBoxText pt15">
-              <p>{{ item.box_content }}</p>
-            </div>
-            {% endif %}
-          </div>
-          {% endfor %}
-        </div>
-
-
           {# Button and Cta Option #}
 
           {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center Countercta gap20 pt50 flex_center">
+          <div class="moduleCTA d_flex align_center TwoColumnBannerCTA gap20 pt32">
             {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
@@ -59,7 +37,7 @@
                    {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
                    {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
                    >
-                  <span class="btn_gradient">{{ CTA.button_text }}</span>
+                  <span class="btn_text_gradient">{{ CTA.button_text }}</span>
                   {% if CTA.want_arrow %}
                     <span class="arrow">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -88,6 +66,12 @@
           {% endif %}
 
           {# End Button and Cta Option #}
+          </div>
+          {% if module.content_group.image.src %}
+          <div class="TwoColumnBannerRTCol">
+            <img src="{{ module.content_group.image.src }}" alt="{{ module.content_group.image.alt }}">
+          </div>
+          {% endif %}
       </div>
           {# End Custum Width Option #}
 
@@ -132,7 +116,6 @@
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;
-        z-index: 1;
       
         {{ module.style.spacing.desktop_spacing.css }}
        
@@ -143,7 +126,7 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-        margin-left :20px;margin-right:20px; border-radius: 30px;
+        margin-left : 20px;margin-right: 20px; border-radius : 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -166,9 +149,8 @@
       {# Mobile Styling #}
       @media(max-width:767px){
         .{{name}}.baseModuleStyle{
-          {{ module.style.spacing.mobile_spacing.css  }};
-          margin-left :10px;margin-right:10px;
-           
+          {{ module.style.spacing.mobile_spacing.css  }}
+           margin-left : 10px;margin-right: 10px;
         } 
       }
       

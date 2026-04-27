@@ -37,7 +37,35 @@
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ {
+  "children" : [ 
+    {
+    "name": "hide_title_section",
+    "label": "Hide Title Section",
+    "required": false,
+    "locked": false,
+    "type": "boolean",
+    "display": "toggle",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": false 
+    },
+  {
+  "name": "sub_title",
+  "label": "Sub Title",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "validation_error_message": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "Built for Operational Excellence" 
+  },
+  
+  {
     "id" : "title",
     "name" : "title",
     "label" : "Title",
@@ -47,7 +75,7 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<h2>Your Human Resource software solution shouldn’t sit in silos</h2>"
+    "default":"<h3>Give managers the tools, visibility, and data to manage their teams consistently across every location</h3>"
   }, {
     "id" : "content",
     "name" : "content",
@@ -56,26 +84,55 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>"
+    "default" : "<p>With connected time tracking, attendance, payroll, and contractor management, you eliminate manual admin, reduce compliance risk, and create a more efficient operation across your organisation.</p>"
   },
   {
-  "name": "section_group",
-  "label": "section Group",
+  "name": "column_group",
+  "label": "Column Group",
   "required": false,
   "locked": false,
   "occurrence": {
     "min": null,
     "max": null,
     "sorting_label_field": null,
-    "default": 3
+    "default": 4
   },
   "type": "group",
   "inline_help_text": "",
   "help_text": "",
   "children": [
     {
-    "name": "title",
-    "label": "Title",
+    "name": "box_logo",
+    "label": "Box Logo",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "responsive": true,
+    "resizable": true,
+    "show_loading" : false,
+    "type": "image",
+    "default": {
+      "size_type" : "auto",
+      "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Union.svg",
+      "alt": "Union",
+      "loading": "disabled"}
+    },
+    {
+    "name": "logo_background_color",
+    "label": "Logo Background Color",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "type": "color",
+    "default": {
+      "color": "#E6F2FE",
+      "opacity": 100 } 
+    },
+    {
+    "name": "box_title",
+    "label": "Box Title",
     "required": false,
     "locked": false,
     "validation_regex": "",
@@ -86,116 +143,21 @@
     "placeholder": "",
     "inline_help_text": "",
     "help_text": "",
-    "default": "Operations" 
+    "default": "Accurate Time & Attendance Tracking " 
     },
     {
-    "name": "list_group",
-    "label": "List Group",
+    "name": "box_content",
+    "label": "Box Content",
     "required": false,
     "locked": false,
-    "occurrence": {
-      "min": null,
-      "max": null,
-      "sorting_label_field": null,
-      "default": 10
-    },
-    "type": "group",
+    "type": "richtext",
     "inline_help_text": "",
     "help_text": "",
-    "children": [
-      {
-      "name": "list_text",
-      "label": "List Text",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Attendance" 
+    "default": "<p>Track hours with GPS and mobile clock-ins, eliminating timesheets and reducing payroll disputes while building trust with your team.</p>" 
     }
-    ]
-     },
-      {
-      "name": "bottom_content",
-      "label": "Bottom Content",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Lorem ipsum dolor sit amet, aliqua adipiscing elit."
-     },
-     {
-     "name": "style_group",
-     "label": "Style Group",
-     "required": false,
-     "locked": false,
-     "children": [
-      {
-     "name": "list_color",
-     "label": "Icon Background Color",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "color",
-     "default": {
-       "color": "#BF3D94",
-       "opacity": 100 } 
-      },
-       {
-     "name": "list_icon_color",
-     "label": "Text Color",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "color",
-     "default": {
-       "color": "#BF3D94",
-       "opacity": 100 } 
-      },
-      {
-      "name": "background_color",
-      "label": "Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#FDF2F9",
-        "opacity": 100 } 
-      },
-      {
-      "name": "border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#61A546",
-        "opacity": 25 } 
-      }
-     ],
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "default": {} }
-  ]
- }
+  ],
+  "default": [] 
+}
 
 ],
   "tab" : "CONTENT",
@@ -331,11 +293,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 150,
+            "value" : 75,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 150,
+            "value" : 75,
             "units" : "px"
           },
           "left" : {
@@ -361,11 +323,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 70,
+            "value" : 50,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 70,
+            "value" : 50,
             "units" : "px"
           },
           "left" : {
