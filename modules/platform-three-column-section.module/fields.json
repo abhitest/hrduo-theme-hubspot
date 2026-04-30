@@ -61,6 +61,28 @@
     "default" : "<p>We’re built for the people behind the people.</p>"
   },
   {
+  "name": "box_title_heading_choice",
+  "label": "Box Title Heading Choice",
+  "required": false,
+  "locked": false,
+  "display": "select",
+  "inline_help_text": "",
+  "help_text": "",
+  "choices": [
+  [
+    "h4",
+    "Heading 4"
+  ],
+  [
+    "h5",
+    "Heading 5"
+  ]
+  ],
+  "type": "choice",
+  "placeholder": "",
+  "default": null 
+  },
+  {
   "name": "column_group",
   "label": "Column Group",
   "required": false,

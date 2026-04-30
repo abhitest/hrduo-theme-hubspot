@@ -39,66 +39,174 @@
   "locked" : false,
   "children" : [ 
     {
-    "id" : "content_group.tag",
-    "name" : "tag",
-    "label" : "Tag",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "validation_error_message" : "",
-    "placeholder" : "",
-    "allow_new_line" : false,
-    "display_width" : null,
-    "type" : "text",
-    "default" : "HR, Payroll & Workforce Management"
-  }, {
-    "id" : "title",
-    "name" : "title",
-    "label" : "Title",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<h1>Accurately track working time, simplify staff rotas, and complete payroll without errors</h1>"
-  }, {
-    "id" : "content",
-    "name" : "content",
-    "label" : "Content",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<p>Ditch the spreadsheets and siloed apps. Designed for HR Managers, Operations and Line Managers, HR Duo automates rotas and payroll while keeping you 100% legally compliant as you grow across multiple sites.</p>"
-  }, 
-  {
-  "name" : "content_width",
-  "label" : "Content Width",
-  "required" : false,
-  "locked" : false,
-  "display" : "text",
-  "step" : 1,
-  "type" : "number",
-  "min" : null,
-  "max" : null,
-  "inline_help_text": "",
-  "help_text": "",
-  "default" : null 
-  },
-   {
-        "label": "Want CTA",
-        "name": "want_cta",
+    "name": "plan_group",
+    "label": "Plan Group",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 3
+    },
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+      {
+      "name": "icon_settings",
+      "label": "Icon Settings",
+      "required": false,
+      "locked": false,
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "children": [
+        {
+        "name": "icon",
+        "label": "Icon",
         "required": false,
         "locked": false,
-        "type": "boolean",
-        "display": "toggle",
         "inline_help_text": "",
         "help_text": "",
-        "default": false
-     },
-     {
+        "responsive": true,
+        "resizable": true,
+        "show_loading" : false,
+        "type": "image",
+        "default": {
+          "size_type" : "auto",
+          "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Union%20(5).svg",
+          "alt": "Union",
+          "loading": "disabled"}
+        },
+        {
+        "name": "icon_bg_color",
+        "label": "Icon Background Color",
+        "required": false,
+        "locked": false,
+        "inline_help_text": "",
+        "help_text": "",
+        "type": "color",
+        "default": {
+          "color": "#6347FF",
+          "opacity": 8 } }
+      ]
+      },
+      {
+      "name": "box_title",
+      "label": "Box Title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Operations" 
+      },
+      {
+      "name": "title_color",
+      "label": "Title Color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#6347FF",
+        "opacity": 100 } 
+        },
+      {
+      "name": "box_content",
+      "label": "Box Content",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>Everything you need to help manage your frontline teams and enhance operations.</p>" 
+      },
+      {
+      "name": "list__settings_group",
+      "label": "List Group",
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+        "name": "title",
+        "label": "Title",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Features:" 
+        },
+        {
+        "name": "list_content_group",
+        "label": "List Content Group",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": null,
+          "max": null,
+          "sorting_label_field": null,
+          "default": 9
+        },
+        "children": [
+          {
+          "name": "list_content",
+          "label": "List Content",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "validation_error_message": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "Time Tracking" 
+        }
+
+        ],
+        "type": "group",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": [] 
+        }
+        
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {}
+      },
+      {
+        "name": "bt_text",
+        "label": "Bottom_text",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default":"plus more features available in all plans" 
+      },
+        {
      "name": "cta_group",
      "label": "CTA group",
      "required": false,
@@ -108,14 +216,9 @@
      "type": "group",
      "default": null,
      "occurrence" : {
-      "max": 2,
-      "default" : 1
+      "default" : 1,
+      "max": 1
       },
-      "visibility": {
-       "controlling_field_path": "content_group.want_cta",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      }, 
     "children": [
         {
         "name": "cta_choice",
@@ -159,10 +262,6 @@
         [
           "tertiary_button",
           "Tertiary CTA"
-        ],
-        [
-          "quaternary_button",
-          "Quaternary CTA"
         ]
         ],
         "type": "choice",
@@ -219,9 +318,9 @@
       "placeholder": "",
       "inline_help_text": "",
       "help_text": "",
-      "default": "Click Here",
+      "default": "Request demo",
       "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
+       "controlling_field_path": "content_group.plan_group.cta_group.cta_choice",
        "controlling_value_regex": "normalcta",
        "operator": "EQUAL"
       }
@@ -245,7 +344,7 @@
         "no_follow" : false
       },
       "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
+       "controlling_field_path": "content_group.plan_group.cta_group.cta_choice",
        "controlling_value_regex": "normalcta",
        "operator": "EQUAL"
       }
@@ -260,7 +359,7 @@
       "type": "cta",
       "default": null,
       "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
+       "controlling_field_path": "content_group.plan_group.cta_group.cta_choice",
        "controlling_value_regex": "hubspotCTA",
        "operator": "EQUAL"
       }
@@ -284,7 +383,7 @@
      "inline_help_text": "",
      "help_text": "",
      "visibility": {
-       "controlling_field_path": "content_group.cta_group.override_button_style",
+       "controlling_field_path": "content_group.plan_group.cta_group.override_button_style",
        "controlling_value_regex": "true",
        "operator": "EQUAL"
       },
@@ -366,41 +465,20 @@
      
     }
     ]
-     },
-
-
-  {
-    "id" : "content_group.form_bt_text",
-    "name" : "form_bt_text",
-    "label" : "Form Bototm Text",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<p><span>Not sure if we’re for you? </span><a>Watch our platform tour</a></p>"
-  }, 
-  {
-    "id" : "content_group.image",
-    "name" : "image",
-    "label" : "Image",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "responsive" : true,
-    "resizable" : true,
-    "show_loading" : false,
-    "display_width" : null,
-    "type" : "image",
-    "default" : {
-      "size_type" : "auto",
-      "src" : "https://hrduo.com/hubfs/hrduo-theme-2026/Home-Banner-img.avif",
-      "alt" : "Home-Banner-img",
-      "loading" : "disabled"
-    }
-  } 
+     }
+    ],
+    "default": [] 
+    },
+    {
+    "name": "content",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "<p>Our pricing is designed to fit your business, not the other way around. Get in touch with our team to request a quote.</p>" 
+  }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -436,8 +514,7 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default" : "bgColor"
+      "type" : "choice"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -484,11 +561,11 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#6347FF",
-        "opacity" : 100,
+        "color" : null,
+        "opacity" : null,
+        "hex" : null,
         "rgba" : null,
-        "rgb" : null,
-        "hex" : null
+        "rgb" : null
       }
     }, {
       "id" : "style.background_property.background_gredient",
@@ -536,11 +613,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 180,
+            "value" : 100,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 75,
             "units" : "px"
           },
           "left" : {
@@ -566,7 +643,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 150,
+            "value" : 50,
             "units" : "px"
           },
           "bottom" : {
@@ -596,11 +673,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 150,
+            "value" : 50,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 30,
             "units" : "px"
           },
           "left" : {

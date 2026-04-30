@@ -1,31 +1,44 @@
-<div class="{{ name }} baseModuleStyle BookDemoCTASection  {% if module.content_group.list_group|length %} {%  else %} BookDemoCTANLSection {% endif %} {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
-  <div class="BookDemoCTAshape"> 
-<svg xmlns="http://www.w3.org/2000/svg" width="270" height="522" viewBox="0 0 270 522" fill="none">
-<path d="M-130 493.401C-130 604.287 -41.5131 692.774 70.6261 692.774C182.765 692.774 270 604.287 270 493.401C270 382.514 181.513 292.774 70.6261 292.774C-40.2609 292.774 -130 381.261 -130 493.401ZM70.6261 229.053C181.513 229.053 270 140.566 270 29.6788C270 -81.2081 181.513 -170.947 70.6261 -170.947C-40.2609 -170.947 -130 -82.4603 -130 29.6788C-130 141.818 -41.5131 229.053 70.6261 229.053Z" fill="#312480"/>
-</svg>
-  </div>
-  <div class="BookDemoCTAImge">
-          <img src="{{ module.content_group.image.src }}" alt="{{ module.content_group.image.alt }}">
-        </div>
+<div class="{{ name }} baseModuleStyle AllourplanSection  {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption BookDemoCTAInSec">
-        
-        {% if  module.content_group.title  %}
-        <div class="moduleTitle BookDemoCTATitle white_color">
-          {{ module.content_group.title }}
+      <div class="customWidthOption AllourplanInSec">
+        <div class="AllourplanTitleSec text-center">
+            {% if  module.content_group.title  %}
+            <div class="moduleTitle AllourplanTitle">
+              {{ module.content_group.title }}
+            </div>
+              {% endif %}
+              {% if module.content_group.content %}
+              <div class="moduleContent pt20 AllourplanContent">
+                {{ module.content_group.content }}
+              </div>
+              {% endif %}
         </div>
-          {% endif %}
-          {% if module.content_group.content %}
-          <div class="moduleContent pt10 BookDemoCTAContent white_75_color">
-            {{ module.content_group.content }}
+     
+
+        <div class="AllourplanBoxSection pt56 d_flex align_start gap20">
+          {% for item in module.content_group.plan_list_group %}
+          <div class="AllourplanBox AllourplanBox-{{ loop.index }}  d_flex align_center gap10">
+            {% if item.icon.src %}
+            <div class="AllourplanBoxImage"> 
+              <img src="{{ item.icon.src }}" alt="{{ item.icon.alt }}">
+            </div>
+            {% endif %}
+            {% if item.box_title %}
+            <div class="AllourplanBoxText">
+              <h6>{{ item.box_title }}</h6>
+            </div>
+            {% endif %}
           </div>
-          {% endif %}
+          {% endfor %}
+        </div>
+
           {# Button and Cta Option #}
 
           {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center gap20 pt30 BookDemoCTAButton">
+          <div class="moduleCTA text-center AllourplanCTA gap20 pt56">
             {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
@@ -44,7 +57,7 @@
                    {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
                    {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
                    >
-                 <span class="CTA_text_gradient">{{ CTA.button_text }}</span>
+                  {{ CTA.button_text }}
                   {% if CTA.want_arrow %}
                     <span class="arrow">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -73,26 +86,6 @@
           {% endif %}
 
           {# End Button and Cta Option #}
-
-          {% if module.content_group.list_group|length %}
-          <div class="BookDemoCTAListBoxSec pt50">
-            <ul class="d_flex align_center gap5">
-              {% for item in module.content_group.list_group %}
-              <li class="p2 medium white_color"><span class="listarrow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-<rect x="10.2959" y="2.82812" width="10" height="1" rx="0.25" transform="rotate(135 10.2959 2.82812)" fill="white" stroke="white"/>
-<rect x="1.10352" y="6.36377" width="4" height="0.999999" rx="0.25" transform="rotate(45 1.10352 6.36377)" fill="white" stroke="white"/>
-</svg>
-              </span>
-              <span class="listcontent">{{ item.box_text }}</span>    
-            </li>
-                 {% endfor %}
-            </ul>
-           
-          </div>
-          {% endif %}
-
-
       </div>
           {# End Custum Width Option #}
 
@@ -106,6 +99,9 @@
     {% require_css %}
     <style>
      {% scope_css %}
+
+
+
       /****  Button Style  *****/
       {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
@@ -134,6 +130,11 @@
 
 {#       {% scope_css %} #}
         
+{% for item in module.content_group.plan_list_group %}
+      .{{ name }} .AllourplanBox-{{ loop.index }} .AllourplanBoxImage { background-color: {{ item.icon_background_color.css }}; }
+
+      {% endfor %}
+
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;
@@ -147,10 +148,14 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-        margin-left : 20px; border-radius: 30px; margin-right: 20px; overflow : hidden
       } 
-      
-.BookDemoCTAInSec { position: relative; z-index: 5; }
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
 
 
       {# End Desktop Styling #}

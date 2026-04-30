@@ -87,6 +87,17 @@
     "default" : "<p>With connected time tracking, attendance, payroll, and contractor management, you eliminate manual admin, reduce compliance risk, and create a more efficient operation across your organisation.</p>"
   },
   {
+  "name": "want_three_column",
+  "label": "Want Three Column",
+  "required": false,
+  "locked": false,
+  "type": "boolean",
+  "inline_help_text": "",
+  "help_text": "",
+  "display":"toggle",
+  "default": false 
+  },
+  {
   "name": "column_group",
   "label": "Column Group",
   "required": false,
@@ -353,7 +364,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 30,
             "units" : "px"
           },
           "bottom" : {

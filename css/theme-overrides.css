@@ -1009,7 +1009,7 @@ color: {{ primary_color }};
 .PlatformThreeColumnBoxSec .PlatformThreeColumnBox .PlatformThreeColumnBoxLogo {    background: #E6F2FE;    width: 54px;    height: 54px;    display: flex;    align-items: center;  justify-content: center;    border-radius: 10px;   box-shadow: 0px 0px 20px 0px #FFFFFF, 0px 0px 10px 0px #FFFFFF80;}
 .PlatformThreeColumnBoxSec .PlatformThreeColumnBox .PlatformThreeColumnBoxLogo img {   width: 30px;    height: 30px;}
 .PlatformThreeColumnBoxSec .PlatformThreeColumnBox .PlatformThreeColumnBoxCnt {  opacity: 75%;}
-.PlatformThreeColumnBoxSec {  position: relative;}
+.PlatformThreeColumnBoxSec {  position: relative; align-items: stretch;}
 {#
 .PlatformThreeColumnBoxSec:before {  position: absolute;    content: "";    width: 100%;    height: 100%;    z-index: -1;    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='918' viewBox='0 0 1440 918' fill='none'%3E%3Cg filter='url(%23filter0_f_2055_8404)'%3E%3Cellipse cx='720' cy='459' rx='570' ry='159' fill='%236347FF' fill-opacity='0.15'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_2055_8404' x='-150' y='0' width='1740' height='918' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='150' result='effect1_foregroundBlur_2055_8404'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");    background-repeat: no-repeat;    background-size: cover;    left: 0;    top: -10px;    background-position: center center;    pointer-events: none;}
 #}
@@ -1172,9 +1172,11 @@ color: {{ primary_color }};
 
 /* platform Page */
 .TwoColumnBannerInSec  .TwoColumnBannerLTCol {  max-width: 504px;    width: 100%;}
-.TwoColumnBannerInSec .TwoColumnBannerRTCol {  max-width: calc(100% - (504px + 126px));    width: 100%;}
+.TwoColumnBannerInSec .TwoColumnBannerRTCol {  max-width: calc(100% - (504px + 126px));    width: 100%; height: 470px;}
+.TwoColumnBannerContent {  max-width: 389px;    width: 100%;}
 .TwoColumnBannerInSec .TwoColumnBannerRTCol img {    width: 100%;    height: 100%;    object-fit: cover;    min-height: 470px;    border-radius: 16px;    box-shadow: 0px 37.91px 23.69px 0px #0000001A;}
 .TwoColumnBannerInSec {    justify-content: space-between;}
+.TwoColumnBannerCTA .secondary_button a:hover {  border-color: #fff;}
 
 
 .FourColumnTitleSec {  max-width: 775px;    width: 100%;    margin: 0 auto;}
@@ -1182,11 +1184,14 @@ color: {{ primary_color }};
 .FourColumnTitleSec .FourColumnContent {    max-width: 598px;    width: 100%;    margin: 0 auto;}
 .FourColumnTitleSec .FourColumnSubTitle p {   line-height: 1.286;}
 .FourColumnTitleSec .FourColumnSubTitle span {   line-height: 0;}
-.FourColumnBoxSection .FourColumnBox {    max-width: calc(25% - 15px);    width: 100%;    background: #fff;    border: 1px solid #F1F3FB;    border-radius: 20px;    padding: 32px;    display: flex;    flex-direction: column;    gap: 15px;}
+.FourColumnBoxSection .FourColumnBox {    max-width: calc(25% - 15px);    width: 100%;    background: #fff;    border: 1px solid #F1F3FB;    border-radius: 20px;    padding: 32px;    display: flex;    flex-direction: column;    gap: 15px; position: relative;}
 .FourColumnBoxSection .FourColumnBox .FourColumnBoxLogo {    width: 54px;    height: 54px;    display: flex;    align-items: center;    justify-content: center;    border-radius: 10px;    box-shadow: 0px 0px 20px 0px #FFFFFF, 0px 0px 10px 0px #FFFFFF80;}
 .FourColumnBoxSection .FourColumnBox .FourColumnBoxCnt p {    line-height: 1.2222;}
 .FourColumnBoxSection {    position: relative;}
-.FourColumnSection:before {    position: absolute;    content: "";    width: 1140px;    height: 100%;    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='928' viewBox='0 0 1440 928' fill='none'%3E%3Cg filter='url(%23filter0_f_4001_11353)'%3E%3Cellipse cx='720' cy='464' rx='570' ry='164' fill='%236347FF' fill-opacity='0.15'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_4001_11353' x='-150' y='0' width='1740' height='928' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='150' result='effect1_foregroundBlur_4001_11353'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");    left: 50%;    background-size: cover;    transform: translateX(-50%);    background-position: center center;    background-repeat: no-repeat;    bottom: -110px;    pointer-events: none;}
+.FourColumnBoxSection:before { position: absolute; content: "";    width: 1140px; height: 100%; left: 50%; transform: translateX(-50%);  top: 0;    pointer-events: none;    border-radius: 100%;    background: rgba(99, 71, 255, 0.15);   filter: blur(150px);}
+.FourColumnBoxSection.FourTrColumnBoxSection .FourColumnBox {  max-width: calc(33.33% - 13.33px);    padding: 50px 50px 60px;}
+
+
 
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntImgcol {    max-width: 610px;    width: 100%;  height: 580px;}
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol {   max-width: calc(100% - (610px));    width: 100%;}
@@ -1199,7 +1204,7 @@ color: {{ primary_color }};
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol ul {  margin: 16px 0 0;    padding: 0;    list-style: none;}
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol ul li+* {    margin-top: 18px;}
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol ul li {position: relative;  font-size: 16px;    line-height: 1.25; padding-left: 30px;}
-.TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol ul li:before { content: "";  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Crect x='4.25903' y='10.0759' width='6.25' height='1.25' rx='0.3125' transform='rotate(45 4.25903 10.0759)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3Crect x='16.6333' y='6.54031' width='12.5' height='1.25' rx='0.3125' transform='rotate(135 16.6333 6.54031)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3C/svg%3E");    width: 20px;    height: 20px;    background-repeat: no-repeat;    background-size: contain;    background-position: center center ; position: absolute; left: 0; top: 2px;}
+.TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol ul li:before { content: "";  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Crect x='4.25903' y='10.0759' width='6.25' height='1.25' rx='0.3125' transform='rotate(45 4.25903 10.0759)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3Crect x='16.6333' y='6.54031' width='12.5' height='1.25' rx='0.3125' transform='rotate(135 16.6333 6.54031)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3C/svg%3E");    width: 20px;    height: 20px;    background-repeat: no-repeat;    background-size: contain;    background-position: center center ; position: absolute; left: 0; top: 0;}
 
 
 .switchingTCSection .switchingTCShape {   position: absolute;    width: 100%;    height: 100%;    top: 0;   left: 0;    pointer-events: none;}
@@ -1210,7 +1215,12 @@ color: {{ primary_color }};
 .problemBoxSection .problemBoxTag span {    line-height: 0;}
 .problemBoxSection .problemBoxTag p {  color: #BF3D94;    font-size: 14px;    line-height: 18px;    font-weight: 500;}
 .problemInSec {    max-width: 1035px;    width: 100%;    margin: 0 auto;}
-
+.problemBoxSection .problemBoxTitle {
+    max-width: 634px;
+    width: 100%;
+    margin: 0 auto;
+}
+.problemBoxContent p+* { margin-top: 20px; }
 .problemSection .problemsliderBoxSection {  position: absolute;    top: 50%;    left: 0;    transform: translateY(-50%);    z-index: -1;}
 .problemInSec {    position: relative;}
 .problemInSec:before {   position: absolute;    width: 100%;    content: "";    height: 100%;    background: #fff;   filter: blur(50px); pointer-events: none;}
@@ -1229,6 +1239,85 @@ color: {{ primary_color }};
 
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol ul li strong {  color: #0C0F31;    font-weight: 500;}
 .CounterBoxSection.four_column .CounterBox {  max-width: calc(25% - 15px);}
+
+
+
+.BadformBannerTitleSec {  max-width: 636px;    width: 100%;    margin: 0 auto;}
+.BadformBannerTitleSec .BadformBannerFormSec {   max-width: 580px;    width: 100%;    margin: 0 auto;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form {    position: relative;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form input[type="email"] {   padding: 15px 150px 15px 24px;    background: #FFFFFF1A;    border: 1px solid #FFFFFF40;    color: #fff;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form input[type="email"]::-webkit-input-placeholder { color: #FFF;    }
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form input[type="email"]::-moz-placeholder { color: #FFFFFF;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form input[type="email"]:-ms-input-placeholder { color: #FFFFFF;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form input[type="email"]:-moz-placeholder {color: #FFFFFF;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs_submit {  display: inline-block;    position: absolute;    top: 50%;    right: 0;    transform: translateY(-50%);}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs-form-field {   margin: 0;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs_submit input[type="submit"] {    min-width: 142px;    padding: 15px 25px;    background: linear-gradient(90deg, #6347FF 25%, #8E7AFF 50%, #6347FF 75%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs_submit .actions {  background: #fff;    border-radius: 46px;}
+
+
+.PlanThreeColBoxSection .PlanThreeColBox {   max-width: calc(33.33% - 13.33px);    width: 100%;    border: 1px solid #F2F2F2;    background: #FFFFFF;    border-radius: 20px;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxTitleSec {    padding: 32px 24px; border-bottom: 1px solid #F2F2F2;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxTitleSec .PlanThreeColBoxLogo { width: 54px; height: 54px;    box-shadow: 0px 0px 20px 0px #FFFFFF, 0px 0px 10px 0px #FFFFFF80;    border-radius: 10px;    display: flex;    align-items: center;    justify-content: center;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxTitleSec .PlanThreeColBoxLogo img {    width: 30px;    height: 30px;    object-fit: contain;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxBTCol {  padding: 32px 26px;}
+
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxListcnt ul {  margin: 0;    padding: 0;    list-style: none;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxListcnt ul li {    color: #0C0F3199;    line-height: 1.223;    display: flex;    align-items: center;    gap: 8px;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxListcnt ul li+* {    margin-top: 12px;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxListcnt ul li:before {  content: "";    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Ccircle cx='9' cy='9' r='9' fill='%236347FF'/%3E%3Cpath d='M5 10.6667L7.39572 12.6994C7.56184 12.8404 7.64491 12.9108 7.7388 12.9003C7.8327 12.8897 7.89806 12.8026 8.02877 12.6283L13 6' stroke='white' stroke-width='1.75' stroke-linecap='round'/%3E%3C/svg%3E");    width: 18px;    height: 18px;    background-repeat: no-repeat;    background-position: center center;    background-size: contain;}
+
+.PlanThreeColBoxBTCTA a {  width: 100%;}
+.PlanThreeColBoxBTCTA  div { width: 100%;  display: block;}
+.PlanThreeColbtcnt {  max-width: 505px;    width: 100%;    margin: 0 auto;    text-align: center;}
+
+.AllourplanTitleSec {  max-width: 598px;    width: 100%;    margin: 0 auto;}
+.AllourplanBoxSection {   position: relative;    justify-content: center;}
+.AllourplanBoxSection .AllourplanBox {   max-width: calc(25% - 15px);    width: 100%;    padding: 10px 20px 10px 10px;    border: 1px solid #F1F3FB;    border-radius: 14px;    background: #fff;    position: relative;}
+.AllourplanBoxSection .AllourplanBox .AllourplanBoxImage {    width: 54px;    height: 54px;    border-radius: 10px;    display: flex;    align-items: center;    justify-content: center;}
+.AllourplanBoxSection .AllourplanBox .AllourplanBoxImage img {    width: 28px;    height: 28px;    object-fit: contain;}
+.AllourplanBoxSection:before {    position: absolute;    content: "";    width: 1140px;    background: #6347FF26;    height: 100%;    left: 50%;    transform: translate(-50%, -50%);    border-radius: 50%;    top: 50%;    filter: blur(300px);}
+.AllourplanCTA a {  min-width: 348px;}
+.AllourplanBoxSection .AllourplanBox .AllourplanBoxText {   width: calc(100% - 64px);}
+
+
+
+
+.OurCustomerLogoTitleSection {  max-width: 400px;    width: 100%;    margin: 0 auto;}
+.OurCustomerLogoBoxSection {  align-items: stretch;    position: relative;}
+.OurCustomerLogoBoxSection .OurCustomerLogoBox {  max-width: calc(20% - 9.6px);    width: 100%;    border: 1px solid #F1F3FB;    background: #fff;    padding: 34px;    border-radius: 14px;    position: relative;}
+.OurCustomerLogoBoxSection .OurCustomerLogoBox .OurCustomerLogoBoxImg {   width: 100%;    height: 54px;}
+.OurCustomerLogoBoxSection .OurCustomerLogoBox .OurCustomerLogoBoxImg img {   width: 100%;    height: 100%;    object-fit: scale-down;}
+.OurCustomerLogoBoxSection:before {    position: absolute;    content: "";    background: #6347FF26;    width: 100%;    max-width: 1140px;    height: 100%;    top: 50%;    left: 50%;    transform: translate(-50%, -50%);    border-radius: 50%;    filter: blur(300px);}
+
+.LContentRFormBannerInSec {  gap: 87px; justify-content: space-between;}
+.LContentRFormBannerInSec .LContentRFormBannerLTCol {  max-width: 636px;    width: 100%;}
+.LContentRFormBannerInSec  .LContentRFormBannerRTCol { max-width: calc(100% - (636px + 87px));    width: 100%;    background: rgb(0 0 0 / 20%);    border-radius: 30px;    padding: 32px 52px;}
+.LContentRFormBannerInSec .LContentRFormBannerLTCol .LContentRFormBannerTag {  margin-bottom: 20px;    width: fit-content;    border-radius: 46px;    padding: 5.5px 15px 5.5px;    position: relative;}
+.LContentRFormBannerInSec .LContentRFormBannerLTCol .LContentRFormBannerTag:before {    background: linear-gradient(180deg, rgba(99, 71, 255, 0) 0%, rgba(99, 71, 255, 0) 100%), linear-gradient(0deg, rgba(99, 71, 255, 100%), rgba(99, 71, 255, 100%)) padding-box, linear-gradient(106.39deg, rgba(255, 255, 255, 0.25) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0.25) 100%);    border: 1px solid transparent;    content: "";    height: 100%;    left: 0;    position: absolute;    top: 0;    width: 100%;    border-radius: 46px;   box-sizing: content-box;}
+.LContentRFormBannerInSec .LContentRFormBannerLTCol .LContentRFormBannerTag p {  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 35%, #FFFFFF 65%, rgba(255, 255, 255, 0.5) 100%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;    position: relative;    z-index: 1;    font-weight: 500;}
+
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field label {  color: #FFFFFF;    font-size: 20px;    line-height: 1.2;    margin-bottom: 8px;  font-weight: 500;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field label span.hs-form-required {  color: #fff;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field input,.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field select {  border: 1px solid #FFFFFF40;    border-radius: 10px;    background: rgb(255 255 255 / 10%);    min-height: 54px;    color: #fff;    width: 100% !important;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form  fieldset.form-columns-2 {    display: flex;    align-items: center;    gap: 10px;    flex-wrap: wrap;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .input {    margin: 0;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field {    margin-bottom: 12px;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset.form-columns-2 .hs-form-field {    width: calc(50% - 5px);}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form .hs-richtext p {   margin: 0;    color: #fff;    font-weight: 500;    font-size: 14px;    line-height: 1.428;    font-family: "Poppins";}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form .hs-richtext {   margin-bottom: 12px;}
+.LContentRFormBannerForm form .hs_submit input[type="submit"] {  max-width: 326px;    width: 100%;    background: #FFFFFF;    color: #6347FF;    font-weight: 500;    font-size: 16px;    line-height: 20px;    padding: 15px;}
+.LContentRFormBannerlist ul {  margin: 0;    padding: 0;    list-style: none;}
+.LContentRFormBannerlist ul li { padding-left: 30px;    position: relative; line-height: 1.25;}
+.LContentRFormBannerlist ul li+* {  margin-top: 12px;}
+.LContentRFormBannerlist ul li:before {  position: absolute;    content: "";    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24' viewBox='0 0 20 24' fill='none'%3E%3Crect x='4.25977' y='10.0758' width='6.25' height='1.25' rx='0.3125' transform='rotate(45 4.25977 10.0758)' fill='white' stroke='white' stroke-width='0.625'/%3E%3Crect x='16.6348' y='6.54031' width='12.5' height='1.25' rx='0.3125' transform='rotate(135 16.6348 6.54031)' fill='white' stroke='white' stroke-width='0.625'/%3E%3C/svg%3E");    width: 20px;    height: 24px;    left: 0;    background-repeat: no-repeat;    background-size: contain;    background-position: center;    top: 0;}
+.LContentRFormBannerlist {    max-width: 521px;    width: 100%;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field select option {  color: rgba(99, 71, 255,100%);}
+
+
+
+
+
 
 
 {###########################################################################}
@@ -1266,6 +1355,11 @@ color: {{ primary_color }};
 .PlatformThreeColumnBoxSec:before {   width: calc(100% - 60px);}
 
 .FourColumnBoxSection .FourColumnBox {  padding: 20px;}
+.FourColumnBoxSection.FourTrColumnBoxSection .FourColumnBox {  padding: 30px;}
+
+.LContentRFormBannerInSec .LContentRFormBannerLTCol {  max-width: 50%;}
+.LContentRFormBannerInSec {  gap: 50px;}
+.LContentRFormBannerInSec .LContentRFormBannerRTCol {  max-width: calc(50% - 50px);}
 
 }
 
@@ -1289,7 +1383,11 @@ color: {{ primary_color }};
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox:nth-child(even) .TwoColumnImgCntCol {  padding-right: 50px;}
 
 .FourColumnTitleSec { padding-bottom: 50px; }
-.TwoColumnBannerInSec .TwoColumnBannerLTCol {  max-width: 50%;}
+.TwoColumnBannerInSec .TwoColumnBannerLTCol {  max-width: calc(50% - 25px);;}
+.TwoColumnBannerInSec .TwoColumnBannerRTCol { max-width: calc(50% - 25px); height: 100% }
+
+.AllourplanBoxSection .AllourplanBox {  max-width: calc(33.33% - 13.33px);}
+.OurCustomerLogoBoxSection .OurCustomerLogoBox {  max-width: calc(25% - 9px);}
 
 
 }
@@ -1301,8 +1399,13 @@ h4, .h4 {   font-size: 22px;}
 .FeaturetabBoxSection .FeaturetabBoxImageBox {  padding: 20px 0 0 20px;}
 .BookDemoCTAInSec {    max-width: 550px;}
 .BookDemoCTAInSec .BookDemoCTATitle br {  display: none;}
-.TwoColumnBannerInSec .TwoColumnBannerRTCol {  max-width: calc(50% - 50px);}
+
 .FourColumnBoxSection .FourColumnBox {  max-width: calc(50% - 10px);}
+
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxBTCol {  padding: 30px 15px;}
+.PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxTitleSec {  padding: 30px 15px;}
+
+.LContentRFormBannerInSec .LContentRFormBannerRTCol {  padding: 30px 20px;}
 }
 
 @media (max-width : 991px){
@@ -1339,8 +1442,8 @@ h2, .h2 {    font-size: 37px;}
 .compareTwoColBoxSec .compareTwoColBox .compareTwoColBoxBTCol .compareTwoColBoxBTCnt br {  display: none;}
 .TeamswinBoxCntIn {   height: 100% !important;}
 
-.TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntImgcol {   max-width: 80%;}
-.TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol {    max-width: 100%;    padding: 0 !important;}
+.TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntImgcol {   max-width: 80%; order: 2;}
+.TwoColumnImgzigzaginSec .TwoColumnImgCntBox .TwoColumnImgCntCol {    max-width: 100%;    padding: 0 !important; order: 1;}
 .TwoColumnImgCntBox {    gap: 30px;}
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox:nth-child(even) {  flex-direction: column;    align-items: flex-start;}
 
@@ -1349,6 +1452,25 @@ h2, .h2 {    font-size: 37px;}
 .problemInSec {  padding: 50px 0;}
 
 .CounterBoxSection.four_column .CounterBox {max-width: calc(50% - 10px);}
+.FourColumnBoxSection.FourTrColumnBoxSection .FourColumnBox {
+    max-width: calc(50% - 10px);
+}
+
+.TwoColumnBannerInSec .TwoColumnBannerLTCol { max-width : 100% }
+.TwoColumnBannerInSec .TwoColumnBannerRTCol { max-width: 100%; }
+
+.PlanThreeColBoxSection .PlanThreeColBox {  max-width: 70%;}
+.PlanThreeColBoxSection {  justify-content: center;}
+.PlanThreeColBoxTitleSecIn {  height: 100% !important;}
+.PlanThreeColBoxList {   height: 100% !important;}
+.AllourplanBoxSection .AllourplanBox {  max-width: calc(50% - 10px);}
+.OurCustomerLogoBoxSection .OurCustomerLogoBox {  max-width: calc(33.33% - 8px);    padding: 24px 15px;}
+.OurCustomerLogoBoxSection {    justify-content: center;}
+
+
+.LContentRFormBannerInSec .LContentRFormBannerLTCol {  max-width: 100%;}
+.LContentRFormBannerInSec .LContentRFormBannerRTCol {  max-width: 100%;  padding: 30px 50px;}
+
 
 }
 
@@ -1372,6 +1494,8 @@ h2, .h2 {    font-size: 37px;}
 .CounterBoxSection .CounterBox  .CounterBoxText br {  display: none;}
 .problemsliderBoxImg {  height: 120px;}
 .problemInSec { padding: 0; }
+
+.PlanThreeColBoxSection .PlanThreeColBox {  max-width: 80%;}
 
 }
 
@@ -1432,6 +1556,18 @@ h2, .h2 {    font-size: 28px;}
 .problemInSec:before {  filter: blur(20px);}
 .CounterBoxSection.three_column .CounterBox {  max-width: 100%;}
 .CounterBoxSection.four_column .CounterBox {max-width: 100%;}
+.FourColumnBoxSection.FourTrColumnBoxSection .FourColumnBox {
+    max-width: 100%;
+} 
+.FourColumnBoxTitle { height: 100%; }
+.BookDemoCTASection .BookDemoCTAshape svg {  height: 100%;}
+
+.PlanThreeColBoxSection .PlanThreeColBox {  max-width: 100%;}
+.AllourplanBoxSection .AllourplanBox {    max-width: 100%;}
+.OurCustomerLogoBoxSection .OurCustomerLogoBox {   max-width: calc(50% - 6px);}
+
+.LContentRFormBannerInSec .LContentRFormBannerRTCol {  padding: 30px;}
+
 }
 
 @media (max-width: 480px){
@@ -1464,7 +1600,14 @@ h5, .h5 {   font-size: 18px;}
 .compareTwoColBoxSec .compareTwoColBox .compareTwoColBoxBTCol  .compareTwoColBoxBTCnt br {  display: none;}
 .PlatformThreeColumnTitle h3,.TeamswinTitle h3 {  font-size: 5.5vw;}
 
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form input[type="email"] {   padding: 15px 24px;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs_submit {  position: unset;    transform: unset;    margin-top: 20px;    text-align: left;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form {    display: flex;    flex-direction: column;  align-items: flex-start;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs-form-field {   width: 100%;}
 
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset.form-columns-2 .hs-form-field {  width: 100%;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field label {   font-size: 16px;}
+.LContentRFormBannerInSec .LContentRFormBannerRTCol {  padding: 30px 20px;}
 
 }
 

@@ -30,7 +30,7 @@
           </div>
           {% endif %}
 
-          <div class="FourColumnBoxSection d_flex gap20">
+          <div class="FourColumnBoxSection d_flex gap20 {% if module.content_group.want_three_column %} FourTrColumnBoxSection {% endif %}">
             {% for item in module.content_group.column_group %}
             <div class="FourColumnBox"> 
               {% if item.box_logo.src %}
@@ -135,3 +135,36 @@
 {#       {% end_scope_css %} #}
     </style>
   {% end_require_css %}
+
+    {% require_js %}
+<script>
+  $(window).on('load resize',function() {
+  equalheight(`.{{ name }} .FourColumnBoxTitle`);
+  
+});
+
+equalheight = function(container){
+    var currentTallest = 0, currentRowStart = 0, rowDivs = new Array(), jQueryel, topPosition = 0;
+    jQuery(container).each(function() {
+        $el = jQuery(this);
+        jQuery($el).height('auto')
+        topPostion = $el.position().top;
+        if (currentRowStart != topPostion) {
+            for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+                rowDivs[currentDiv].height(currentTallest);
+            }
+            rowDivs.length = 0; // empty the array
+            currentRowStart = topPostion;
+            currentTallest = $el.outerHeight();
+            rowDivs.push($el);
+        } else {
+            rowDivs.push($el);
+            currentTallest = (currentTallest < $el.outerHeight()) ? ($el.outerHeight()) : (currentTallest);
+        }
+        for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+            rowDivs[currentDiv].height(currentTallest);
+        }
+    });
+}
+  </script>
+{% end_require_js %}

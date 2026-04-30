@@ -10,7 +10,7 @@
         </div>
           {% endif %}
 
-        <div class="TrustedbyteamLogoBoxSec pt50">
+        <div class="TrustedbyteamLogoBoxSec {% if  module.content_group.title  %} pt50 {% endif %}">
           {% for logo in module.content_group.logo_group %}
           <div class="TrustedbyteamLogoBox"> 
               <div class="TrustedbyteamLogoBoxIn">

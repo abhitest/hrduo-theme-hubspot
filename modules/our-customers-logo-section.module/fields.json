@@ -38,77 +38,63 @@
   "required" : false,
   "locked" : false,
   "children" : [ 
-     {
-  "name" : "add_custom_width",
-  "label" : "Add Custom Width",
-  "required" : false,
-  "locked" : false,
-  "display" : "text",
-  "step" : 1,
-  "type" : "number",
-  "min" : null,
-  "max" : null,
-  "inline_help_text": "",
-  "help_text": "",
-  "default" : null 
-},  
-   {
-   "name": "testimonial_content",
-   "label": "Testimonial Content",
-   "required": false,
-   "locked": false,
-   "type": "richtext",
-   "inline_help_text": "",
-   "help_text": "",
-   "default": "<h4>Managers can schedule teams, track hours, and monitor performance in one system, reducing admin and improving results across all projects.</h4>" 
+    {
+    "id" : "title",
+    "name" : "title",
+    "label" : "Title",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "richtext",
+    "default": "<h3>Our Cool Customers</h3>"
+  }, 
+  {
+    "id" : "content",
+    "name" : "content",
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "richtext",
+    "default" : "<p>Some great brands that are already using HR Duo to automate their HR and workforce operations.</p>"
   },
   {
-  "name": "testimonial_image",
-  "label": "Testimonial Image",
+  "name": "logo_group",
+  "label": "Logo Group",
   "required": false,
   "locked": false,
-  "inline_help_text": "",
-  "help_text": "",
-  "responsive": true,
-  "resizable": true,
-  "show_loading" : false,
-  "type": "image",
-  "default": {
-    "size_type" : "auto",
-    "src": "https://www.hrduo.com/hubfs/hrduo-theme-2026/premium_photo-1689568126014-06fea9d5d341%201.png",
-    "alt": "premium_photo-1689568126014-06fea9d5d341 1",
-    "loading": "disabled"}
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 20
   },
-  {
-  "name": "testimonial_name",
-  "label": "Testimonial Name",
-  "required": false,
-  "locked": false,
-  "validation_regex": "",
-  "validation_error_message": "",
-  "allow_new_line": false,
-  "show_emoji_picker": false,
-  "type": "text",
-  "placeholder": "",
+  "children": [
+    {
+    "name": "box_image",
+    "label": "Box Image",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "responsive": true,
+    "resizable": true,
+    "show_loading" : false,
+    "type": "image",
+    "default": {
+      "size_type" : "auto",
+      "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/longacres-landscape%201.svg",
+      "alt": "longacres-landscape 1",
+      "loading": "disabled"}
+    }
+  ],
+  "type": "group",
   "inline_help_text": "",
   "help_text": "",
-  "default": "John Smith"
-  },
-  {
-  "name": "testimonial_position",
-  "label": "Testimonial Position",
-  "required": false,
-  "locked": false,
-  "validation_regex": "",
-  "validation_error_message": "",
-  "allow_new_line": false,
-  "show_emoji_picker": false,
-  "type": "text",
-  "placeholder": "",
-  "inline_help_text": "",
-  "help_text": "",
-  "default": "Head of Operations at Supermac's" 
-  }
+  "default": [] 
+}
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -144,8 +130,7 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default": "bgColor"
+      "type" : "choice"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -192,8 +177,8 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#202640",
-        "opacity" : 100,
+        "color" : null,
+        "opacity" : null,
         "hex" : null,
         "rgba" : null,
         "rgb" : null
@@ -244,11 +229,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 100,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 100,
+            "value" : 75,
             "units" : "px"
           },
           "left" : {
@@ -274,11 +259,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 70,
+            "value" : 50,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 70,
+            "value" : 50,
             "units" : "px"
           },
           "left" : {
@@ -304,11 +289,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 30,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 30,
             "units" : "px"
           },
           "left" : {

@@ -129,6 +129,13 @@
 
 {#       {% scope_css %} #}
         
+      {% if module.content_group.want_full_width_title %}
+      .CounterInSec .Countertitlesection { max-width : 100%; }
+      {% endif %}
+
+      .CounterInSec .Countertitlesection .CounterTitle { max-width : {{ module.content_group.title_width }}px; width : 100%; margin: 0 auto }
+      .CounterInSec .Countertitlesection .CounterContent { max-width : {{ module.content_group.content_width }}px; width : 100%; margin: 0 auto }
+
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;

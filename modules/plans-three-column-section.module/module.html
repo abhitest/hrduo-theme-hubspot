@@ -1,0 +1,199 @@
+<div class="{{ name }} baseModuleStyle PlanThreeColSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<span class="baseModuleOverlay"></span>
+<div class="baseModuleParent"> 
+  <div class="content-wrapper">
+    {# Custum Width Option #}
+    <div class="customWidthOption PlanThreeColInSec">
+      
+      <div class="PlanThreeColBoxSection d_flex align_start gap20">
+        {% for item in module.content_group.plan_group %}
+        {% set mainloop = loop.index %}
+        <div class="PlanThreeColBox PlanThreeColBox-{{ mainloop }}">
+          <div class="PlanThreeColBoxTitleSec">
+            <div class="PlanThreeColBoxTitleSecIn">
+            {% if item.icon_settings.icon.src %}
+            <div class="PlanThreeColBoxLogo" style="background-color: {{ item.icon_settings.icon_bg_color.css }};">
+              <img src="{{ item.icon_settings.icon.src }}" alt="{{ item.icon_settings.icon.alt }}">
+            </div>
+            {% endif %}
+            {% if item.box_title %}
+            <div class="PlanThreeColBoxTitle pt20">
+              <h4>{{ item.box_title }}</h4>
+            </div>
+            {% endif %}
+            {% if item.box_content %}
+            <div class="PlanThreeColBoxCnt pt16 secondary_60_color">
+              {{ item.box_content }}
+            </div>
+            {% endif %}
+            </div>
+          </div>
+          <div class="PlanThreeColBoxBTCol">
+            {% if item.list__settings_group.title %}
+            <div class="PlanThreeColBoxBTTitle primary_color pb14 lh12">
+              <h5>{{ item.list__settings_group.title }}</h5>
+            </div>
+            {% endif %}
+            {% if item.list__settings_group.list_content_group|length %}
+            <div class="PlanThreeColBoxListcnt">
+              <div class="PlanThreeColBoxList">
+                <ul>
+                  {% for item2 in item.list__settings_group.list_content_group %}
+                  <li>
+                    <span>{{ item2.list_content }}</span>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+            {% if item.bt_text %}
+            <div class="PlanThreeColBoxBTCnt pt12 secondary_color p2">
+              <p>{{ item.bt_text }}</p>
+            </div>
+            {% endif %}
+            {% if item.cta_group|length %}
+            <div class="PlanThreeColBoxBTCTA pt32">
+                  {% for item2 in item.cta_group %}
+                  {% set CTA = item2 %}
+                  <div class="cta-section">
+                    {% if CTA.cta_choice == "normalcta" %}
+                    {% if CTA.button_text %}
+                    <div class="{{ CTA.choice_cta_style }}  {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %} basebutton-{{ mainloop }}{{ loop.index }}">
+                      {% set href = CTA.button_link.url.href %}
+                      {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                      {% set href = "mailto:" + href %}
+                      {% endif %}
+                      {% if CTA.button_link.url.type is equalto "PHONE_NUMBER" %}
+                      {% set href = "tel:" + href %}
+                      {% endif %}
+
+                      <a href="{{ href }}"
+                          {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                          {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
+                          >
+                        {{ CTA.button_text }}
+                        {% if CTA.want_arrow %}
+                          <span class="arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <rect x="13.2887" y="14.5453" width="7" height="1" rx="0.25" transform="rotate(-45 13.2887 14.5453)" fill="white" stroke="white" stroke-width="0.5"/>
+                          <rect x="13.9958" y="5.35291" width="7" height="1" rx="0.25" transform="rotate(45 13.9958 5.35291)" fill="white" stroke="white" stroke-width="0.5"/>
+                          <rect x="0.5" y="9.80273" width="16.9958" height="1" rx="0.25" fill="white" stroke="white" stroke-width="0.5"/>
+                        </svg>
+                          </span>
+                        {% endif %}
+
+                      </a>
+                    </div>
+                    {% endif %}
+                    {% elif  CTA.cta_choice == 'hubspotCTA' %}
+
+                    {% if CTA.hubspot_cta && CTA.hubspot_cta != null %}
+                    <div class="{{ CTA.choice_cta_style }} {% if CTA.button_alignment %} {{ CTA.button_alignment }} {% else %} text-left {% endif %}">
+                      {% cta guid="{{ CTA.hubspot_cta }}" %}
+                    </div>
+                    {% endif %}
+
+                    {% endif %}
+                  </div>
+                  {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% if  module.content_group.content %}
+      <div class="PlanThreeColbtcnt secondary_60_color pt50">
+        {{ module.content_group.content }}
+      </div>
+      {% endif %}
+    </div>
+        {# End Custum Width Option #}
+
+
+
+  </div>
+</div>
+
+</div>
+
+  {% require_css %}
+  <style>
+    {% scope_css %}
+    /****  Button Style  *****/
+     {% for item in module.content_group.plan_group %}
+     .PlanThreeColBox-{{ loop.index }} .PlanThreeColBoxTitle h4 { color : {{ item.title_color.color }} }
+
+     {% set mainloop = loop.index %}
+     {% for item2 in item.cta_group %}
+          {% set CTA = item2 %}
+    {% if CTA.override_button_style %}
+
+    .baseModuleStyle .basebutton-{{ mainloop }}{{ loop.index }} a{
+      background:{{ CTA.button_style_group.btn_bg_color.css}};
+      color:{{ CTA.button_style_group.btn_text_color.css }};
+      border-color:{{ CTA.button_style_group.btn_border_color.css }};
+    }
+
+    .baseModuleStyle .basebutton-{{ mainloop }}{{ loop.index }} a:hover {
+      background-color:{{ CTA.button_style_group.btn_bg_color_hover.css}};
+      color:{{ CTA.button_style_group.btn_text_color_hover.css }};
+      border-color : {{ CTA.button_style_group.btn_border_color_hover.css }};
+    }
+
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    /****  End Button Style  ****/
+    {% end_scope_css %}
+  </style>
+  
+  
+  <style>
+
+{#       {% scope_css %} #}
+      
+    {# Desktop Styling #}
+    .{{name}}.baseModuleStyle{
+      position:relative;
+    
+      {{ module.style.spacing.desktop_spacing.css }}
+      
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+        background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+      {% elif module.style.background_property.background_choice == 'bgColor'  %}
+      background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+      {% elif module.style.background_property.background_choice == 'gredient'  %}
+      background:{{ module.style.background_property.background_gredient.css }};
+      {% endif %}
+    } 
+    /****  Overlay Start  *****/
+    {% if module.style.background_property.background_choice == 'bgImage'  %}
+    .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+    {% endif %}
+    /****  Overlay Start  *****/
+    .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+    {# End Desktop Styling #}
+
+    {# Tablet Styling #}
+    @media(max-width:1300px){
+      .{{name}}.baseModuleStyle{
+          {{  module.style.spacing.tab_spacing.css }}
+      } 
+    }
+    {# End Tablet Styling #}
+    {# Mobile Styling #}
+    @media(max-width:767px){
+      .{{name}}.baseModuleStyle{
+        {{ module.style.spacing.mobile_spacing.css  }}
+      } 
+    }
+    
+{#       {% end_scope_css %} #}
+  </style>
+{% end_require_css %}

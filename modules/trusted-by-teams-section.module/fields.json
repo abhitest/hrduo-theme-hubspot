@@ -37,7 +37,9 @@
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ {
+  "children" : [ 
+ 
+  {
     "id" : "title",
     "name" : "title",
     "label" : "Title",

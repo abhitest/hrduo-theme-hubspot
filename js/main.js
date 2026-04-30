@@ -190,6 +190,9 @@ function inVisible(element) {
 $(window).on('load resize',function() {
   equalheight('.PlatformThreeColumnBoxCntIn');
   equalheight('.TeamswinBoxCntIn');
+  equalheight('.PlanThreeColBoxTitleSecIn');
+  equalheight('.PlanThreeColBoxList');
+  
   setEqualHeights();
 });
 

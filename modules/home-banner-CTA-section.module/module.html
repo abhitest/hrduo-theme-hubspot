@@ -92,6 +92,8 @@
     <style>
 
 {#       {% scope_css %} #}
+
+.HomeBannerInSec .HomeBannerTitleSection  .HomeBannerContent { max-width: {{ module.content_group.content_width }}px }
         
 .HomeBannerInSec .HomeBannerTitleSection .HomeBannerTag:before {  background: linear-gradient(180deg, rgba({{ module.style.background_property.background_color.color|convert_rgb }},0) 0%, rgba({{ module.style.background_property.background_color.color|convert_rgb }},0) 100%), linear-gradient(0deg, rgba({{ module.style.background_property.background_color.color|convert_rgb }},100%), rgba({{ module.style.background_property.background_color.color|convert_rgb }},100%)) padding-box, linear-gradient(106.39deg, rgba(255, 255, 255, 0.25) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0.25) 100%); border-box;    border: 1px solid transparent;    content: "";    height: 100%;    left: 0;    position: absolute;    top: 0;    width: 100%;    border-radius: 46px;    box-sizing: content-box;}    
       {# Desktop Styling #}

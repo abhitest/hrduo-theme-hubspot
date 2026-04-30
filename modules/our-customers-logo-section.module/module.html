@@ -1,33 +1,32 @@
-<div class="{{ name }} baseModuleStyle TestimonialSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle OurCustomerLogoSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption testimonialInSection">
-
-        <div class="testimonialBoxSec">
-          <div class="testimonialBoxIcon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-<path d="M20.6249 7.03125C23.4727 7.03125 25.7812 9.33978 25.7812 12.1875C25.7812 14.2909 24.6862 16.326 23.052 16.7187C22.4216 16.8702 21.9196 17.6792 22.0275 18.6027C22.1718 19.8387 23.2896 21.0876 25.5029 22.0717C25.9957 22.2908 25.7893 23.0321 25.2542 22.9651C19.4862 22.243 15.4879 18.4826 15.4688 13.1623C15.4687 9.50348 17.6304 7.03125 20.6249 7.03125Z" fill="#6347FF"/>
-<path d="M9.37493 7.03125C12.2227 7.03125 14.5312 9.33978 14.5312 12.1875C14.5312 14.2909 13.4362 16.326 11.802 16.7187C11.1716 16.8702 10.6696 17.6792 10.7775 18.6027C10.9218 19.8387 12.0396 21.0876 14.2529 22.0717C14.7457 22.2908 14.5393 23.0321 14.0042 22.9651C8.23617 22.243 4.23793 18.4826 4.21875 13.1623C4.21868 9.50348 6.38036 7.03125 9.37493 7.03125Z" fill="#6347FF"/>
-</svg>
-          </div>
-          {% if module.content_group.testimonial_content %}
-          <div class="testimonialBoxText white_color pt10">
-              {{ module.content_group.testimonial_content }}
+      <div class="customWidthOption OurCustomerLogoInSec">
+        <div class="OurCustomerLogoTitleSection text-center">
+        {% if  module.content_group.title  %}
+        <div class="moduleTitle OurCustomerLogoTitle">
+          {{ module.content_group.title }}
+        </div>
+          {% endif %}
+          {% if module.content_group.content %}
+          <div class="moduleContent pt20 OurCustomerLogoContent">
+            {{ module.content_group.content }}
           </div>
           {% endif %}
-
-          <div class="testimonialBoxInfo pt30 d_flex align_center gap15">
-            <div class="testimonialBoxImage">
-              <img src="{{ module.content_group.testimonial_image.src|escape_url }}" alt="{{ module.content_group.testimonial_image.alt }}">
-            </div>
-            <div class="testimonialBoxInfotext">
-              <p class="white_75_color p2">{{ module.content_group.testimonial_name }}</p>
-              <p class="p2 white_75_color medium pt5">{{ module.content_group.testimonial_position }}</p>
-            </div>
           </div>
-        </div>
+       
+
+<div class="OurCustomerLogoBoxSection d_flex gap12 pt56">
+  {% for item in module.content_group.logo_group %}
+  <div class="OurCustomerLogoBox">
+    <div class="OurCustomerLogoBoxImg">
+        <img src="{{ item.box_image.src }}" alt="{{ item.box_image.alt }}">
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
       </div>
           {# End Custum Width Option #}
@@ -40,14 +39,10 @@
 </div>
 
     {% require_css %}
-
-   
+    
     <style>
 
 {#       {% scope_css %} #}
-
-
-.{{ name }} .testimonialInSection { max-width: {{ module.content_group.add_custom_width }}px; }
         
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
@@ -62,7 +57,6 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-        margin-left: 20px;margin-right: 20px; border-radius: 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -86,7 +80,6 @@
       @media(max-width:767px){
         .{{name}}.baseModuleStyle{
           {{ module.style.spacing.mobile_spacing.css  }}
-          margin-left:10px;margin-right: 10px; 
         } 
       }
       
