@@ -1,0 +1,325 @@
+[ {
+  "id" : "custom_style",
+  "name" : "custom_style",
+  "label" : "Custom Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "custom_class",
+    "name" : "custom_class",
+    "label" : "Custom Class",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  }, {
+    "id" : "section_id",
+    "name" : "section_id",
+    "label" : "Section ID",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : {
+    "container_choice" : "content-wrapper"
+  }
+}, {
+  "id" : "content_group",
+  "name" : "content_group",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "children" : [
+    {
+    "name": "title",
+    "label": "Title",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "<h3>Resource Hub</h3>" 
+    },
+    {
+    "name": "content",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "<p>Explore the free resources we've created to help you manage your teams.</p>" 
+    },
+    {
+    "name": "form",
+    "label": "Form",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "type": "form",
+    "default": {
+      "form_id": "4b9d9559-a403-44fc-b4a6-efab852e114d",
+      "response_type": "inline",
+      "message": "Thanks for submitting the form." } 
+    },
+    {
+    "name": "form_content",
+    "label": "Form Content",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "<p>By requesting updates you agree to receive communications from HR Duo. Review our privacy policy here.</p>"
+    },
+    {
+    "name": "back_image",
+    "label": "Back Image",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "responsive": true,
+    "resizable": true,
+    "show_loading" : false,
+    "type": "image",
+    "default": {
+      "size_type" : "auto",
+      "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Group%201000002841%20(3).png",
+      "alt": "Group 1000002841 (3)",
+      "loading": "disabled"}
+    }
+],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group"
+}, {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.background_property",
+    "name" : "background_property",
+    "label" : "Background Property",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.background_property.background_choice",
+      "name" : "background_choice",
+      "label" : "Select Background Type",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "placeholder" : "",
+      "choices" : [ [ "bgImage", "Background Image" ], [ "bgColor", "Background Color" ], [ "gredient", "Background Gredient" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "display_width" : null,
+      "type" : "choice",
+      "default":"bgColor"
+    }, {
+      "id" : "style.background_property.background_image",
+      "name" : "background_image",
+      "label" : "Background Image",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgImage",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "display_width" : null,
+      "type" : "image",
+      "default" : {
+        "size_type" : "auto",
+        "src" : "",
+        "alt" : null,
+        "loading" : "disabled"
+      }
+    }, {
+      "id" : "style.background_property.background_color",
+      "name" : "background_color",
+      "label" : "Background Color",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "bgColor",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "display_width" : null,
+      "type" : "color",
+      "default" : {
+        "color" : "#6347FF",
+        "opacity" : 100,
+        "hex" : null,
+        "rgba" : null,
+        "rgb" : null
+      }
+    }, {
+      "id" : "style.background_property.background_gredient",
+      "name" : "background_gredient",
+      "label" : "Background Gradient",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "style.background_property.background_choice",
+        "controlling_value_regex" : "gredient",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "display_width" : null,
+      "type" : "gradient",
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group"
+  }, {
+    "id" : "style.spacing",
+    "name" : "spacing",
+    "label" : "Spacing",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "style.spacing.desktop_spacing",
+      "name" : "desktop_spacing",
+      "label" : "Desktop Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display_width" : null,
+      "type" : "spacing",
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 100,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 100,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.tab_spacing",
+      "name" : "tab_spacing",
+      "label" : "Tab Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display_width" : null,
+      "type" : "spacing",
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 80,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 80,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    }, {
+      "id" : "style.spacing.mobile_spacing",
+      "name" : "mobile_spacing",
+      "label" : "Mobile Spacing",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "display_width" : null,
+      "type" : "spacing",
+      "default" : {
+        "padding" : {
+          "top" : {
+            "value" : 50,
+            "units" : "px"
+          },
+          "bottom" : {
+            "value" : 50,
+            "units" : "px"
+          },
+          "left" : {
+            "value" : null,
+            "units" : null
+          },
+          "right" : {
+            "value" : null,
+            "units" : null
+          }
+        }
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group"
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group"
+} ]

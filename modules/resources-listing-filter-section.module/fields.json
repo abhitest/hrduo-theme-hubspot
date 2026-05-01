@@ -1,0 +1,274 @@
+[ {
+  "id" : "custom_style",
+  "name" : "custom_style",
+  "label" : "Custom Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "custom_class",
+    "name" : "custom_class",
+    "label" : "Custom Class",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  }, {
+    "id" : "section_id",
+    "name" : "section_id",
+    "label" : "Section ID",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : {
+    "container_choice" : "content-wrapper"
+  }
+}, {
+  "id" : "content_group",
+  "name" : "content_group",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "children" : [
+    {
+    "name" : "pagination_per_page",
+    "label" : "Pagination per page",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "min" : null,
+    "max" : null,
+    "inline_help_text": "",
+    "help_text": "",
+    "default" : "9" 
+    },
+    {
+    "name": "search_heading",
+    "label": "Search Heading - Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Search" 
+    },
+    {
+    "name": "country_heading",
+    "label": "Country Heading - Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Available in" 
+    },
+    {
+    "name": "industry_heading",
+    "label": "Industry Heading - Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "All Industries" 
+    },
+    {
+    "name": "categories_heading",
+    "label": "Categories Heading - Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Categories" 
+    },
+    {
+    "name": "resources_library",
+    "label": "Resources Library",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 6
+    },
+    
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+      {
+      "name": "title",
+      "label": "Title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "United Kingdom Webinar: Managing Sickness Absence - What Managers Need To Know" 
+      },
+      {
+      "name": "category_tag",
+      "label": "Category Tag",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "Start with a capital letter, and use commas (,) to add extra categories",
+      "default": "Webinar" 
+      },
+      {
+      "name": "text_ind",
+      "label": "Industry Type",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "Enable 'Add Industry Filters' in the content section.",
+      "default": null 
+      },
+      {
+      "name": "select_country",
+      "label": "Select Country",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "Enable 'Add Country Filters' in the content section.",
+      "default": "United Kingdom" 
+      },
+      {
+      "name": "description",
+      "label": "Description",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>Proin vel sit amet felis cursus vehicula vivamusirf non nisl molestie ultricies et eget ligula pellentese hendrerit scelerisque justo.</p>" 
+      },
+      {
+      "name": "main_image",
+      "label": "Main - Image",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": true,
+      "show_loading" : false,
+      "type": "image",
+      "default": {
+        "size_type" : "auto",
+        "src": "https://hrduo.com/hubfs/Absence%20webinar.png",
+        "alt": "Absence webinar",
+        "loading": "disabled"
+      }
+      },
+      {
+      "name": "button_settings",
+      "label": "Button Settings",
+      "required": false,
+      "locked": false,
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+    "children": [
+      {
+      "name": "button_text",
+      "label": "Button Text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Learn more" 
+      },
+      {
+      "name" : "button_link",
+      "label" : "Button Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      } 
+      }
+    ]
+    }
+    ]
+  }
+
+],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group"
+}
+ ]

@@ -1,0 +1,389 @@
+<div class="{{ name }} baseModuleStyle ResourcesLisFilSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+  <div class="baseModuleParent"> 
+     <div class="ResourcesLisFilterSection">
+    <div class="content-wrapper">
+      {# Custum Width Option #}
+      <div class="customWidthOption ResourcesLisFilInSec">
+       
+          <div class="ResourcesLisFilterBoxSec d_flex align_center">
+              <div class="ResourcesLisFilterBox searchFilterBox">
+                <div class="ResourcesLisFilterBoxTitle white_color medium pb8"> 
+                  <h5>{{ module.content_group.search_heading }}</h5>
+                </div>
+                <div class="ResourcesLisFilterBoxFil">
+                    <input type="text" id="search-input_{{ name }}" placeholder="Search" />
+                </div>
+              </div>  
+
+              <div class="ResourcesLisFilterBox countryFilterBox">
+                <div class="ResourcesLisFilterBoxTitle white_color medium pb8"> 
+                  <h5>{{ module.content_group.country_heading }}</h5>
+                </div>
+                <div class="ResourcesLisFilterBoxFil">
+                <select id="country-{{ name }}" class="country-dropdown">
+              <option value="">{{ module.content_group.country_heading }}</option>
+                {% set unique_countries = [] %}
+              {% if item.add_country %}
+              {% for item in module.content_group.resources_library %}
+              {% if item.select_country and item.select_country not in unique_countries %}
+              <option value="{{ item.select_country|escape_attr }}">{{ item.select_country|escape }}</option>
+              {% do unique_countries.append(item.select_country) %}
+              {% endif %}
+              {% endfor %}
+              {% endif %}
+            </select>
+                </div>
+              </div>  
+
+              <div class="ResourcesLisFilterBox industryFilterBox">
+                <div class="ResourcesLisFilterBoxTitle white_color medium pb8"> 
+                  <h5>{{ module.content_group.industry_heading }}</h5>
+                </div>
+                <div class="ResourcesLisFilterBoxFil">
+                    <select id="industry-{{ name }}" class="industry-dropdown">
+              <option value="">{{ module.content_group.industry_heading }}</option>
+               {% set unique_industries = [] %}
+              {% for item in module.content_group.resources_library %}
+              {% if item.text_ind and item.text_ind not in unique_industries %}
+              <option value="{{ item.text_ind|escape_attr }}">{{ item.text_ind|escape }}</option>
+              {% do unique_industries.append(item.text_ind) %}
+              {% endif %}
+              {% endfor %}   
+            </select>
+                </div>
+              </div>  
+          </div>
+
+          <div class="ResourcesLisFilterCatebox ">
+             <div class="ResourcesLisFilterCateboxTitle white_color medium"> 
+                  <h5>{{ module.content_group.categories_heading }}</h5>
+                </div>
+
+                <div class="ResourcesLisFilterCateboxFil pt26 d_flex align_center gap40">
+                        {% set unique_categories = [] %}
+            {% for item in module.content_group.resources_library %}
+            {% set categories = item.category_tag|split(',') %}
+            {% for category in categories %}
+            {% if category not in unique_categories %}
+            <label class="p2 medium white_color">
+              <input type="checkbox" class="resources-library category-checkbox_{{name}}" value="{{ category|escape_attr }}">
+              <span>{{ category|escape }}</span>
+            </label>
+            {% do unique_categories.append(category) %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+                </div>
+          </div>
+
+        
+      </div>
+          {# End Custum Width Option #}
+
+
+
+    </div>
+    </div>
+
+    <div class="ResourcesCntListingSection pt100 pb150">
+      <div class="content-wrapper">
+        <div class="ResourcesCntListingInSec" id="resources_cntpost_{{name}}">
+          <div class="ResourcesCntListingBoxsec d_flex align_start gap20">
+            {% for item in module.content_group.resources_library %}
+            <div class="ResourcesCntListingBox ResourcesCntListingBox-{{ name }}"  data-category="{{ item.category_tag|escape_attr }}" data-country="{{ item.select_country }}" data-industry="{{ item.text_ind|escape_attr }}">
+              {% if  item.main_image.src  %}
+              <div class="ResourcesCntListingBoxImg" style="background-image: url({{ item.main_image.src }});">
+                
+              </div>
+              {% endif %}
+              <div class="ResourcesCntListingCntBox">
+                <div class="ResourcesCntListingBoxCategory p3 medium uppercase black_50_color">
+                  <p>{{ item.category_tag }}</p>
+                </div>
+                {% if item.title %}
+                <div class="ResourcesCntListingBoxTitle pt12 black_color">
+                  <h4>{{ item.title }}</h4>
+                </div>
+                {% endif %}
+                {% if item.description %}
+                <div class="ResourcesCntListingBoxCnt pt12 secondary_60_color">
+                  {{ item.description }}
+                </div>
+                {% endif %}
+                {% set CTA = item.button_settings %}
+                <div class="ResourcesCntListingBoxCTA pt24">
+                  {% set href = CTA.button_link.url.href %}
+                {% if CTA.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + href %}
+                {% endif %}
+                {% if CTA.button_link.url.type is equalto "PHONE_NUMBER" %}
+                {% set href = "tel:" + href %}
+                {% endif %}
+
+                <a href="{{ href }}"
+                   {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                   {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
+                   >
+                  {{ CTA.button_text }}
+                    <span class="arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <rect x="5.79395" y="14.2411" width="6.99775" height="1" rx="0.25" transform="rotate(-45 5.79395 14.2411)" fill="#6347FF" stroke="#6347FF"/>
+                      <rect x="6.50098" y="5.05139" width="6.99874" height="1" rx="0.25" transform="rotate(45 6.50098 5.05139)" fill="#6347FF" stroke="#6347FF"/>
+                    </svg>
+                    </span>
+
+                </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="ResourcesCntListingpagi pt75" id="pagination-resources_{{name}}"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+{% require_js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+ $(document).ready(function () {
+  const itemsPerPage = {{ module.content_group.pagination_per_page }};
+  var allResources = $('.ResourcesCntListingBox-{{ name }}').toArray();
+  var paginatedResources = [];
+
+  // Initial display
+  paginateResources(allResources);
+
+  // Filter triggers
+  $('.category-checkbox_{{name}}').change(filterResources);
+  $('#search-input_{{ name }}').on('input', filterResources);
+  $('#country-{{ name }}').change(filterResources);
+  $('#industry-{{ name }}').change(filterResources);
+
+  function filterResources() {
+    var selectedCategories = [];
+    $('.category-checkbox_{{name}}:checked').each(function () {
+      selectedCategories.push($(this).val());
+    });
+
+    var searchQuery = $('#search-input_{{name}}').val()?.toLowerCase() || "";
+    var selectedCountry = $('#country-{{name}}').val()?.toLowerCase() || "";
+    var selectedIndustry = $('#industry-{{name}}').val()?.toLowerCase() || "";
+
+    // If country or industry is selected, allow only one category selection
+    if (selectedCountry || selectedIndustry) {
+      if (selectedCategories.length > 1) {
+        var keepCategory = selectedCategories[0];
+        selectedCategories = [keepCategory];
+        $('.category-checkbox_{{name}}').each(function () {
+          if ($(this).val() !== keepCategory) {
+            $(this).prop('checked', false);
+          }
+        });
+      }
+    }
+
+    var filteredResources = allResources.filter(function (item) {
+      var $item = $(item);
+      var categoryAttr = $item.data('category') || "";
+      var postCategories = categoryAttr.split(',').map(cat => cat.trim());
+
+      var postTitle = $item.find('.ResourcesCntListingBoxTitle').text()?.toLowerCase() || "";
+      var postDescription = $item.find('.ResourcesCntListingBoxCnt').text()?.toLowerCase() || "";
+      var postDate = $item.find('.date-resources').text()?.toLowerCase() || "";
+      var postCountry = $item.data('country')?.toLowerCase() || "";
+      var postIndustry = $item.data('industry')?.toLowerCase() || "";
+
+      var matchCategory = selectedCategories.length === 0 || selectedCategories.some(cat => postCategories.includes(cat));
+      var matchSearchQuery = !searchQuery || postTitle.includes(searchQuery) || postDescription.includes(searchQuery) || postDate.includes(searchQuery);
+      var matchCountry = !selectedCountry || postCountry === selectedCountry;
+      var matchIndustry = !selectedIndustry || postIndustry === selectedIndustry;
+
+      return matchCategory && matchSearchQuery && matchCountry && matchIndustry;
+    });
+
+    if (filteredResources.length === 0) {
+      $('.ResourcesCntListingBox-{{name}}').hide();
+      $('#pagination-resources_{{name}}').hide();
+    } else {
+      paginateResources(filteredResources);
+      $('#pagination-resources_{{name}}').show();
+    }
+  }
+
+  {#
+  function paginateResources(resources) {
+    var pageCount = Math.ceil(resources.length / itemsPerPage);
+    paginatedResources = [];
+
+    for (let i = 0; i < pageCount; i++) {
+      var pageItems = resources.slice(i * itemsPerPage, (i + 1) * itemsPerPage);
+      paginatedResources.push(pageItems);
+    }
+
+    displayPage(0);
+    generatePaginationControls(pageCount);
+  }
+
+  function displayPage(pageIndex) {
+    $('.ResourcesCntListingBox-{{name}}').hide();
+
+    var pageItems = paginatedResources[pageIndex];
+    pageItems.forEach(function (item) {
+      $(item).show();
+    });
+
+    if (pageIndex > 0) {
+      $('html, body').animate({
+        scrollTop: $('#resources_cntpost_{{name}}').offset().top
+      }, 'fast');
+    }
+  }
+
+  function generatePaginationControls(pageCount) {
+    var paginationContainer = $('#pagination-resources_{{name}}');
+    paginationContainer.empty();
+
+    if (pageCount > 1) {
+      for (let i = 0; i < pageCount; i++) {
+        var pageButton = $('<button>')
+          .text(i + 1)
+          .click(function () {
+            paginationContainer.data('current-page', i);
+            displayPage(i);
+            paginationContainer.find('button').removeClass('active');
+            $(this).addClass('active');
+          });
+
+        paginationContainer.append(pageButton);
+      }
+
+      paginationContainer.data('current-page', 0);
+      paginationContainer.find('button').first().addClass('active');
+    }
+  }
+#}
+
+function paginateResources(resources) {
+  var pageCount = Math.ceil(resources.length / itemsPerPage);
+  paginatedResources = [];
+
+  for (let i = 0; i < pageCount; i++) {
+    var pageItems = resources.slice(i * itemsPerPage, (i + 1) * itemsPerPage);
+    paginatedResources.push(pageItems);
+  }
+
+  displayPage(0);
+  generatePaginationControls(pageCount);
+}
+
+function displayPage(pageIndex) {
+  $('.ResourcesCntListingBox-{{name}}').hide();
+
+  var pageItems = paginatedResources[pageIndex];
+  pageItems.forEach(function (item) {
+    $(item).show();
+  });
+
+  if (pageIndex > 0) {
+    $('html, body').animate({
+      scrollTop: $('.ResourcesCntListingSection').offset().top
+    }, 'fast');
+  }
+}
+
+function generatePaginationControls(pageCount) {
+  var paginationContainer = $('#pagination-resources_{{name}}');
+  paginationContainer.empty();
+
+  if (pageCount <= 1) return;
+
+  var VISIBLE = 5;
+  var windowStart = 0;
+  var currentPage = 0;
+
+  function render() {
+    paginationContainer.empty();
+
+    var windowEnd = Math.min(windowStart + VISIBLE - 1, pageCount - 1);
+
+    // ← Prev Button
+    var prevBtn = $('<button class="pg-nav pg-prev"></button>')
+      .prop('disabled', currentPage === 0)
+      .click(function () {
+        if (currentPage > 0) {
+          goTo(currentPage - 1);
+        }
+      });
+    paginationContainer.append(prevBtn);
+
+    // Page Number Buttons
+    for (let i = windowStart; i <= windowEnd; i++) {
+      var label = String(i + 1).padStart(2, '0');
+      var pageButton = $('<button class="pg-num">')
+        .text(label)
+        .toggleClass('active', i === currentPage)
+        .click((function (pageIndex) {
+          return function () {
+            goTo(pageIndex);
+          };
+        })(i));
+      paginationContainer.append(pageButton);
+    }
+
+    // "..." Ellipsis — only if more pages exist beyond window
+    if (windowEnd < pageCount - 1) {
+      paginationContainer.append('<span class="pg-dots">...</span>');
+    }
+
+    // → Next Button
+    var nextBtn = $('<button class="pg-nav pg-next"></button>')
+      .prop('disabled', currentPage === pageCount - 1)
+      .click(function () {
+        if (currentPage < pageCount - 1) {
+          goTo(currentPage + 1);
+        }
+      });
+    paginationContainer.append(nextBtn);
+  }
+
+  function goTo(pageIndex) {
+    currentPage = pageIndex;
+
+    var windowEnd = windowStart + VISIBLE - 1;
+
+    // Slide window forward
+    if (currentPage > windowEnd) {
+      windowStart = currentPage;
+    }
+    // Slide window backward
+    else if (currentPage < windowStart) {
+      windowStart = currentPage;
+    }
+
+    // Clamp window so it never exceeds total pages
+    if (windowStart + VISIBLE - 1 > pageCount - 1) {
+      windowStart = Math.max(0, pageCount - VISIBLE);
+    }
+
+    displayPage(currentPage);
+    render();
+  }
+
+  // Initial render
+  render();
+}
+
+
+});
+
+</script>
+{% end_require_js %}

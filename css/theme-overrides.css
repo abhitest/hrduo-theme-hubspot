@@ -91,6 +91,7 @@
   "White": theme.global_colors.white_color.color,
   "White_75": "rgba(" ~ theme.global_colors.white_color.color|convert_rgb ~ ", 0.75)",
   "Black": theme.global_colors.black_color.color,
+  "Black_50": "rgba(" ~ theme.global_colors.black_color.color|convert_rgb ~ ", 0.5)",
   "Dark blue": theme.global_colors.dark_blue_color.color,
   "Dark navy blue": theme.global_colors.dark_navy_blue_color.color,
   "Dark navy blue_75": "rgba(" ~ theme.global_colors.dark_navy_blue_color.color|convert_rgb ~ ", 0.75)",
@@ -856,7 +857,7 @@ p { margin:0; }
 .normal, .normal h1, .normal h2, .normal h3, .normal h4, .normal h5, .normal h6, .normal p { font-weight:400; }
 .light, .light h1, .light h2, .light h3, .light h4, .light h5, .light h6, .light p { font-weight:300; }
 
-.uppercase { text-transform: uppercase; }
+.uppercase, .uppercase * { text-transform: uppercase; }
 .text-center { text-align:center; }
 .text-right { text-align:right; }
 .text-left { text-align:left; }
@@ -1315,6 +1316,110 @@ color: {{ primary_color }};
 .LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field select option {  color: rgba(99, 71, 255,100%);}
 
 
+.ResourcesLisFilterSection {  background: #6347FF;    margin: 20px 20px 0 20px;    border-radius: 30px;    padding: 180px 0 75px;}
+.ResourcesLisFilterBoxSec {   gap: 20px;}
+.ResourcesLisFilterBoxSec .ResourcesLisFilterBox {  width: calc(33.33% - 13.33px);}
+.ResourcesLisFilterBoxSec .searchFilterBox .ResourcesLisFilterBoxFil input {    width: 100%;    background: rgb(255 255 255 / 10%);    border: 1px solid rgb(255 255 255 / 25%);    border-radius: 10px;    padding: 16px 16px;    color: #fff;    outline: none;}
+.ResourcesLisFilterBoxSec .searchFilterBox .ResourcesLisFilterBoxFil input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+.ResourcesLisFilterBoxSec .searchFilterBox .ResourcesLisFilterBoxFil input::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+}
+.ResourcesLisFilterBoxSec .searchFilterBox .ResourcesLisFilterBoxFil input:-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+}
+.ResourcesLisFilterBoxSec .searchFilterBox .ResourcesLisFilterBoxFil input:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+}
+.ResourcesLisFilterBoxSec .ResourcesLisFilterBox select {    width: 100%;    border: 1px solid rgb(255 255 255 / 25%);    border-radius: 10px;    padding: 16px 50px 16px 16px;    color: #fff;    outline: none;    appearance: none;    -webkit-appearance: none;    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='33' viewBox='0 0 33 33' fill='none'%3E%3Crect x='9.1123' y='13.2679' width='12.2351' height='2.04041' rx='0.510101' transform='rotate(45 9.1123 13.2679)' fill='white' stroke='white' stroke-width='1.0202'/%3E%3Crect x='24.9824' y='14.7011' width='12.2485' height='2.0404' rx='0.510101' transform='rotate(135 24.9824 14.7011)' fill='white' stroke='white' stroke-width='1.0202'/%3E%3C/svg%3E"), rgb(255 255 255 / 10%);    background-repeat: no-repeat;    background-size: 32px;    background-position: center right 10px;}
+.ResourcesLisFilterBoxSec .ResourcesLisFilterBox select option {    color: #6347FF;}
+.ResourcesLisFilterBoxSec {  padding-bottom: 56px;    border-bottom: 1px solid rgb(255 255 255 / 25%);    margin-bottom: 56px;}
+
+.ResourcesLisFilterCatebox .ResourcesLisFilterCateboxFil label {  position: relative;}
+.ResourcesLisFilterCatebox .ResourcesLisFilterCateboxFil label input {    position: absolute;    width: 100%;    height: 100%;    top: 50%;    left: 50%;    transform: translate(-50%, -50%);   opacity: 0;    cursor: pointer;    z-index: 1;}
+.ResourcesLisFilterCatebox .ResourcesLisFilterCateboxFil label span {    padding-left: 48px;    position: relative;    line-height: 38px;}
+.ResourcesLisFilterCatebox .ResourcesLisFilterCateboxFil label span:before {    position: absolute;    content: "";    width: 38px;    height: 38px;    background: #FFFFFF1A;    left: 0;    top: 50%;    transform: translateY(-50%);    border-radius: 8px;    border: 1px solid #FFFFFF40;}
+.ResourcesLisFilterCatebox .ResourcesLisFilterCateboxFil label span:after {    position: absolute;    content: "";    width: 38px;    height: 38px;    border-radius: 8px;    left: 0;    top: 50%;    transform: translateY(-50%);    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Crect x='4.25879' y='10.0758' width='6.25' height='1.25' rx='0.3125' transform='rotate(45 4.25879 10.0758)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3Crect x='16.6338' y='6.54031' width='12.5' height='1.25' rx='0.3125' transform='rotate(135 16.6338 6.54031)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3C/svg%3E"), #fff;    background-repeat: no-repeat;    background-size: 20px;    background-position: center center;   opacity: 0;    transition: all ease-in-out 0.3s;}
+.ResourcesLisFilterCatebox .ResourcesLisFilterCateboxFil label input:checked + span:after {    opacity: 1;}
+
+
+.ResourcesCntListingBoxsec .ResourcesCntListingBox {  max-width: calc(33.33% - 13.33px);    width: 100%;}
+.ResourcesCntListingBoxsec .ResourcesCntListingBox .ResourcesCntListingBoxImg {   background-repeat: no-repeat;    background-size: cover;    background-position: center center;    padding-bottom: 65.01%;    border-radius: 20px;}
+.ResourcesCntListingBoxsec .ResourcesCntListingBox .ResourcesCntListingCntBox {    padding-top: 32px;}
+.ResourcesCntListingBoxsec {  row-gap: 60px;}
+.ResourcesCntListingBoxsec .ResourcesCntListingBox .ResourcesCntListingCntBox .ResourcesCntListingBoxCTA a {   display: flex;    align-items: center;    gap: 5px;    color: #6347FF;    font-weight: 500;    position: relative;   width: max-content;}
+.ResourcesCntListingBoxsec .ResourcesCntListingBox .ResourcesCntListingCntBox .ResourcesCntListingBoxCTA a:before {   position: absolute;    content: "";    width: 0;    height: 2px;    left: 0;    background: #6347FF;    bottom: -1px;    transition: all ease-in-out 0.3s;}
+.ResourcesCntListingBoxsec .ResourcesCntListingBox .ResourcesCntListingCntBox .ResourcesCntListingBoxCTA a:hover:before {   width: calc(100% - 21px);}
+
+.ResHubCTASection .ResHubCTAImg {  position: absolute;    width: 100%;    height: 100%;    top: 0; left: 0;}
+.ResHubCTASection .ResHubCTAImg img {  width: 100%;    height: 100%;    object-fit: contain;    object-position: left;}
+.ResHubCTASection .ResHubCTAInSec {    max-width: 657px;    width: 100%;    margin: 0 0 0 auto;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection {   max-width: 580px;    width: 100%;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form {  position: relative;}
+.ResHubCTAForm {   margin-top: 32px;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form .hs-form-field {  margin-bottom: 0;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form  .hs_submit {    position: absolute;    top: 50%;    transform: translateY(-50%);    right: 0;    display: inline-block;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"] { padding: 15px 150px 15px 24px;    background: #FFFFFF1A;    border: 1px solid #FFFFFF40;    color: #fff; outline: none;}
+
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"]::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"]:-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"]:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+}
+
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form .hs_submit .actions {  background: #fff;    border-radius: 46px;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form .hs_submit .actions input[type="submit"] {   min-width: 142px;    padding: 15px 25px;    background: linear-gradient(90deg, #6347FF 25%, #8E7AFF 50%, #6347FF 75%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;}
+.ResHubCTAFormCnt {  max-width: 469px;    width: 100%;}
+.ResHubCTAFormCnt p {    line-height: 1.3;}
+.ResHubCTASection .ResHubCTAshape {  position: absolute;    top: 0;    left: 0;    width: 100%;  height: 100%;}
+.ResHubCTASection .ResHubCTAshape svg {  height: 100%;}
+.ResHubCTASection .ResHubCTAImg {  left: calc(((100% - 1270px) / 2) - 60px);}
+
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form  .hs-error-msgs {  display: none;}
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form .hs_error_rollup {   display: none;}
+.ResHubCTAForm .submitted-message {  color: #fff;}
+
+.ResourcesCntListingpagi {  display: flex;    align-items: center;    justify-content: center;    gap: 10px;}
+.ResourcesCntListingpagi button {  width: 38px;    height: 38px;    border: 1px solid #000;    border-radius: 8px;    background: #fff;    outline: none;    display: flex;    align-items: center;    justify-content: center;    color: #000000;    font-size: 18px;    font-weight: 500;   transition: all ease-in-out 0.3s;}
+.ResourcesCntListingpagi span.pg-dots {    width: 38px;    height: 38px;    border: 1px solid #000;    border-radius: 8px;    background: #fff;    outline: none;    display: flex;    align-items: center;    justify-content: center;    color: #000000;    font-size: 18px;    font-weight: 500;    transition: all ease-in-out 0.3s;}
+.ResourcesCntListingpagi button.pg-nav {  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='33' viewBox='0 0 33 33' fill='none'%3E%3Crect x='19.3779' y='9.11353' width='12.2351' height='2.04041' rx='0.510101' transform='rotate(135 19.3779 9.11353)' fill='white' stroke='white' stroke-width='1.0202'/%3E%3Crect x='17.9453' y='24.9836' width='12.2485' height='2.0404' rx='0.510101' transform='rotate(-135 17.9453 24.9836)' fill='white' stroke='white' stroke-width='1.0202'/%3E%3C/svg%3E"), #000;    background-repeat: no-repeat;    background-size: 30px;    background-position: center right 2px;    transition: all ease-in-out 0.3s;}
+.ResourcesCntListingpagi button.pg-nav.pg-next {transform: rotate(180deg);margin-left: 22px;}
+.ResourcesCntListingpagi button.pg-nav[disabled] {    opacity: 30%;}
+.ResourcesCntListingpagi button.pg-nav.pg-prev {  margin-right: 22px;}
+.ResourcesCntListingpagi button.pg-num.active {   background: #000;    color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1326,6 +1431,12 @@ color: {{ primary_color }};
 
 @media (max-width : 1440px){
   .BookDemoCTASection .BookDemoCTAImge { left: 0; }
+}
+
+@media (max-width:1366px){
+  .ResHubCTASection .ResHubCTAImg {
+    left: 30px;
+}
 }
 
 
@@ -1361,6 +1472,8 @@ color: {{ primary_color }};
 .LContentRFormBannerInSec {  gap: 50px;}
 .LContentRFormBannerInSec .LContentRFormBannerRTCol {  max-width: calc(50% - 50px);}
 
+.ResourcesCntListingSection {  padding: 100px 0;}
+
 }
 
 @media (max-width : 1230px){
@@ -1389,6 +1502,8 @@ color: {{ primary_color }};
 .AllourplanBoxSection .AllourplanBox {  max-width: calc(33.33% - 13.33px);}
 .OurCustomerLogoBoxSection .OurCustomerLogoBox {  max-width: calc(25% - 9px);}
 
+.ResHubCTASection .ResHubCTAImg {  left: 0;    width: 67%;}
+.ResHubCTASection .ResHubCTAImg img {  object-position: bottom;}
 
 }
 
@@ -1406,6 +1521,11 @@ h4, .h4 {   font-size: 22px;}
 .PlanThreeColBoxSection .PlanThreeColBox .PlanThreeColBoxTitleSec {  padding: 30px 15px;}
 
 .LContentRFormBannerInSec .LContentRFormBannerRTCol {  padding: 30px 20px;}
+
+.ResourcesLisFilterCateboxFil {  gap: 40px 20px;}
+
+.ResHubCTASection .ResHubCTAInSec {  max-width: 600px;}
+
 }
 
 @media (max-width : 991px){
@@ -1471,6 +1591,19 @@ h2, .h2 {    font-size: 37px;}
 .LContentRFormBannerInSec .LContentRFormBannerLTCol {  max-width: 100%;}
 .LContentRFormBannerInSec .LContentRFormBannerRTCol {  max-width: 100%;  padding: 30px 50px;}
 
+.ResourcesLisFilterBoxSec {  padding-bottom: 30px;    margin-bottom: 30px;}
+.ResourcesCntListingBoxsec .ResourcesCntListingBox {  max-width: calc(50% - 10px);}
+.ResourcesCntListingSection {   padding: 50px 0;}
+.ResourcesCntListingpagi {    padding-top: 40px;}
+.ResourcesCntListingBoxsec { row-gap: 30px; }
+
+.ResHubCTASection .ResHubCTAInSec {
+    max-width: 100%;
+}
+
+.ResHubCTASection .ResHubCTAImg {
+    display: none;
+}
 
 }
 
@@ -1496,6 +1629,10 @@ h2, .h2 {    font-size: 37px;}
 .problemInSec { padding: 0; }
 
 .PlanThreeColBoxSection .PlanThreeColBox {  max-width: 80%;}
+
+.ResourcesLisFilterBoxSec .ResourcesLisFilterBox {  width: 100%;}
+.ResourcesLisFilterSection {  padding: 130px 0 50px;}
+.ResourcesLisFilterCateboxFil {  gap: 20px;}
 
 }
 
@@ -1568,6 +1705,8 @@ h2, .h2 {    font-size: 28px;}
 
 .LContentRFormBannerInSec .LContentRFormBannerRTCol {  padding: 30px;}
 
+.ResourcesCntListingBoxsec .ResourcesCntListingBox {  max-width: 100%;}
+
 }
 
 @media (max-width: 480px){
@@ -1608,6 +1747,25 @@ h5, .h5 {   font-size: 18px;}
 .LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset.form-columns-2 .hs-form-field {  width: 100%;}
 .LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field label {   font-size: 16px;}
 .LContentRFormBannerInSec .LContentRFormBannerRTCol {  padding: 30px 20px;}
+
+.ResourcesCntListingBoxsec .ResourcesCntListingBox .ResourcesCntListingCntBox {  padding-top: 20px;}
+.ResourcesCntListingpagi button.pg-nav.pg-prev {  margin-right: 0;    background-position: center right 5px;}
+.ResourcesCntListingpagi button.pg-nav.pg-next {  margin-left: 0;    background-position: center right 4px;}
+.ResourcesCntListingpagi button {   width: 30px;    height: 30px;    font-size: 14px;}
+.ResourcesCntListingpagi span.pg-dots { width: 30px;    height: 30px;    font-size: 14px;}
+.ResourcesCntListingpagi button.pg-nav {    width: 30px;    height: 30px;    background-size: 18px;}
+
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form .hs_submit {
+    position: unset;
+    transform: unset;
+    margin-top: 20px;
+}
+
+.ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"] {
+    padding: 15px;
+}
+
+
 
 }
 
