@@ -1,45 +1,30 @@
-<div class="{{ name }} baseModuleStyle switchingTCSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
-  <div class="switchingTCShape">
-    <svg  width="1400" height="230" viewBox="0 0 1400 230" fill="none">
-<g opacity="0.75" filter="url(#filter0_f_6003_1832)">
-<circle cx="889" cy="57" r="218" fill="#6347FF"/>
-</g>
-<g opacity="0.75" filter="url(#filter1_f_6003_1832)">
-<circle cx="512" cy="377" r="218" fill="#6347FF"/>
-</g>
-<defs>
-<filter id="filter0_f_6003_1832" x="171" y="-661" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6003_1832"/>
-</filter>
-<filter id="filter1_f_6003_1832" x="-206" y="-341" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6003_1832"/>
-</filter>
-</defs>
-</svg>
-  </div>
+<div class="{{ name }} baseModuleStyle BannerVideoSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption switchingTCInSec text-center ">
+      <div class="customWidthOption BannerVideoInSec">
+        <div class="BannerVideoTitleSection text-center {% if module.content_group.video_file %} pb75 {% endif %}">
+          {% if module.content_group.tag %}
+          <div class="BannerVideoTag TagStyle p3">
+            <p>{{ module.content_group.tag }}</p>
+          </div>
+          {% endif %}
+
         {% if  module.content_group.title  %}
-        <div class="moduleTitle switchingTCTitle white_color">
-          {{ module.content_group.title }}
-        </div>
+            <div class="moduleTitle BannerVideoTitle pt20 white_color">
+              {{ module.content_group.title }}
+            </div>
           {% endif %}
           {% if module.content_group.content %}
-          <div class="moduleContent pt20 switchingTCContent medium white_color">
+          <div class="moduleContent BannerVideoContent pt20 white_color">
             {{ module.content_group.content }}
           </div>
           {% endif %}
 
-   {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center flex_center gap20 pt20 switchingTCCTA">
-            {% for item in module.content_group.cta_group %}
+           {% if module.content_group.want_cta %}
+          <div class="BannerVideoCTA d_flex align_center gap10 pt40 flex_center">
+                {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
               {% if CTA.cta_choice == "normalcta" %}
@@ -57,7 +42,7 @@
                    {% if CTA.button_link.open_in_new_tab %}target="_blank"{% endif %}
                    {% if CTA.button_link.rel %}rel="{{ CTA.button_link.rel }}"{% endif %}
                    >
-                  {{ CTA.button_text }}
+                  <span class="btn_text_gradient">{{ CTA.button_text }}</span>
                   {% if CTA.want_arrow %}
                     <span class="arrow">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -85,8 +70,18 @@
           </div>
           {% endif %}
 
+        </div>
+           {% if module.content_group.video_file %}
+          <div class="BannerVideoBox ">
+              <video id="bannervideo" autoplay="" loop="" width="640" height="480" poster="{{ module.content_group.video_thumbnail_image.src }}" playsinline="true" 
+  webkit-playsinline="true" preload="auto">
+                    <source type="video/mp4" src="{{ module.content_group.video_file }}">
+            </video>
+            <div class="videoplaybtn play-btn">
 
-
+            </div>
+          </div>
+          {% endif %}
       </div>
           {# End Custum Width Option #}
 
@@ -98,15 +93,17 @@
 </div>
 
     {% require_css %}
-    
+
+   
     <style>
 
 {#       {% scope_css %} #}
-        
+
+.BannerVideoTitleSection { max-width: {{ module.content_group.content_width }}px }
+      
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
-        position:relative;
-      
+        position:relative;      
         {{ module.style.spacing.desktop_spacing.css }}
        
         {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -116,7 +113,7 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-         margin-left : 20px;margin-right: 20px; border-radius : 30px;
+        margin-left: 20px;margin-right: 20px; border-radius: 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -139,8 +136,9 @@
       {# Mobile Styling #}
       @media(max-width:767px){
         .{{name}}.baseModuleStyle{
-          {{ module.style.spacing.mobile_spacing.css  }}
-           margin-left : 10px;margin-right: 10px;
+          {{ module.style.spacing.mobile_spacing.css  }};
+          margin-left: 10px;margin-right: 10px; 
+           
         } 
       }
       

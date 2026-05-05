@@ -37,144 +37,163 @@
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ 
+  "children" : [
     {
-    "id" : "title",
-    "name" : "title",
-    "label" : "Title",
-    "help_text" : "",
-    "inline_help_text" : "",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default": "<h3>Thinking of switching to HR Duo?</h3>"
-  }, {
-    "id" : "content",
-    "name" : "content",
-    "label" : "Content",
-    "required" : false,
-    "locked" : false,
-    "display_width" : null,
-    "type" : "richtext",
-    "default" : "<p>Explore why more businesses are choosing to partner with us over other providers.</p>"
-  },
-    {
-        "label": "Want CTA",
-        "name": "want_cta",
-        "required": false,
-        "locked": false,
-        "type": "boolean",
-        "inline_help_text": "",
-        "help_text": "",
-        "default": false
-     },
-     {
-     "name": "cta_group",
-     "label": "CTA group",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "group",
-     "default": null,
-     "occurrence" : {
-      "default" : 1
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.want_cta",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      }, 
+    "name": "left_column_group",
+    "label": "Company Overview Group",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
     "children": [
-        {
-        "name": "cta_choice",
-        "label": "CTA Choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "normalcta",
-          "Normal CTA"
-        ],
-        [
-          "hubspotCTA",
-          "Hubspot CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "normalcta" 
-        },
-        {
-        "name": "choice_cta_style",
-        "label": "Choice CTA Style",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "button",
-          "Primary CTA"
-        ],
-        [
-          "secondary_button",
-          "Secondary CTA"
-        ],
-        [
-          "tertiary_button",
-          "Tertiary CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "button"
-       },
-       {
-       "name": "button_alignment",
-       "label": "Button Alignment",
-       "required": false,
-       "locked": false,
-       "display": "select",
-       "inline_help_text": "",
-       "help_text": "",
-       "choices": [
-       [
-         "text-left",
-         "Left"
-       ],
-       [
-         "text-center",
-         "Center"
-       ],
-       [
-         "text-right",
-         "Right"
-       ]
-       ],
-       "type": "choice",
-       "placeholder": "",
-       "default": null 
-      },
       {
-      "name": "want_arrow",
-      "label": "Want Arrow",
+      "name": "overview_group",
+      "label": "Overview Group",
       "required": false,
       "locked": false,
-      "type": "boolean",
-      "display":"toggle",
+      "type": "group",
       "inline_help_text": "",
       "help_text": "",
-      "default": false 
+      "children": [
+        {
+        "name": "title",
+        "label": "Title",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Overview" 
+        },
+        {
+        "name": "company",
+        "label": "Company Name",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Elliott Group" 
+        },
+        {
+        "name": "location",
+        "label": "Location",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "United Kingdom & Ireland" 
+        },
+        {
+        "name": "industry",
+        "label": "Industry",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Construction & Civil Engineering" 
+        }
+
+      ],
+      "default": {} 
       },
       {
-      "name": "button_text",
-      "label": "Button Text",
+      "name": "case_study_group",
+      "label": "Case Study Group",
+      "required": false,
+      "locked": false,
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "children": [
+        {
+        "name": "title",
+        "label": "Title",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Explore this case study if:" 
+        },
+        {
+        "name": "list_group",
+        "label": "list_group",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": null,
+          "max": null,
+          "sorting_label_field": null,
+          "default": 3
+        },
+        "type": "group",
+        "inline_help_text": "",
+        "help_text": "",
+        "children": [
+          {
+          "name": "text",
+          "label": "Text",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "validation_error_message": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "You manage construction teams or subcontractors across multiple sites." 
+        }
+        ],
+        "default": [] }
+      ],
+      "default": {} 
+    }
+    ],
+    "default": {} 
+    },
+    {
+    "name": "right_column_group",
+    "label": "Company Content Group",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+      {
+      "name": "title",
+      "label": "Title",
       "required": false,
       "locked": false,
       "validation_regex": "",
@@ -185,154 +204,21 @@
       "placeholder": "",
       "inline_help_text": "",
       "help_text": "",
-      "default": "Click Here",
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
+      "default": "Elliott Group"
+      },
+      {
+      "name": "content",
+      "label": "Content",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>Managing a project-led workforce with varied skills, compliance requirements, and shifting schedules created increasing complexity for the organisation. Elliott Group needed a modern HRMS that could support large-scale projects, subcontractor management, and multi-site operations while improving compliance and reducing administrative burden.</p><p>Elliott Group has been delivering major construction projects since the 1920s. With a reputation built over generations, the company now operates across London, Birmingham, Dublin, and Cork, supported by a skilled workforce of over 275 employees and a large network of subcontractors.</p><p>Their teams have contributed to landmark developments including London 2012, Croke Park, the Irish Times Building, and major healthcare and public sector schemes. Today, Elliott Group continues to work with leading clients such as Google, Dunnes Stores, HSE, Vhi, Whitbread, and Richmond Homes.</p>" 
       }
-      },
-      {
-      "name" : "button_link",
-      "label" : "Button Link",
-      "required" : false,
-      "locked" : false,
-      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-      "type" : "link",
-      "inline_help_text": "",
-      "help_text": "",
-      "default" : {
-        "url" : {
-          "content_id" : null,
-          "type" : "EXTERNAL",
-          "href" : ""
-        },
-        "open_in_new_tab" : false,
-        "no_follow" : false
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name": "hubspot_cta",
-      "label": "HubSpot CTA",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "cta",
-      "default": null,
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "hubspotCTA",
-       "operator": "EQUAL"
-      }
-    },
-      {
-      "name": "override_button_style",
-      "label": "Override Button Style",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-    },
-     {
-     "name": "button_style_group",
-     "label": "Button Style Group",
-     "required": false,
-     "locked": false,
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "visibility": {
-       "controlling_field_path": "content_group.cta_group.override_button_style",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      },
-  
-     "children": [
-      {
-      "name": "btn_bg_color",
-      "label": "Button Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color",
-      "label": "Text Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_bg_color_hover",
-      "label": "Background color on hover",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color_hover",
-      "label": "Text Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color_hover",
-      "label": "Button border Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      }
-    ]
-     
-    }
-    ]
-     }
+    ],
+    "default": {} 
+  }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -368,8 +254,7 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default" : "bgColor"
+      "type" : "choice"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -416,8 +301,8 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#202640",
-        "opacity" : 100,
+        "color" : null,
+        "opacity" : null,
         "hex" : null,
         "rgba" : null,
         "rgb" : null
@@ -468,11 +353,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 75,
+            "value" : 100,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 75,
+            "value" : 100,
             "units" : "px"
           },
           "left" : {
@@ -498,11 +383,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "left" : {

@@ -39,6 +39,23 @@
   "locked" : false,
   "children" : [ 
     {
+    "name": "image",
+    "label": "Image",
+    "required": false,
+    "locked": false,
+    "inline_help_text": "",
+    "help_text": "",
+    "responsive": true,
+    "resizable": true,
+    "show_loading" : false,
+    "type": "image",
+    "default": {
+      "size_type" : "auto",
+      "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Mask%20group%20(16).png",
+      "alt": "Mask group (16)",
+      "loading": "disabled"}
+    },
+    {
     "id" : "title",
     "name" : "title",
     "label" : "Title",
@@ -48,8 +65,9 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Thinking of switching to HR Duo?</h3>"
-  }, {
+    "default": "<h2 class='h1'>Get Your Free Demo</h2>"
+  }, 
+  {
     "id" : "content",
     "name" : "content",
     "label" : "Content",
@@ -57,282 +75,36 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Explore why more businesses are choosing to partner with us over other providers.</p>"
+    "default" : "<p>Our dynamic duo of world-class HR tools and smart Workforce Management technology delivers up to 80% of your day-to-day needs, automating the tedious tasks that sap away your time. </p>"
   },
-    {
-        "label": "Want CTA",
-        "name": "want_cta",
-        "required": false,
-        "locked": false,
-        "type": "boolean",
-        "inline_help_text": "",
-        "help_text": "",
-        "default": false
-     },
-     {
-     "name": "cta_group",
-     "label": "CTA group",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "group",
-     "default": null,
-     "occurrence" : {
-      "default" : 1
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.want_cta",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      }, 
-    "children": [
-        {
-        "name": "cta_choice",
-        "label": "CTA Choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "normalcta",
-          "Normal CTA"
-        ],
-        [
-          "hubspotCTA",
-          "Hubspot CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "normalcta" 
-        },
-        {
-        "name": "choice_cta_style",
-        "label": "Choice CTA Style",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "button",
-          "Primary CTA"
-        ],
-        [
-          "secondary_button",
-          "Secondary CTA"
-        ],
-        [
-          "tertiary_button",
-          "Tertiary CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "button"
-       },
-       {
-       "name": "button_alignment",
-       "label": "Button Alignment",
-       "required": false,
-       "locked": false,
-       "display": "select",
-       "inline_help_text": "",
-       "help_text": "",
-       "choices": [
-       [
-         "text-left",
-         "Left"
-       ],
-       [
-         "text-center",
-         "Center"
-       ],
-       [
-         "text-right",
-         "Right"
-       ]
-       ],
-       "type": "choice",
-       "placeholder": "",
-       "default": null 
-      },
-      {
-      "name": "want_arrow",
-      "label": "Want Arrow",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "display":"toggle",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-      },
-      {
-      "name": "button_text",
-      "label": "Button Text",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Click Here",
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name" : "button_link",
-      "label" : "Button Link",
-      "required" : false,
-      "locked" : false,
-      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-      "type" : "link",
-      "inline_help_text": "",
-      "help_text": "",
-      "default" : {
-        "url" : {
-          "content_id" : null,
-          "type" : "EXTERNAL",
-          "href" : ""
-        },
-        "open_in_new_tab" : false,
-        "no_follow" : false
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name": "hubspot_cta",
-      "label": "HubSpot CTA",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "cta",
-      "default": null,
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "hubspotCTA",
-       "operator": "EQUAL"
-      }
-    },
-      {
-      "name": "override_button_style",
-      "label": "Override Button Style",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-    },
-     {
-     "name": "button_style_group",
-     "label": "Button Style Group",
-     "required": false,
-     "locked": false,
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "visibility": {
-       "controlling_field_path": "content_group.cta_group.override_button_style",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      },
-  
-     "children": [
-      {
-      "name": "btn_bg_color",
-      "label": "Button Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color",
-      "label": "Text Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_bg_color_hover",
-      "label": "Background color on hover",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color_hover",
-      "label": "Text Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color_hover",
-      "label": "Button border Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      }
-    ]
-     
-    }
-    ]
-     }
+  {
+  "name": "form_title",
+  "label": "Form Title",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "validation_error_message": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "Download Free Resource" 
+  },
+  {
+  "name": "form",
+  "label": "Form",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "type": "form",
+  "default": {
+    "form_id": "24770ee3-9300-4ba2-8d0d-25cf2a1c224a",
+    "response_type": "inline",
+    "message": "Thanks for submitting the form." } 
+  }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -353,7 +125,8 @@
     "inline_help_text" : "",
     "required" : false,
     "locked" : false,
-    "children" : [ {
+    "children" : [ 
+      {
       "id" : "style.background_property.background_choice",
       "name" : "background_choice",
       "label" : "Select Background Type",
@@ -369,7 +142,7 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default" : "bgColor"
+      "default": "bgColor"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -416,7 +189,7 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#202640",
+        "color" : "#6347FF",
         "opacity" : 100,
         "hex" : null,
         "rgba" : null,
@@ -468,11 +241,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 75,
+            "value" : 80,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 75,
+            "value" : 80,
             "units" : "px"
           },
           "left" : {
@@ -482,6 +255,12 @@
           "right" : {
             "value" : null,
             "units" : null
+          }
+        },
+        "margin" : {
+"bottom" : {
+            "value" : 20,
+            "units" : "px"
           }
         }
       }
@@ -542,6 +321,12 @@
           "right" : {
             "value" : null,
             "units" : null
+          }
+        },
+        "margin" : {
+"bottom" : {
+            "value" : 10,
+            "units" : "px"
           }
         }
       }

@@ -48,8 +48,9 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Thinking of switching to HR Duo?</h3>"
-  }, {
+    "default": "<h3>About This Webinar</h3>"
+  },
+   {
     "id" : "content",
     "name" : "content",
     "label" : "Content",
@@ -57,282 +58,50 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Explore why more businesses are choosing to partner with us over other providers.</p>"
+    "default" : "<p>All eyes have been on the Employment Rights Bill in 2025 as it has been making its way through parliament with its proposals for new day-one rights, enhanced protections for workers and tighter expectations on employers.</p><p>We’ll be taking a look at all of this - as well as other key developments in employment law (GB), so that you can focus on how changes might affect the principles, policies and practices that you adopt within your organisation. </p><p>Whether you're dealing with day-to-day people issues or more complex challenges, this session will help you stay on the front foot.</p>"
   },
+  {
+  "name": "rt_title",
+  "label": "Right Column Title",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "validation_error_message": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "What We’ll Cover" 
+  },
+  {
+  "name": "list_group",
+  "label": "List Group",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 3
+  },
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "children": [
     {
-        "label": "Want CTA",
-        "name": "want_cta",
-        "required": false,
-        "locked": false,
-        "type": "boolean",
-        "inline_help_text": "",
-        "help_text": "",
-        "default": false
-     },
-     {
-     "name": "cta_group",
-     "label": "CTA group",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "group",
-     "default": null,
-     "occurrence" : {
-      "default" : 1
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.want_cta",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      }, 
-    "children": [
-        {
-        "name": "cta_choice",
-        "label": "CTA Choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "normalcta",
-          "Normal CTA"
-        ],
-        [
-          "hubspotCTA",
-          "Hubspot CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "normalcta" 
-        },
-        {
-        "name": "choice_cta_style",
-        "label": "Choice CTA Style",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "button",
-          "Primary CTA"
-        ],
-        [
-          "secondary_button",
-          "Secondary CTA"
-        ],
-        [
-          "tertiary_button",
-          "Tertiary CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "button"
-       },
-       {
-       "name": "button_alignment",
-       "label": "Button Alignment",
-       "required": false,
-       "locked": false,
-       "display": "select",
-       "inline_help_text": "",
-       "help_text": "",
-       "choices": [
-       [
-         "text-left",
-         "Left"
-       ],
-       [
-         "text-center",
-         "Center"
-       ],
-       [
-         "text-right",
-         "Right"
-       ]
-       ],
-       "type": "choice",
-       "placeholder": "",
-       "default": null 
-      },
-      {
-      "name": "want_arrow",
-      "label": "Want Arrow",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "display":"toggle",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-      },
-      {
-      "name": "button_text",
-      "label": "Button Text",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Click Here",
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name" : "button_link",
-      "label" : "Button Link",
-      "required" : false,
-      "locked" : false,
-      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-      "type" : "link",
-      "inline_help_text": "",
-      "help_text": "",
-      "default" : {
-        "url" : {
-          "content_id" : null,
-          "type" : "EXTERNAL",
-          "href" : ""
-        },
-        "open_in_new_tab" : false,
-        "no_follow" : false
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name": "hubspot_cta",
-      "label": "HubSpot CTA",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "cta",
-      "default": null,
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "hubspotCTA",
-       "operator": "EQUAL"
-      }
-    },
-      {
-      "name": "override_button_style",
-      "label": "Override Button Style",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-    },
-     {
-     "name": "button_style_group",
-     "label": "Button Style Group",
-     "required": false,
-     "locked": false,
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "visibility": {
-       "controlling_field_path": "content_group.cta_group.override_button_style",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      },
-  
-     "children": [
-      {
-      "name": "btn_bg_color",
-      "label": "Button Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color",
-      "label": "Text Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_bg_color_hover",
-      "label": "Background color on hover",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color_hover",
-      "label": "Text Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color_hover",
-      "label": "Button border Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      }
-    ]
-     
+    "name": "content",
+    "label": "Content",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "<p>The key proposals contained within the Employment Rights Bill and their associated implementation dates.</p>" 
     }
-    ]
-     }
+  ],
+  "default": [] }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -368,8 +137,7 @@
       "reordering_enabled" : true,
       "preset" : null,
       "display_width" : null,
-      "type" : "choice",
-      "default" : "bgColor"
+      "type" : "choice"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -416,8 +184,8 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#202640",
-        "opacity" : 100,
+        "color" : null,
+        "opacity" : null,
         "hex" : null,
         "rgba" : null,
         "rgb" : null
@@ -468,11 +236,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 75,
+            "value" : 100,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 75,
+            "value" : 100,
             "units" : "px"
           },
           "left" : {
@@ -498,11 +266,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "left" : {

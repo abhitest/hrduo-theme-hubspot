@@ -1,0 +1,97 @@
+<div class="{{ name }} baseModuleStyle WebinarCoverSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+  <div class="baseModuleParent"> 
+    <div class="content-wrapper">
+      {# Custum Width Option #}
+      <div class="customWidthOption WebinarCoverInSec d_flex align_center">
+        <div class="WebinarCoverLTCol">
+             {% if  module.content_group.title  %}
+        <div class="moduleTitle WebinarCoverTitle">
+          {{ module.content_group.title }}
+        </div>
+          {% endif %}
+          {% if module.content_group.content %}
+          <div class="moduleContent pt20 WebinarCoverContent secondary_60_color">
+            {{ module.content_group.content }}
+          </div>
+          {% endif %}
+        </div>
+        <div class="WebinarCoverRTCol">
+          {% if module.content_group.rt_title  %}
+          <div class="WebinarCoverBoxTitle">
+            <h5>{{ module.content_group.rt_title }}</h5>
+          </div> 
+          {% endif %}
+          {% if module.content_group.list_group|length %}
+          <div class="WebinarCoverBoxList">
+            <ul>
+              {% for item in module.content_group.list_group  %}
+              <li>
+                <span class="WebinarCoverBoxnumber">{% if loop.index <= "9" %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+                <span class="WebinarCoverBoxtext secondary_60_color">{{ item.content }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+       
+        
+      </div>
+          {# End Custum Width Option #}
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    {% require_css %}
+
+    <style>
+
+{#       {% scope_css %} #}
+        
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

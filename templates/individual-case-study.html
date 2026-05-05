@@ -1,0 +1,65 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Individual case study
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+{# All templates are recommended to have an h1 present for both accessibility and SEO best practice. This should be at the top of the template before any other textual content. The h1 element below is within a dnd area to allow content editors the ability to adjust the content and alignment of the text. #}
+
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--individual-case-study"
+%}
+
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/case-study-banner-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/case-study-overview-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/left-content-right-list-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/four-column-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/four-column-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/testimonial-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/four-column-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+ 
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/FAQ-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+ 
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/get-free-demo-cta-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

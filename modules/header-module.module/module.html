@@ -182,5 +182,92 @@
                     </div>
                 </div>
         </div>
+
+
+
+ <div style="display:none;">
+                {% for item in module.mega_menu_group %}
+                
+           {% set image_items = item.menu_group|selectattr('item_choice', 'equalto', 'image')|list %}
+
+                <ul  class="hs-menu-children-wrapper bm-add-m{{ item.add_number_of_menu }}">
+                    <div class='headermegamenusection {% if image_items|length > 0 %}has-image {% else %} no-img{% endif %}'>
+
+                      <div class="headermegamenuBoxSec d_flex align_start {% if image_items|length > 0 %} gap32 {% else %} gap48 {% endif %}">
+                        {% for item2 in item.menu_group %}
+                        <div class="headermegamenuBox {{ item2.item_choice }}">
+                          {% if item2.item_choice == "image" %}
+                          
+                            {% set image = item2.image_menu_group %}
+                          <div class="headermegamenuimgBox">
+                            <img src="{{ image.menu_image.src }}" alt="{{ image.menu_image.alt }}">
+                            <div class="headermegamenuimgText white_color">
+                              <h3>{{ image.text }}</h3>
+                            </div>
+                            {% set href = image.button_link.url.href %}
+                {% if image.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + href %}
+                {% endif %}
+                {% if image.button_link.url.type is equalto "PHONE_NUMBER" %}
+                {% set href = "tel:" + href %}
+                {% endif %}
+
+                <a href="{{ href }}" class="headermegamenuimglink"
+                   {% if image.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                   {% if image.button_link.rel %}rel="{{ image.button_link.rel }}"{% endif %}
+                   >
+                 
+                </a>
+                          </div>
+                          {% elif  item2.item_choice == "menu" %}
+                          {% set menu = item2.menu_items %}
+                          <div class="headermegamenuBoxMenusec">
+                            <div class="headermegamenuBoxTitlecol">
+                              <div class="headermegamenuBoximg">
+                                <img src="{{ menu.title_logo.src }}" alt="{{ menu.title_logo.alt }}">
+                              </div>
+                              <div class="headermegamenuBoxText white_color">
+                                <h5>{{ menu.title }}</h5>
+                              </div>
+                            </div>
+                            <div class="headermegamenuBoxList ">
+                              <ul>
+                                {% for item3 in menu.menu_list %}
+                                <li>
+                                  {% set href = item3.button_link.url.href %}
+                                  {% if item3.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                                  {% set href = "mailto:" + href %}
+                                  {% endif %}
+                                  {% if item3.button_link.url.type is equalto "PHONE_NUMBER" %}
+                                  {% set href = "tel:" + href %}
+                                  {% endif %}
+
+                                  <a href="{{ href }}" class="p2 white_color"
+                                    {% if item3.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                                    {% if item3.button_link.rel %}rel="{{ item3.button_link.rel }}"{% endif %}
+                                    >
+                                    {{ item3.menu_text }}
+                                  </a>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+                          {% endif %}
+
+                        </div>
+                        {% endfor %}
+                      </div>
+
+                    </div>
+                </ul>
+                {% endfor %}
+            </div>
+
+
+
+
+
+
     </div>
 </header>

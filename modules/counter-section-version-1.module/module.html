@@ -1,44 +1,55 @@
-<div class="{{ name }} baseModuleStyle switchingTCSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
-  <div class="switchingTCShape">
-    <svg  width="1400" height="230" viewBox="0 0 1400 230" fill="none">
-<g opacity="0.75" filter="url(#filter0_f_6003_1832)">
-<circle cx="889" cy="57" r="218" fill="#6347FF"/>
-</g>
-<g opacity="0.75" filter="url(#filter1_f_6003_1832)">
-<circle cx="512" cy="377" r="218" fill="#6347FF"/>
-</g>
-<defs>
-<filter id="filter0_f_6003_1832" x="171" y="-661" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6003_1832"/>
-</filter>
-<filter id="filter1_f_6003_1832" x="-206" y="-341" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6003_1832"/>
-</filter>
-</defs>
+<div class="{{ name }} baseModuleStyle Counterv1Section {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+    <div class="Counterv1Shape"> 
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="522" viewBox="0 0 270 522" fill="none">
+<path d="M-130 493.401C-130 604.287 -41.5131 692.774 70.6261 692.774C182.765 692.774 270 604.287 270 493.401C270 382.514 181.513 292.774 70.6261 292.774C-40.2609 292.774 -130 381.261 -130 493.401ZM70.6261 229.053C181.513 229.053 270 140.566 270 29.6788C270 -81.2081 181.513 -170.947 70.6261 -170.947C-40.2609 -170.947 -130 -82.4603 -130 29.6788C-130 141.818 -41.5131 229.053 70.6261 229.053Z" fill="#312480"/>
 </svg>
   </div>
-  <span class="baseModuleOverlay"></span>
+  {% if module.content_group.bg_image.src %}
+  <div class="Counterv1Image">
+          <img src="{{ module.content_group.bg_image.src }}" alt="{{ module.content_group.bg_image.alt }}">
+        </div>
+        {% endif %}
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption switchingTCInSec text-center ">
+      <div class="customWidthOption Counterv1InSection">
+        <div class="Counterv1InBoxSec">
         {% if  module.content_group.title  %}
-        <div class="moduleTitle switchingTCTitle white_color">
+        <div class="moduleTitle Counterv1Title white_color">
           {{ module.content_group.title }}
         </div>
           {% endif %}
           {% if module.content_group.content %}
-          <div class="moduleContent pt20 switchingTCContent medium white_color">
+          <div class="moduleContent pt10 Counterv1Content white_75_color">
             {{ module.content_group.content }}
           </div>
           {% endif %}
 
-   {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center flex_center gap20 pt20 switchingTCCTA">
+          <div class="Counterv1BoxSection d_flex pt30">
+            {% for item in module.content_group.counter_group %}
+            <div class="Counterv1Box white_color">
+              <div class="Counterv1Boxin">
+
+              
+              <div class="Counterv1BoxNumber">
+                <h4 class="h1">
+                  <span class="counternumber" data-max="{{ item.box_number }}"></span>
+                  <span>{{ item.box_number_text }}</span>
+                </h4>
+              </div>
+              <div class="Counterv1BoxText pt15">
+                <p>{{ item.box_content }}</p>
+              </div>
+            </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          {# Button and Cta Option #}
+
+          {% if module.content_group.want_cta %}
+          <div class="moduleCTA d_flex align_center Counterv1Btns gap20 pt30">
             {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
@@ -85,8 +96,9 @@
           </div>
           {% endif %}
 
+          {# End Button and Cta Option #}
 
-
+           </div>
       </div>
           {# End Custum Width Option #}
 
@@ -98,7 +110,32 @@
 </div>
 
     {% require_css %}
+    <style>
+     {% scope_css %}
+      /****  Button Style  *****/
+      {% for item in module.content_group.cta_group %}
+            {% set CTA = item %}
+      {% if CTA.override_button_style %}
+
+      .baseModuleStyle .basebutton-{{ loop.index }} a{
+        background:{{ CTA.button_style_group.btn_bg_color.css}};
+        color:{{ CTA.button_style_group.btn_text_color.css }};
+        border-color:{{ CTA.button_style_group.btn_border_color.css }};
+      }
+
+      .baseModuleStyle .basebutton-{{ loop.index }} a:hover {
+        background-color:{{ CTA.button_style_group.btn_bg_color_hover.css}};
+        color:{{ CTA.button_style_group.btn_text_color_hover.css }};
+        border-color : {{ CTA.button_style_group.btn_border_color_hover.css }};
+      }
+
+      {% endif %}
+      {% endfor %}
+      /****  End Button Style  ****/
+     {% end_scope_css %}
+    </style>
     
+   
     <style>
 
 {#       {% scope_css %} #}
@@ -106,7 +143,7 @@
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;
-      
+        
         {{ module.style.spacing.desktop_spacing.css }}
        
         {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -116,7 +153,7 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-         margin-left : 20px;margin-right: 20px; border-radius : 30px;
+        border-radius:30px; margin-left:30px; margin-right:30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -140,7 +177,7 @@
       @media(max-width:767px){
         .{{name}}.baseModuleStyle{
           {{ module.style.spacing.mobile_spacing.css  }}
-           margin-left : 10px;margin-right: 10px;
+           margin-left:10px; margin-right:10px;
         } 
       }
       

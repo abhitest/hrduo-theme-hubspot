@@ -60,6 +60,247 @@
   "default": null 
   },
   {
+  "name": "mega_menu_group",
+  "label": "Mega Menu Group",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 2
+  },
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "children": [
+    {
+    "name" : "add_number_of_menu",
+    "label" : "Add Number Of Menu",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "min" : null,
+    "max" : null,
+    "inline_help_text": "",
+    "help_text": "",
+    "default" : 1 
+    },
+    {
+    "name": "menu_group",
+    "label": "Menu Group",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "children": [
+      {
+      "name": "item_choice",
+      "label": "Menu Item Choice",
+      "required": false,
+      "locked": false,
+      "display": "select",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+      [
+        "image",
+        "Image Menu"
+      ],
+      [
+        "menu",
+        "Normal Menu"
+      ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": null 
+      },
+      {
+      "name": "image_menu_group",
+      "label": "Image Menu Group",
+      "required": false,
+      "locked": false,
+      "visibility": {
+       "controlling_field_path": "mega_menu_group.menu_group.item_choice",
+       "controlling_value_regex": "image",
+       "operator": "EQUAL"
+      },
+      "children": [
+        {
+      "name": "menu_image",
+      "label": "Image",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": true,
+      "show_loading" : false,
+      
+      "type": "image",
+      "default": {
+        "size_type" : "auto",
+        "src": "",
+        "alt": null,
+        "loading": "disabled"}
+      },
+      {
+      "name": "text",
+      "label": "Text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "validation_error_message": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Platform" 
+      },
+      {
+      "name" : "button_link",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      } }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+      },
+      
+      {
+      "name": "menu_items",
+      "label": "Menu Items",
+      "required": false,
+      "locked": false,
+      "visibility": {
+       "controlling_field_path": "mega_menu_group.menu_group.item_choice",
+       "controlling_value_regex": "menu",
+       "operator": "EQUAL"
+      },
+      "children": [
+          {
+          "name": "title_logo",
+          "label": "Title Logo",
+          "required": false,
+          "locked": false,
+          "inline_help_text": "",
+          "help_text": "",
+          "responsive": true,
+          "resizable": true,
+          "show_loading" : false,
+          "type": "image",
+          "default": {
+            "size_type" : "auto",
+            "src": "",
+            "alt": null,
+            "loading": "disabled"}
+          },
+          {
+          "name": "title",
+          "label": "Title",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "validation_error_message": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": null 
+          },
+          {
+          "name": "menu_list",
+          "label": "Menu List",
+          "required": false,
+          "locked": false,
+          "occurrence": {
+            "min": null,
+            "max": null,
+            "sorting_label_field": null,
+            "default": 5
+          },
+          "children": [
+            {
+            "name" : "button_link",
+            "label" : "Menu Link",
+            "required" : false,
+            "locked" : false,
+            "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+            "type" : "link",
+            "inline_help_text": "",
+            "help_text": "",
+            "default" : {
+              "url" : {
+                "content_id" : null,
+                "type" : "EXTERNAL",
+                "href" : ""
+              },
+              "open_in_new_tab" : false,
+              "no_follow" : false
+            } 
+            },
+            {
+            "name": "menu_text",
+            "label": "Menu Text",
+            "required": false,
+            "locked": false,
+            "validation_regex": "",
+            "validation_error_message": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Time Tracking" 
+            }
+          ],
+          "type": "group",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": [] }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+      }
+    ],
+    "default": [] 
+  }
+  ],
+  "default": [] 
+  },
+  {
   "name": "button_group",
   "label": "Button Group",
   "required": false,

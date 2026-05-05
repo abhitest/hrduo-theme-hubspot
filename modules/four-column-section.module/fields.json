@@ -39,6 +39,17 @@
   "locked" : false,
   "children" : [ 
     {
+    "name": "hide_backgorund_gradient",
+    "label": "Hide Background Gradient",
+    "required": false,
+    "locked": false,
+    "type": "boolean",
+    "inline_help_text": "",
+    "display": "toggle",
+    "help_text": "",
+    "default": false 
+    },
+    {
     "name": "hide_title_section",
     "label": "Hide Title Section",
     "required": false,
@@ -76,7 +87,8 @@
     "display_width" : null,
     "type" : "richtext",
     "default":"<h3>Give managers the tools, visibility, and data to manage their teams consistently across every location</h3>"
-  }, {
+  },
+   {
     "id" : "content",
     "name" : "content",
     "label" : "Content",
@@ -97,6 +109,91 @@
   "display":"toggle",
   "default": false 
   },
+  {
+  "name": "want_change_spacing",
+  "label": "Want to change box spacing",
+  "required": false,
+  "locked": false,
+  "type": "boolean",
+  "display":"toggle",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": false 
+  },
+  {
+  "name": "spacing_group",
+  "label": "Spacing Group",
+  "required": false,
+  "locked": false,
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+   "visibility": {
+       "controlling_field_path": "content_group.want_change_spacing",
+       "controlling_value_regex": "true",
+       "operator": "EQUAL"
+      },
+  "children": [
+    {
+    "name" : "top",
+    "label" : "Padding Top",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "min" : null,
+    "max" : null,
+    "inline_help_text": "",
+    "help_text": "",
+    "default" : null 
+    },
+    {
+    "name" : "right",
+    "label" : "Padding Right",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "min" : null,
+    "max" : null,
+    "inline_help_text": "",
+    "help_text": "",
+    "default" : null 
+    },
+    {
+    "name" : "bottom",
+    "label" : "Padding Bottom",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "min" : null,
+    "max" : null,
+    "inline_help_text": "",
+    "help_text": "",
+    "default" : null 
+    },
+    {
+    "name" : "left",
+    "label" : "Padding Left",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "min" : null,
+    "max" : null,
+    "inline_help_text": "",
+    "help_text": "",
+    "default" : null 
+    }
+  ],
+  "default": {} 
+},
+ 
   {
   "name": "column_group",
   "label": "Column Group",

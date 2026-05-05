@@ -1,4 +1,5 @@
-[ {
+[
+{
   "id" : "custom_style",
   "name" : "custom_style",
   "label" : "Custom Style",
@@ -31,13 +32,29 @@
   "default" : {
     "container_choice" : "content-wrapper"
   }
-}, {
+}, 
+{
   "id" : "content_group",
   "name" : "content_group",
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ 
+  "children" : [
+    {
+    "name": "tag",
+    "label": "Tag Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Construction Success Story" 
+    },
     {
     "id" : "title",
     "name" : "title",
@@ -48,7 +65,7 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Thinking of switching to HR Duo?</h3>"
+    "default": "<h1>Elliott Group</h1>"
   }, {
     "id" : "content",
     "name" : "content",
@@ -57,282 +74,88 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Explore why more businesses are choosing to partner with us over other providers.</p>"
+    "default" : "<p>Discover how Elliott Group, one of the most respected construction firms in the UK and Ireland, transformed its workforce and HR operations with HR Duo’s all-in-one platform. The business strengthened compliance, improved visibility over a large project-based workforce, and simplified scheduling across four offices and multiple live construction sites.</p>"
   },
+  {
+  "name": "counter_group",
+  "label": "Counter Group",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 3
+  },
+  "children": [
     {
-        "label": "Want CTA",
-        "name": "want_cta",
-        "required": false,
-        "locked": false,
-        "type": "boolean",
-        "inline_help_text": "",
-        "help_text": "",
-        "default": false
-     },
-     {
-     "name": "cta_group",
-     "label": "CTA group",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "group",
-     "default": null,
-     "occurrence" : {
-      "default" : 1
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.want_cta",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      }, 
-    "children": [
-        {
-        "name": "cta_choice",
-        "label": "CTA Choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "normalcta",
-          "Normal CTA"
-        ],
-        [
-          "hubspotCTA",
-          "Hubspot CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "normalcta" 
-        },
-        {
-        "name": "choice_cta_style",
-        "label": "Choice CTA Style",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "button",
-          "Primary CTA"
-        ],
-        [
-          "secondary_button",
-          "Secondary CTA"
-        ],
-        [
-          "tertiary_button",
-          "Tertiary CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "button"
-       },
-       {
-       "name": "button_alignment",
-       "label": "Button Alignment",
-       "required": false,
-       "locked": false,
-       "display": "select",
-       "inline_help_text": "",
-       "help_text": "",
-       "choices": [
-       [
-         "text-left",
-         "Left"
-       ],
-       [
-         "text-center",
-         "Center"
-       ],
-       [
-         "text-right",
-         "Right"
-       ]
-       ],
-       "type": "choice",
-       "placeholder": "",
-       "default": null 
-      },
-      {
-      "name": "want_arrow",
-      "label": "Want Arrow",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "display":"toggle",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-      },
-      {
-      "name": "button_text",
-      "label": "Button Text",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Click Here",
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name" : "button_link",
-      "label" : "Button Link",
-      "required" : false,
-      "locked" : false,
-      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-      "type" : "link",
-      "inline_help_text": "",
-      "help_text": "",
-      "default" : {
-        "url" : {
-          "content_id" : null,
-          "type" : "EXTERNAL",
-          "href" : ""
-        },
-        "open_in_new_tab" : false,
-        "no_follow" : false
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name": "hubspot_cta",
-      "label": "HubSpot CTA",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "cta",
-      "default": null,
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "hubspotCTA",
-       "operator": "EQUAL"
-      }
+    "name": "number",
+    "label": "Number",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "135" 
     },
-      {
-      "name": "override_button_style",
-      "label": "Override Button Style",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
+    {
+    "name": "number_text",
+    "label": "Number Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "+" 
     },
-     {
-     "name": "button_style_group",
-     "label": "Button Style Group",
-     "required": false,
-     "locked": false,
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "visibility": {
-       "controlling_field_path": "content_group.cta_group.override_button_style",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      },
-  
-     "children": [
-      {
-      "name": "btn_bg_color",
-      "label": "Button Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color",
-      "label": "Text Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_bg_color_hover",
-      "label": "Background color on hover",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color_hover",
-      "label": "Text Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color_hover",
-      "label": "Button border Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      }
-    ]
-     
+    {
+    "name": "box_title",
+    "label": "Box Title",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Employees" 
     }
-    ]
-     }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": [] 
+  },
+  {
+  "name": "image",
+  "label": "Image",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "responsive": true,
+  "resizable": true,
+  "show_loading" : false,
+  "type": "image",
+  "default": {
+    "size_type" : "auto",
+    "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/case-study-img.png",
+    "alt": "case-study-img",
+    "loading": "disabled"}
+  }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -369,7 +192,7 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default" : "bgColor"
+      "default":"bgColor"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -416,7 +239,7 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#202640",
+        "color" : "#6347FF",
         "opacity" : 100,
         "hex" : null,
         "rgba" : null,
@@ -468,11 +291,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 75,
+            "value" : 180,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 75,
+            "value" : 50,
             "units" : "px"
           },
           "left" : {
@@ -482,6 +305,12 @@
           "right" : {
             "value" : null,
             "units" : null
+          }
+        },
+        "margin" : {
+"bottom" : {
+            "value" : 355,
+            "units" : "px"
           }
         }
       }
@@ -498,7 +327,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 180,
             "units" : "px"
           },
           "bottom" : {
@@ -528,7 +357,7 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 150,
             "units" : "px"
           },
           "bottom" : {

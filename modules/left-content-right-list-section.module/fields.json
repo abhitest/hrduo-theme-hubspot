@@ -37,8 +37,8 @@
   "label" : "Content",
   "required" : false,
   "locked" : false,
-  "children" : [ 
-    {
+  "children" : [
+     {
     "id" : "title",
     "name" : "title",
     "label" : "Title",
@@ -48,8 +48,9 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Thinking of switching to HR Duo?</h3>"
-  }, {
+    "default" : "<h3>What Was Needed</h3>"
+  }, 
+  {
     "id" : "content",
     "name" : "content",
     "label" : "Content",
@@ -57,282 +58,55 @@
     "locked" : false,
     "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Explore why more businesses are choosing to partner with us over other providers.</p>"
+    "default" : "<p>Construction businesses face workforce management demands that change daily. Elliott Group needed a platform that could provide real-time accuracy, support compliance, and give managers full visibility across every site and project.</p><p>With hundreds of employees, four offices, and an extensive subcontractor network, the business required tools that would simplify shift planning, reduce manual admin, and centralise HR information. Site managers needed quick access to schedules, documentation, and attendance records. HR needed an easy way to track right-to-work documents, training certifications, and safety compliance. Finance needed reliable data for payroll and labour cost reporting.</p>"
   },
+  {
+  "name": "list_title",
+  "label": "List Title",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "validation_error_message": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "Elliott Group needed to:" 
+  },
+  {
+  "name": "list_content",
+  "label": "List Content Group",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 7
+  },
+  "children": [
     {
-        "label": "Want CTA",
-        "name": "want_cta",
-        "required": false,
-        "locked": false,
-        "type": "boolean",
-        "inline_help_text": "",
-        "help_text": "",
-        "default": false
-     },
-     {
-     "name": "cta_group",
-     "label": "CTA group",
-     "required": false,
-     "locked": false,
-     "inline_help_text": "",
-     "help_text": "",
-     "type": "group",
-     "default": null,
-     "occurrence" : {
-      "default" : 1
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.want_cta",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      }, 
-    "children": [
-        {
-        "name": "cta_choice",
-        "label": "CTA Choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "normalcta",
-          "Normal CTA"
-        ],
-        [
-          "hubspotCTA",
-          "Hubspot CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "normalcta" 
-        },
-        {
-        "name": "choice_cta_style",
-        "label": "Choice CTA Style",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "inline_help_text": "",
-        "help_text": "",
-        "choices": [
-        [
-          "button",
-          "Primary CTA"
-        ],
-        [
-          "secondary_button",
-          "Secondary CTA"
-        ],
-        [
-          "tertiary_button",
-          "Tertiary CTA"
-        ]
-        ],
-        "type": "choice",
-        "placeholder": "",
-        "default": "button"
-       },
-       {
-       "name": "button_alignment",
-       "label": "Button Alignment",
-       "required": false,
-       "locked": false,
-       "display": "select",
-       "inline_help_text": "",
-       "help_text": "",
-       "choices": [
-       [
-         "text-left",
-         "Left"
-       ],
-       [
-         "text-center",
-         "Center"
-       ],
-       [
-         "text-right",
-         "Right"
-       ]
-       ],
-       "type": "choice",
-       "placeholder": "",
-       "default": null 
-      },
-      {
-      "name": "want_arrow",
-      "label": "Want Arrow",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "display":"toggle",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-      },
-      {
-      "name": "button_text",
-      "label": "Button Text",
-      "required": false,
-      "locked": false,
-      "validation_regex": "",
-      "validation_error_message": "",
-      "allow_new_line": false,
-      "show_emoji_picker": false,
-      "type": "text",
-      "placeholder": "",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": "Click Here",
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name" : "button_link",
-      "label" : "Button Link",
-      "required" : false,
-      "locked" : false,
-      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-      "type" : "link",
-      "inline_help_text": "",
-      "help_text": "",
-      "default" : {
-        "url" : {
-          "content_id" : null,
-          "type" : "EXTERNAL",
-          "href" : ""
-        },
-        "open_in_new_tab" : false,
-        "no_follow" : false
-      },
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "normalcta",
-       "operator": "EQUAL"
-      }
-      },
-      {
-      "name": "hubspot_cta",
-      "label": "HubSpot CTA",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "cta",
-      "default": null,
-      "visibility": {
-       "controlling_field_path": "content_group.cta_group.cta_choice",
-       "controlling_value_regex": "hubspotCTA",
-       "operator": "EQUAL"
-      }
-    },
-      {
-      "name": "override_button_style",
-      "label": "Override Button Style",
-      "required": false,
-      "locked": false,
-      "type": "boolean",
-      "inline_help_text": "",
-      "help_text": "",
-      "default": false 
-    },
-     {
-     "name": "button_style_group",
-     "label": "Button Style Group",
-     "required": false,
-     "locked": false,
-     "type": "group",
-     "inline_help_text": "",
-     "help_text": "",
-     "visibility": {
-       "controlling_field_path": "content_group.cta_group.override_button_style",
-       "controlling_value_regex": "true",
-       "operator": "EQUAL"
-      },
-  
-     "children": [
-      {
-      "name": "btn_bg_color",
-      "label": "Button Background Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color",
-      "label": "Text Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color",
-      "label": "Border Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#000",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_bg_color_hover",
-      "label": "Background color on hover",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_text_color_hover",
-      "label": "Text Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      },
-      {
-      "name": "btn_border_color_hover",
-      "label": "Button border Hover Color",
-      "required": false,
-      "locked": false,
-      "inline_help_text": "",
-      "help_text": "",
-      "type": "color",
-      "default": {
-        "color": "#ffffff",
-        "opacity": 100 } 
-      }
-    ]
-     
+    "name": "text",
+    "label": "Text",
+    "required": false,
+    "locked": false,
+    "validation_regex": "",
+    "validation_error_message": "",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "Centralise HR operations, moving employee records, contracts, and subcontractor documentation into one secure HRMS." 
     }
-    ]
-     }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": [] }
 ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -345,7 +119,8 @@
   "label" : "Styles",
   "required" : false,
   "locked" : false,
-  "children" : [ {
+  "children" : [ 
+    {
     "id" : "style.background_property",
     "name" : "background_property",
     "label" : "Background Property",
@@ -369,7 +144,7 @@
       "preset" : null,
       "display_width" : null,
       "type" : "choice",
-      "default" : "bgColor"
+      "default": "bgColor"
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -416,8 +191,8 @@
       "display_width" : null,
       "type" : "color",
       "default" : {
-        "color" : "#202640",
-        "opacity" : 100,
+        "color" : "#275CD3",
+        "opacity" : 5,
         "hex" : null,
         "rgba" : null,
         "rgb" : null
@@ -468,11 +243,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 75,
+            "value" : 112,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 75,
+            "value" : 112,
             "units" : "px"
           },
           "left" : {
@@ -498,11 +273,11 @@
       "default" : {
         "padding" : {
           "top" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "bottom" : {
-            "value" : 50,
+            "value" : 70,
             "units" : "px"
           },
           "left" : {

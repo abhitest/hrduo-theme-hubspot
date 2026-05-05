@@ -1,4 +1,4 @@
-<div class="{{ name }} baseModuleStyle FourColumnSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+<div class="{{ name }} baseModuleStyle FourColumnSection {% if module.content_group.hide_backgorund_gradient %} hideFourColumnShape {% endif %} {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
@@ -18,7 +18,7 @@
           </div>
           {% endif %}
           {% if  module.content_group.title  %}
-          <div class="moduleTitle FourColumnTitle pt30">
+          <div class="moduleTitle FourColumnTitle  {% if module.content_group.sub_title %} pt30 {% endif %}">
             {{ module.content_group.title }}
           </div>
             {% endif %}
@@ -92,7 +92,13 @@
     <style>
 
 {#       {% scope_css %} #}
-        
+        {% if module.content_group.want_change_spacing %}
+        {% set spacinggrp = module.content_group.spacing_group %}
+      .{{ name }} .FourColumnBoxSection  .FourColumnBox {
+        padding: {{ spacinggrp.top }}px {{ spacinggrp.right }}px {{ spacinggrp.bottom }}px {{ spacinggrp.left }}px;
+      }
+      {% endif %}
+
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;
@@ -123,6 +129,14 @@
         .{{name}}.baseModuleStyle{
            {{  module.style.spacing.tab_spacing.css }}
         } 
+
+         {% if module.content_group.want_change_spacing %}
+        {% set spacinggrp = module.content_group.spacing_group %}
+      .{{ name }} .FourColumnBoxSection  .FourColumnBox {
+        padding: 30px;
+      }
+      {% endif %}
+
       }
       {# End Tablet Styling #}
       {# Mobile Styling #}
@@ -139,11 +153,12 @@
     {% require_js %}
 <script>
   $(window).on('load resize',function() {
-  equalheight(`.{{ name }} .FourColumnBoxTitle`);
+  equalheightc(`.{{ name }} .FourColumnBoxTitle`);
   
+
 });
 
-equalheight = function(container){
+equalheightc = function(container){
     var currentTallest = 0, currentRowStart = 0, rowDivs = new Array(), jQueryel, topPosition = 0;
     jQuery(container).each(function() {
         $el = jQuery(this);

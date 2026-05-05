@@ -140,6 +140,37 @@ $(".softwaresolutionBoxSec .softwaresolutionBox").each(function () {
 });
 
 
+
+ var video = $('#bannervideo').get(0);
+
+  $('.videoplaybtn').click(function () {
+    if ($(this).hasClass('play-btn')) {
+      video.play();
+      $(this).removeClass('play-btn').addClass('pause-btn');
+    } else {
+      video.pause();
+      $(this).removeClass('pause-btn').addClass('play-btn');
+    }
+  });
+
+
+
+if($(".workforceThreeColSection").length > 0){
+    $(".workforceThreeColBox").each(function(){
+        $(this).find(".workforceThreeColBoxListgrp ul li").slice(0, 10).show();
+        var loadmorecta = $(this).find(".workforceloadmore");
+        loadmorecta.on('click', function (e) {
+        e.preventDefault();
+        $(this).closest(".workforceThreeColBox").find(".workforceThreeColBoxListgrp ul li:hidden").slice(0, 10).slideDown();
+        if ($(this).closest(".workforceThreeColBox").find(".workforceThreeColBoxListgrp ul li:hidden").length == 0) {
+            $(this).fadeOut('slow');
+        }
+    
+    });
+});
+}
+
+
 });    
 
 
@@ -184,6 +215,11 @@ function inVisible(element) {
             inVisible($(this));
         });
         })
+        $(window).on("load", function() {
+        $(".CaseStudycounter[data-max]").each(function() {
+            inVisible($(this));
+        });
+        })
     });
 
 
@@ -192,6 +228,8 @@ $(window).on('load resize',function() {
   equalheight('.TeamswinBoxCntIn');
   equalheight('.PlanThreeColBoxTitleSecIn');
   equalheight('.PlanThreeColBoxList');
+  equalheight('.workforceThreeColBoxTitlesecIn');
+  minequalheight('.workforceThreeColBoxListgrp');
   
   setEqualHeights();
 });
@@ -262,3 +300,46 @@ equalheight = function(container){
         }
     });
 }
+
+
+
+minequalheight = function(container){
+    var currentTallest = 0,
+        currentRowStart = 0,
+        rowDivs = [],
+        topPosition = 0;
+
+    jQuery(container).each(function() {
+        var $el = jQuery(this);
+
+        // Reset min-height
+        $el.css('min-height', '0');
+
+        topPosition = $el.position().top;
+
+        if (currentRowStart != topPosition) {
+
+            // Set min-height for previous row
+            for (var i = 0; i < rowDivs.length; i++) {
+                rowDivs[i].css('min-height', currentTallest);
+            }
+
+            // Reset for new row
+            rowDivs = [];
+            currentRowStart = topPosition;
+            currentTallest = $el.outerHeight();
+
+            rowDivs.push($el);
+
+        } else {
+
+            rowDivs.push($el);
+            currentTallest = Math.max(currentTallest, $el.outerHeight());
+        }
+
+        // Apply min-height to current row
+        for (var i = 0; i < rowDivs.length; i++) {
+            rowDivs[i].css('min-height', currentTallest);
+        }
+    });
+};
