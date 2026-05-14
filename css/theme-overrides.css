@@ -712,8 +712,13 @@ header.header .headerInnersec .headerlogo a {    width: 100%;    height: 100%;}
 header.header .headerInnersec .headerlogo a img {   width: 100%;    height: 100%;    object-fit: contain;}
 header.header .headerInnersec { gap: 50px;    justify-content: space-between;}
 
-header.header .headerInnersec .headerRTCol ul li a {    padding: 25px 0;}
-header.header .headerInnersec .headerRTCol ul {   gap: 50px;}
+header.header .headerInnersec .headerRTCol .headerNav >span>div> ul > li > a {    padding: 25px 0;}
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul { gap: 50px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center; }
 header.header .headerInnersec .headerRTCol .headerdemobtn a span.text_gradient {    background: linear-gradient(90deg, #6347FF 25%, #8E7AFF 50%, #6347FF 75%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;}
 header.header .headerInnersec .headerRTCol .headerdemobtn a:hover span.text_gradient {    background: linear-gradient(90deg, #FFF 25%, rgb(255 255 255 / 60%) 50%, #FFF 75%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;}
 header.header .headerInnersec .headerRTCol .headerdemobtn a:hover {    border-color: #fff;    background: transparent;}
@@ -721,7 +726,7 @@ header.header .headerInnersec .headerRTCol .headerdemobtn a:hover {    border-co
 
 ul.hs-menu-children-wrapper {  margin: 0;    width: 100%;    padding: 0;}
 ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox.image {    max-width: 283px;    width: 100%;}
-.headermegamenusection {    width: max-content;    background: #7359FF99;    border: 1px solid #9682FF;    box-shadow: 0px 84px 74px -50px #31248066;    backdrop-filter: blur(200px);    border-radius: 30px;    margin-top: 10px;    margin: 10px auto 0;    padding: 32px 40px 32px 32px;}
+.headermegamenusection {    width: max-content;    margin: 0 auto;    padding: 32px 40px 32px 32px;}
 ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox.menu {    max-width: max-content;    width: 100%;}
 ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox .headermegamenuBoxTitlecol {    display: flex;    align-items: center;    gap: 12px;}
 ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox .headermegamenuBoxTitlecol .headermegamenuBoximg {    width: 40px;    height: 40px;    display: flex;    align-items: center;    justify-content: center;    border: 1px solid #FFFFFFCC;    border-radius: 7px;    background: rgb(0 0 0 / 30%);}
@@ -738,22 +743,46 @@ ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox.image .head
 ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox.image .headermegamenuimgBox:before {  position: absolute;    content: "";    width: 100%;    height: 100%;    background: linear-gradient(180deg, rgba(32, 38, 64, 0) 0%, #202640 89.38%);    bottom: 0;    left: 0;}
 .headermegamenusection.has-image {  padding: 32px 72px 38px 32px;}
 header.header .headerInnersec {   position: relative;}
-
+header.header .headerInnersec .headerRTCol ul li.hs-item-has-children > ul.hs-menu-children-wrapper.no-img {  width: max-content;}
 
 @media (min-width : 992px){
 header.header .headerInnersec .headerRTCol .headerburgermenu { display: none;}
 ul.hs-menu-children-wrapper {  position: absolute;    width: 100%;    left: 50%;    transform: translateX(-50%);    top: 100%;    transition: all ease-in-out 0.3s;    opacity: 0;    visibility: hidden;}
+header.header .headerInnersec .headerRTCol ul li.hs-item-has-children > a:after {  content: "";    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Crect x='4.4668' y='6.50256' width='5.99639' height='1' rx='0.25' transform='rotate(45 4.4668 6.50256)' fill='white' stroke='white' stroke-width='0.5'/%3E%3Crect x='12.2444' y='7.20499' width='6.00299' height='1' rx='0.25' transform='rotate(135 12.2444 7.20499)' fill='white' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E");    width: 16px;    height: 16px;    background-repeat: no-repeat;    background-size: contain;    background-position: center center;}
+header.header .headerInnersec .headerRTCol ul li.hs-item-has-children > ul.hs-menu-children-wrapper {   background: #7359FF99;    border: 1px solid #9682FF;    box-shadow: 0px 84px 74px -50px #31248066;    backdrop-filter: blur(200px);    border-radius: 30px; margin-top: 10px; }
+header.header .headerInnersec .headerRTCol ul .hs-item-has-children > a {    display: flex;    align-items: center;    gap: 5px;}
+header.header .headerInnersec .headerRTCol ul .hs-item-has-children:hover > ul.hs-menu-children-wrapper {  opacity: 1;    visibility: visible;}
+header.header .headerInnersec .headerRTCol ul li.hovered {  opacity: 75%;}
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul > li.hs-menu-depth-1 {   transition: all ease-in-out 0.3s;}
+.childExpand { display: none; }
+}
+
+@media (max-width: 1300px){
+  .headermegamenuBoxMenusec .headermegamenuBoxList {  padding-left: 20px;}
+.headermegamenusection.has-image,.headermegamenusection {    padding: 32px;}
+.headermegamenusection.has-image {  width: 100%;}
 }
 
 @media (max-width : 1230px){
   header.header .headerInnersec {   gap: 100px;}
 header.header .headerInnersec .headerRTCol {  max-width: calc(100% - 215px);}
+header.header .headerInnersec {   gap: 50px;}
+
+ul.hs-menu-children-wrapper .headermegamenusection.has-image .headermegamenuBoxSec .headermegamenuBox.image {   max-width: calc(50% - 16px);}
+ul.hs-menu-children-wrapper .headermegamenusection.has-image .headermegamenuBoxSec .headermegamenuBox.menu {  max-width: calc(50% - 16px);}
+.headermegamenuBoxMenusec .headermegamenuBoxList {   padding-left: 52px;}
+
+.headermegamenusection.no-img {   width: 100%;}
+ul.hs-menu-children-wrapper  .headermegamenusection.no-img .headermegamenuBoxSec .headermegamenuBox.menu {  max-width: calc(33.33% - 32px);}
+header.header .headerInnersec .headerRTCol ul li.hs-item-has-children > ul.hs-menu-children-wrapper.no-img {  width: 100%;}
+
+
 }
 
 @media (max-width : 1080px){
 header.header .headerInnersec {  gap: 50px;}
 header.header .headerInnersec .headerRTCol {  max-width: calc(100% - 165px);}
-
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul { gap: 30px; }
 }
 
 @media (max-width : 991px){
@@ -761,8 +790,6 @@ header.header .headerInnersec .headerRTCol {  max-width: calc(100% - 165px);}
 header.header .headerInnersec {    position: relative;}
 .headermenuCol .headerNav ul {    flex-direction: column;}
 .headermenuCol .headerNav {    max-width: 90%;    width: 100%;    margin: 0 auto;    padding: 30px;}
-header.header .headerInnersec .headerRTCol ul {    gap: 20px;}
-header.header .headerInnersec .headerRTCol ul li a {    width: 100%;    padding: 10px;}
 header.header .headerInnersec .headerRTCol { justify-content: flex-end; }
 header.header .headerInnersec .headerRTCol .headerburgermenu {  order: 2;}
 header.header .headerInnersec .headerRTCol .headerbtnsec {   order: 1;}
@@ -777,10 +804,34 @@ header.header .headerInnersec .headerRTCol .headerbtnsec {   order: 1;}
 header.header .headerInnersec .headerRTCol .headerbtnsec.headerbtnsectab {  display: flex !important;}
 header.header .headerInnersec .headerRTCol {   gap: 20px;}
 header.header .headerInnersec { padding : 0 30px; }
+
+.childExpand {position: absolute;top: 8px;right: 10px;width: 24px;text-align: center;height: 24px;margin: 0;padding:5px;cursor:pointer;}
+        .childExpand i { position:relative; width: 15px; left:0; height: 1px; opacity:1; display: block; background:#fff; margin: 6px 0; transition:all ease 0.3s; -webkit-transition:all ease 0.3s; -moz-transition:all ease 0.3s; }
+        .childExpand i + i { position: relative; transform: rotate(90deg); -moz-transform: rotate(90deg); -webkit-transform: rotate(90deg); top:-7px; }
+        .childExpand.open i { transform: rotate(180deg); -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+        .childExpand.open i+i { transform: rotate(360deg); -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); }
+
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul > li.hs-menu-item.hs-menu-depth-1.hs-item-has-children {  position: relative;}
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul > li.hs-menu-item.hs-menu-depth-1.hs-item-has-children ul.hs-menu-children-wrapper {  display: none;}
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul > li.hs-menu-item.hs-menu-depth-1 {  width: 100%;}
+header.header .headerInnersec .headerRTCol .headerNav >span > div > ul {  gap: 20px;}
+header.header .headerInnersec .headerRTCol .headerNav >span>div> ul > li > a {  padding: 10px 0;}
+.headermegamenusection.has-image, .headermegamenusection {
+    padding: 20px 0;
+}
+ul.hs-menu-children-wrapper .headermegamenusection.no-img .headermegamenuBoxSec .headermegamenuBox.menu {
+    max-width: calc(50% - 24px);
+}
+
 }
 
 @media (max-width : 767px){
   header.header {  top: 40px;}
+
+.headermegamenuBoxMenusec .headermegamenuBoxList {  padding-left: 20px;}
+.headermegamenuBoxSec {  gap: 30px 20px !important;}
+ul.hs-menu-children-wrapper .headermegamenusection.has-image .headermegamenuBoxSec .headermegamenuBox.image,ul.hs-menu-children-wrapper .headermegamenusection.has-image .headermegamenuBoxSec .headermegamenuBox.menu {   max-width: calc(50% - 10px);}
+
 }
 
 @media (max-width : 640px){
@@ -788,6 +839,12 @@ header.header .headerInnersec { padding : 0 30px; }
 .headermenuCol .headerbtnsec.headerbtnsecmobile {  display: flex !important;    padding: 0 40px 30px; flex-direction: column;    align-items: flex-start;}
 .headermenuCol .headerNav {    max-width: 100%;}
 header.header .headerInnersec .headerRTCol .headerbtnsec.headerbtnsectab {  display: none !important;}
+
+ul.hs-menu-children-wrapper .headermegamenusection.has-image .headermegamenuBoxSec .headermegamenuBox.image, ul.hs-menu-children-wrapper .headermegamenusection.has-image .headermegamenuBoxSec .headermegamenuBox.menu {  max-width: 100%;}
+ul.hs-menu-children-wrapper .headermegamenusection.no-img .headermegamenuBoxSec .headermegamenuBox.menu {
+    max-width: 100%;
+}
+
 }
 
 @media (max-width : 480px){
@@ -824,7 +881,7 @@ header.header .headerInnersec .headerRTCol .headerbtnsec.headerbtnsectab {  disp
 
 .FooterMenuSec {    max-width: 1030px;    width: 100%;    margin: 0 0 0 auto;}
 .FooterMenuSec .FooterMenuBox {    max-width: calc(20% - 16px);    width: 100%;}
-.FooterMenuSec .FooterMenuBox .FooterMenu ul {    flex-direction: column;    margin: 10px 0 0;    padding: 0;    gap: 10px;}
+.FooterMenuSec .FooterMenuBox .FooterMenu ul {    flex-direction: column;    margin: 10px 0 0;    padding: 0;    gap: 10px; list-style: none; display: flex;}
 .FooterMenuSec .FooterMenuBox .FooterMenu ul li a {    line-height: 1.286;}
 .footer .footerinSec {   padding-bottom: 300px; }
 .footer .footerinSec .FooterLogo {    position: absolute;    bottom: 0;    width: 100%;    max-width: 1044px;    left: calc((100% - 1240px) / 2);}
@@ -1545,40 +1602,97 @@ color: {{ primary_color }};
 .GetFreeDemoFormSec .GetFreeDemoForm form  .hs_error_rollup {  display: none;}
 
 
+.AboutusBannerInSec .AboutusBannerTitleSec {  max-width: 776px;    width: 100%;    margin: 0 auto;}
+.AboutusBannerInSec .AboutusBannerTitleSec .AboutusBannerContent {    max-width: 636px;    width: 100%;    margin: 0 auto;}
+.AboutusBannerInSec .AboutusBannerTitleSec .AboutusBannerContent p+* {    margin-top: 20px;}
 
+.AUBannerTimelineSection {   background: #202640;    box-shadow: 0px 0px 200px 0px #FFFFFF40, 0px 100px 50px 0px #0000000D;    padding: 107px 41px 88px;    border-radius: 30px;    margin-bottom: -219px;}
 
+.AUBannerTimelineSection span.AUBannerTimelineShape {  border-bottom: 2px dashed #6347FF;    position: absolute;    width: 100%;    height: 1px;    left: 0;    top: 50%;    transform: translateY(-50%);}
+.AUBannerTimelineSection {  position: relative;}
+.AUBannerTimelineSection:before, .AUBannerTimelineSection:after {  position: absolute;    content: "";    width: 85px;    height: 100%;    background: linear-gradient(90deg, #202640 17.44%, rgba(32, 38, 64, 0) 100%);    top: 0;    left: 0;    z-index: 1;    border-radius: 30px;}
+.AUBannerTimelineSection:after {    transform: rotate(180deg);    left: unset;    right: 0;}
+.AUBannerTimelineSection .AUBannerTimelineInBox  {    position: relative;    z-index: 2;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox {    text-align: center;    position: relative;}
+.AUBannerTimelineSection .AUBannerTimelineTpCol {   gap: 173px;}
+.AUBannerTimelineSection  .AUBannerTimelineBtCol {   gap: 198px;    justify-content: flex-end;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {    position: absolute;    width: 17px;    height: 17px;    border: 5px solid #6347FF;    border-radius: 50%;    background: #fff;    box-shadow: 0px 0px 11px 0px #6347FF;    left: 50%;    transform: translateX(-50%);    bottom: -47px;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol .AUBannerTimelineBox span.AUBannerTimelineBoxshape {    bottom: unset;    top: -47px;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox:before {    position: absolute;    content: "";    width: 2px;    height: 35px;    background: linear-gradient(117deg, #202640 0, #6347FF 100%);    left: 50%;    transform: translateX(-50%);    bottom: -38px;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol .AUBannerTimelineBox:before {    bottom: unset;    top: -38px;    transform: rotate(180deg);    left: calc(50% - 1px);}
+.TwoColCntinSection .TwoColCntTitle {  max-width: 373px;    width: 100%;}
+.TwoColCntinSection .TwoColCntContent {   max-width: calc(100% - (373px + 152px));    width: 100%;}
+.TwoColCntinSection {    gap: 50px;    max-width: 1030px;    width: 100%;    justify-content: space-between;    margin: 0 auto;}
+.TwoColCntinSection .TwoColCntContent p+* {    margin-top: 20px;}
 
+.MeetteamSliderBoxSec .MeetteamSliderBoxIn {  width: 100%;    height: 300px;    position: relative;}
+.MeetteamSliderBoxSec .MeetteamSliderBox {  padding: 0 5px;}
+.MeetteamSliderBoxSec .MeetteamSliderBoxIn .MeetteamSliderImg {  width: 100%;    height: 100%;}
+.MeetteamSliderBoxSec .MeetteamSliderBoxIn .MeetteamSliderImg img {    width: 100%;    height: 100%;    object-fit: cover;    border-radius: 20px;}
+.MeetteamSliderBoxSec .MeetteamSliderBoxIn a.MeetteamSliderBoxlink {  position: absolute;    width: 100%;    height: 100%;    top: 0;    left: 0;}
+.MeetteamSliderSection {  position: relative;}
+.MeetteamSliderSection:before, .MeetteamSliderSection:after {  position: absolute;    content: "";    width: 164px;   height: 100%;    background: linear-gradient(90deg, #202640 17.44%, rgba(32, 38, 64, 0) 100%);    top: 0;   left: 0;    z-index: 6;   border-radius: 30px;}
+.MeetteamSliderSection:after {   left: unset;    right: 0;    transform: rotate(180deg);}
 
+.Counterv1Section  .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box {  width: auto;    padding-right: 20px;    margin-right: 20px;}
+.Counterv1Section .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box .Counterv1Boxin {  max-width: 110px;    width: 100%;}
+.Counterv1Section .Counterv1InSection .Counterv1InBoxSec .Counterv1Content p+* {  margin-top: 15px;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox p img {  width: 24px;    height: 24px;    object-fit: scale-down;}
 
+.MeetteamSliderBoxSec .MeetteamSliderBox {  width: 410px !important;}
 
+.LImageRContentSection .LImageRContentInSec .LImageRContentLeftCol {  max-width: 610px;    width: 100%;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentLeftCol img { width: 100%; height: 100%; }
+.LImageRContentSection .LImageRContentInSec  .LImageRContentRightCol {   max-width: calc(100% - 610px);    width: 100%;    padding-left: 125px;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol .LImageRContentCnt p+* {  margin-top: 20px;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol .LImageRContentCnt ul {  margin: 20px 0;    padding: 0;    list-style: none;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol .LImageRContentCnt ul li { padding-left: 30px;    position: relative;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol .LImageRContentCnt ul li:before {  position: absolute;    content: "";  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24' viewBox='0 0 20 24' fill='none'%3E%3Crect x='4.25977' y='10.0759' width='6.25' height='1.25' rx='0.3125' transform='rotate(45 4.25977 10.0759)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3Crect x='16.6348' y='6.54028' width='12.5' height='1.25' rx='0.3125' transform='rotate(135 16.6348 6.54028)' fill='%236347FF' stroke='%236347FF' stroke-width='0.625'/%3E%3C/svg%3E");    width: 20px;    height: 24px;    background-repeat: no-repeat;    background-size: contain;    left: 0;    top: 0;   background-position: center center;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol .LImageRContentCnt ul li+* {  margin-top: 12px;}
 
+.LContentRFormBannerInSec .LContentRFormBannerLTCol .LContentRFormBannerContent p+* {   margin-top: 20px;}
 
+.SystemStatusBannerInSec  .SystemStatusBannerLTCol { background: rgb(0 0 0 / 20%);    border-radius: 30px;    min-height: 432px;    display: flex;    align-items: center;    justify-content: center;    padding: 20px;    max-width: 610px;    width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerLTCol img {    width: 460px;    height: 100%;    object-fit: contain;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol {   max-width: calc(100% - 610px);    width: 100%;    padding-left: 127px;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerTitle {    max-width: 424px;    width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerCnt {   max-width: 448px;    width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerbtn {   width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerbtn .cta-section {    width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerbtn > div {   width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerbtn > div a {   width: 100%;}
+.SystemStatusbackbtn a {  text-decoration: underline;}
 
+.SystemsOperationalBoxSec  .SystemsOperationalBox {  background: #6347FF0D;    border: 1px solid #6347FF;    border-radius: 30px;    padding: 40px 40px 31px;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxImg {  margin-top: 20px; width: 100%;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxImg img { width: 100%; height: 100%; object-fit: contain;}
+.SystemsOperationalBoxSec .SystemsOperationalBox  .SystemsOperationalBoxthrcol {  justify-content: space-between;    padding: 9px 0;    gap: 16px;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxuptime * {   font-weight: 500;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxtdaysago {  width: 97px;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxday {  width: 48px;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxuptime { width: calc(100% - (97px + 48px + 32px));    text-align: center;    position: relative;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxuptime p {  width: max-content;    margin: 0 auto;    padding: 0 40px;    position: relative;}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxuptime:before,.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxuptime:after {position: absolute;  content: "";    width: calc(50% - 100px);    height: 1px;    background: #000;    opacity: 20%;    left: 0;    top: calc(50% + 2px);    transform: translateY(-50%);}
+.SystemsOperationalBoxSec .SystemsOperationalBox .SystemsOperationalBoxthrcol .SystemsOperationalBoxuptime:after {   left: unset;    right: 0;}
+.SystemsOperationalBoxSec .SystemsOperationalBox+* {
+    margin-top: 10px;
+}
 
+.SystemPastIncidentBoxSec .SystemPastIncidentBox {  border: 1px solid #275CD3;    background: rgb(39 92 211 / 5%);    border-radius: 30px;    padding: 39px;}
+.SystemPastIncidentBoxSec .SystemPastIncidentBox+* {   margin-top: 10px;}
+.SystemPastIncidentBoxSec .SystemPastIncidentBox .SystemPastIncidentBoxDate {  padding-bottom: 20px;    border-bottom: 1px solid rgb(0 0 0 / 30%);}
+.SystemPastIncidentBoxSec .SystemPastIncidentBox .SystemPastIncidentBoxDate * {   font-weight: 700;}
+.SystemPastIncidentBoxSec .SystemPastIncidentBox  .SystemPastIncidentBoxText {   padding-top: 12px;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.simpletextsection  .simpletextInSec {  max-width: 1030px;    width: 100%;    margin: 0 auto;}
+.simpletextsection .simpletextInSec .simpletext h3 {  color: #6347FF;    font-weight: 500;    margin: 40px 0 20px;}
+.simpletextsection .simpletextInSec .simpletext h3:first-child {  margin-top: 0;}
+.simpletextsection .simpletextInSec .simpletext * {   color: rgb(32 38 64 / 75%);}
+.simpletextsection .simpletextInSec .simpletext p+* {  margin-top: 20px;}
+.simpletextsection .simpletextInSec .simpletext ol {  margin: 40px 0;}
+.simpletextsection .simpletextInSec .simpletext ul {  padding: 0;    list-style: none;}
+.simpletextsection .simpletextInSec .simpletext ul li {  padding-left: 30px;    position: relative;}
+.simpletextsection .simpletextInSec .simpletext ul li:before {  position: absolute;    content: "";    width: 3px;    height: 3px;    background: #202640;    opacity: 75%;    left: 15px;    top: 50%;    transform: translateY(-50%);}
 
 
 
@@ -1614,6 +1728,13 @@ color: {{ primary_color }};
 
 .TwoColumnBannerInSec .TwoColumnBannerRTCol {  max-width: calc(100% - 554px);}
 .TwoColumnImgzigzaginSec .TwoColumnImgCntBox+* { margin-top: 70px; }
+
+.AUBannerTimelineSection .AUBannerTimelineTpCol {  gap: 150px;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol {gap: 150px;}
+
+
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol {  padding-left: 50px;}
+
 }
 
 
@@ -1682,14 +1803,18 @@ color: {{ primary_color }};
 .GetFreeDemoSection .GetFreeDemoImg {   width: 550px;    left: calc(((100% - 988px) / 2) - 100px);}
 .GetFreeDemoSection .GetFreeDemoImg img {    width: 100%;    height: 100%;    object-fit: contain;}
 
-.CaseStudyBannerTwoColsec .CaseStudyBannerLTCol {
-    max-width: calc(50% - 25px);
-}
+.CaseStudyBannerTwoColsec .CaseStudyBannerLTCol {  max-width: calc(50% - 25px);}
+.CaseStudyBannerRTCol {  max-width: calc(50% - 25px);}
+.AUBannerTimelineSection .AUBannerTimelineTpCol {  gap: 100px;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol {  gap: 80px;}
+.AUBannerTimelineSection {  padding: 80px 20px;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {  bottom: -59px;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol .AUBannerTimelineBox span.AUBannerTimelineBoxshape {   top: -41px;}
+.TwoColCntinSection {  justify-content: center;}
 
-.CaseStudyBannerRTCol {
-    max-width: calc(50% - 25px);
-}
 
+.LImageRContentSection .LImageRContentInSec .LImageRContentLeftCol {  max-width: 50%;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol {  max-width: 50%;}
 
 
 }
@@ -1726,6 +1851,10 @@ h4, .h4 {   font-size: 22px;}
 .CaseStudyOverBoxSec .CaseStudyOverLTCol .CaseStudyOverExploreBox {  padding: 30px;}
 .CaseStudyOverBoxSec .CaseStudyOverLTCol .CaseStudyOverviewBox {   padding: 30px;}
 
+.Counterv1Section .Counterv1Image {  width: 68%;}
+.AUBannerTimelineSection .AUBannerTimelineTpCol {  gap: 50px;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol {  gap: 50px;}
+.MeetteamSliderBoxSec .MeetteamSliderBox {   width: 310px !important;}
 
 
 }
@@ -1829,6 +1958,30 @@ h2, .h2 {    font-size: 37px;}
 .GetFreeDemoSection .GetFreeDemoImg {display: none;}
 
 
+.TwoColCntinSection .TwoColCntTitle {  max-width: 100%;}
+.TwoColCntinSection .TwoColCntContent {   max-width: 100%;}
+.TwoColCntinSection {  gap: 20px;}
+.AUBannerTimelineSection .AUBannerTimelineTpCol {  flex-direction: column;    align-items: center;    padding-bottom: 50px;    width: 90%;  margin: 0 0 0 auto;}
+.AUBannerTimelineSection .AUBannerTimelineBtCol {  flex-direction: column;    align-items: center; padding-top: 0;    width: 90%;  margin: 0 0 0 auto;}
+.AUBannerTimelineSection span.AUBannerTimelineShape {  border-left: 2px dashed #6347FF;    border-bottom: unset;    width: 1px;    height: 100%;    left: 43px;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox {  padding-left: 0;    width: 100%;    text-align: left;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox br {   display: none;}
+.AUBannerTimelineSection:before {  height: 85px;    width: 100%;    background: linear-gradient(90deg, #202640 -7%, rgba(32, 38, 64, 0) 74%);}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {   left: -46px;    top: 50%;    transform: translateY(-50%);}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox:before {  left: -20px;    transform: translateY(-50%) rotate(90deg);    top: 50%;}
+.AUBannerTimelineSection:after {    width: 100%;    height: 85px;    top: unset;    background: linear-gradient(90deg, #202640db 82%, rgba(32, 38, 64, 0) 100%);    transform: rotate(0);}
+
+
+.LImageRContentSection .LImageRContentInSec .LImageRContentLeftCol {
+    max-width: 100%;
+}
+
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol {
+    max-width: 100%;
+    padding: 30px 0 0;
+}
+
+
 }
 
 @media (max-width : 767px){
@@ -1863,9 +2016,12 @@ h2, .h2 {    font-size: 37px;}
 .BannerVideoSection {    margin-bottom: 200px !important;}
 .BannerVideoTitleSection { padding-bottom: 50px; }
 
-.CaseStudyBannerImage {
-    border-radius: 30px;
-}
+.CaseStudyBannerImage {  border-radius: 30px;}
+
+
+
+.MeetteamSliderSection:before, .MeetteamSliderSection:after {  width: 100px;}
+.AUBannerTimelineSection span.AUBannerTimelineShape {  left: 8%;}
 
 }
 
@@ -1954,6 +2110,17 @@ h2, .h2 {    font-size: 28px;}
 .CaseStudyBannerSec {  margin-bottom: 100px !important;}
 .GetFreeDemoFormSec .GetFreeDemoForm form input[type="submit"] {   min-width: 100%;    max-width: 326px;}
 
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {  left: -30px;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox:before {  display: none;}
+
+.Counterv1Section .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box {  margin-right: 0;    padding-right: 0;    width: 47%;    text-align: center;}
+.Counterv1Section .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box .Counterv1Boxin .Counterv1BoxNumber h4 {justify-content: center;}
+.MeetteamSliderBoxSec .MeetteamSliderBox {   width: 210px !important;}
+.MeetteamSliderBoxSec .MeetteamSliderBoxIn {  height: 200px;}
+.MeetteamSliderBoxSec {   padding-top: 30px;}
+.AUBannerTimelineSection span.AUBannerTimelineShape {  left: 8.5%;}
+
+
 }
 
 @media (max-width: 480px){
@@ -2011,7 +2178,9 @@ h5, .h5 {   font-size: 18px;}
 .ResHubCTASection .ResHubCTAInSec .ResHubCTATitleSection .ResHubCTAForm form input[type="email"] {
     padding: 15px;
 }
-
+.AUBannerTimelineSection span.AUBannerTimelineShape {
+    left: 8%;
+}
 
 
 }

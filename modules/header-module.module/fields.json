@@ -75,6 +75,28 @@
   "help_text": "",
   "children": [
     {
+    "name": "menu_style",
+    "label": "Menu Style",
+    "required": false,
+    "locked": false,
+    "display": "select",
+    "inline_help_text": "",
+    "help_text": "",
+    "choices": [
+    [
+      "style_1",
+      "Style Option 1"
+    ],
+    [
+      "style_2",
+      "Style Option 2"
+    ]
+    ],
+    "type": "choice",
+    "placeholder": "",
+    "default": "style_1" 
+  },
+    {
     "name" : "add_number_of_menu",
     "label" : "Add Number Of Menu",
     "required" : false,
@@ -95,9 +117,14 @@
     "locked": false,
     "occurrence": {
       "min": null,
-      "max": null,
+      "max": 4,
       "sorting_label_field": null,
       "default": 4
+    },
+    "visibility": {
+      "controlling_field_path": "mega_menu_group.menu_style",
+      "controlling_value_regex": "style_1",
+      "operator": "EQUAL"
     },
     "type": "group",
     "inline_help_text": "",
@@ -296,7 +323,248 @@
       }
     ],
     "default": [] 
-  }
+    },
+    {
+    "name": "menu_group_style_2",
+    "label": "Menu Group For Style 2",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": null,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": 3
+    },
+     "visibility": {
+      "controlling_field_path": "mega_menu_group.menu_style",
+      "controlling_value_regex": "style_2",
+      "operator": "EQUAL"
+    },
+    "children": [
+      {
+      "name": "inner_group_style_group",
+      "label": "Inner Menu group style",
+      "required": false,
+      "locked": false,
+      "display": "select",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+      [
+        "content_menu",
+        "Content Menu"
+      ],
+      [
+        "simple_menu",
+        "Simple Menu"
+      ],
+      [
+        "card_menu",
+        "Card Menu"
+      ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": null 
+      },
+      {
+      "name": "content_menu_group",
+      "label": "Content Menu Group",
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": null,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 3
+      },
+       "visibility": {
+      "controlling_field_path": "mega_menu_group.menu_group_style_2.inner_group_style_group",
+      "controlling_value_regex": "content_menu",
+      "operator": "EQUAL"
+    },
+      "children": [
+          {
+          "name": "box_image",
+          "label": "Box Image",
+          "required": false,
+          "locked": false,
+          "type": "richtext",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": null 
+          },
+          {
+          "name": "box_title",
+          "label": "Box Title",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "validation_error_message": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "Platform" 
+          },
+          {
+          "name": "box_content",
+          "label": "Box Content",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "validation_error_message": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "Time-tracking, flexible shift-scheduling and accurate payroll." 
+          },
+          {
+          "name" : "box_link",
+          "label" : "Link field",
+          "required" : false,
+          "locked" : false,
+          "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+          "type" : "link",
+          "inline_help_text": "",
+          "help_text": "",
+          "default" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          } 
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": [] 
+      },
+      {
+      "name": "menu_group",
+      "label": "Menu Group",
+      "required": false,
+      "locked": false,
+      "visibility": {
+      "controlling_field_path": "mega_menu_group.menu_group_style_2.inner_group_style_group",
+      "controlling_value_regex": "simple_menu",
+      "operator": "EQUAL"
+    },
+      "children": [
+        {
+        "name": "menu",
+        "label": "Menu",
+        "required": false,
+        "locked": false,
+        "type": "simplemenu",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": [] }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {} 
+      },
+      {
+      "name": "card_menu_group",
+      "label": "Card Menu Group",
+      "required": false,
+      "locked": false,
+       "visibility": {
+      "controlling_field_path": "mega_menu_group.menu_group_style_2.inner_group_style_group",
+      "controlling_value_regex": "card_menu",
+      "operator": "EQUAL"
+    },
+      "children": [
+        {
+        "name": "card_image",
+        "label": "Box Image",
+        "required": false,
+        "locked": false,
+        "inline_help_text": "",
+        "help_text": "",
+        "responsive": true,
+        "resizable": true,
+        "show_loading" : false,
+        "type": "image",
+        "default": {
+          "size_type" : "auto",
+          "src": "",
+          "alt": null,
+          "loading": "disabled"}
+        },
+        {
+        "name": "card_title",
+        "label": "Text field",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "All-in-one HR management, payroll and operations platform" 
+        },
+        {
+        "name": "card_link_text",
+        "label": "Button Text",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "validation_error_message": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "placeholder": "",
+        "inline_help_text": "",
+        "help_text": "",
+        "default": "Platform overview" 
+        },
+        {
+        "name" : "card_link",
+        "label" : "Button link",
+        "required" : false,
+        "locked" : false,
+        "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+        "type" : "link",
+        "inline_help_text": "",
+        "help_text": "",
+        "default" : {
+          "url" : {
+            "content_id" : null,
+            "type" : "EXTERNAL",
+            "href" : ""
+          },
+          "open_in_new_tab" : false,
+          "no_follow" : false
+        } }
+
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {}
+    }
+      
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": [] 
+    }
   ],
   "default": [] 
   },

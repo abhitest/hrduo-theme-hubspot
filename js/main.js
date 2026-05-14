@@ -25,8 +25,59 @@
 
 $(document).ready(function() {
 
+// HeaderMenu js
+var element=$('.headerNav').find('ul').find('li.hs-menu-depth-1');
+ 
+     $.each(element,function(key,value){
+        $(this).addClass('bm-add-m'+(key+1));
+    });
+
+     var v_element=$('.hs-menu-children-wrapper');
+
+    $.each(v_element,function(key_1,value_1){
+
+        var element_class=$(this).attr('class').split(' ')[1];
+
+        var element_main=$(this);
+
+        var element=$('.headerNav').find('ul').find('li.hs-menu-depth-1');
+
+        $.each(element,function(key,value){
+            if( $(this).attr('class').split(' ').pop() == element_class ){
+                element_main.appendTo( $(this));
+                $(this).addClass('hs-item-has-children');
+
+            }
+        });
+
+    });
+
+    $('.headerNav   .hs-menu-children-wrapper').before('<span class="childExpand"><i></i><i></i></span>');
+
+       $(document).on("click", ".childExpand", function(e) {
+        e.preventDefault();
+        $(this).parent().siblings(".hs-item-has-children").find(".childExpand").removeClass("open");
+              $(this).parent().siblings(".hs-item-has-children").find(".hs-menu-children-wrapper").slideUp(250);
+              $(this).next(".hs-menu-children-wrapper").slideToggle(250);
+              $(this).next(".hs-menu-children-wrapper").children(".hs-item-has-children").find(".hs-menu-children-wrapper").slideUp(250);
+              $(this).next(".hs-menu-children-wrapper").children(".hs-item-has-children").find(".childExpand").removeClass("open");
+              $(this).toggleClass("open");
+              return false
+
+
+    });
+
+
     $(document).on("click",".headerburgermenu", function(){
     $(this).toggleClass("active").next().slideToggle()
+})
+
+$(document).on("mouseenter","header.header .headerInnersec .headerRTCol .headerNav >span > div > ul > li.hs-item-has-children", function(){
+    $(this).removeClass("hovered").siblings("li").addClass("hovered")
+})
+
+$(document).on("mouseleave","header.header .headerInnersec .headerRTCol .headerNav >span > div > ul > li.hs-item-has-children", function(){
+    $(this).removeClass("hovered").siblings("li").removeClass("hovered")
 })
  
   $(".TrustedbyteamLogoBoxSec").slick({
@@ -41,6 +92,22 @@ $(document).ready(function() {
     pauseOnHover: false,
     variableWidth: true,
   });
+
+if($('.MeetteamSliderBoxSec').length > 0){
+  $(".MeetteamSliderBoxSec").slick({
+      autoplay: true,
+    autoplaySpeed: 0,
+    speed: 10000,
+    arrows: false,
+    swipe: false,
+    slidesToShow: 2,
+    cssEase: 'linear',
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    variableWidth: true,
+    centerMode: true,
+  });
+}
   
 $(document).on("click", ".FAQBoxSection .FAQBox .FAQBoxTitleBox", function(){
     $(this).next().slideToggle().closest(".FAQBox").toggleClass("active").siblings(".FAQBox").removeClass("active").find(".FAQBoxCnt").slideUp();
@@ -175,40 +242,53 @@ if($(".workforceThreeColSection").length > 0){
 
 
 function inVisible(element) {
-    //Checking if the element is
-    //visible in the viewport
+
     var WindowTop = $(window).scrollTop();
     var WindowBottom = WindowTop + $(window).height();
+
     var ElementTop = element.offset().top;
     var ElementBottom = ElementTop + element.height();
-    //animating the element if it is
-    //visible in the viewport
+
     if ((ElementBottom <= WindowBottom) && ElementTop >= WindowTop)
-      animate(element);
-  }
-  function animate(element) {
-    //Animating the element if not animated before
+        animate(element);
+}
+
+function animate(element) {
+
     if (!element.hasClass('ms-animated')) {
-      var maxval = element.data('max');
-      var html = element.html();
-      element.addClass("ms-animated");
-      $({
-        countNum: element.html()
-      }).animate({
-        countNum: maxval
-      }, {
-        //duration 5 seconds
-        duration: 2000,
-        easing: 'linear',
-        step: function() {
-          element.html(Math.floor(this.countNum) + html);
-        },
-        complete: function() {
-          element.html(this.countNum + html);
-        }
-      });
+
+        var maxval = element.data('max');
+        var html = element.data('suffix') || '';
+
+        element.addClass("ms-animated");
+
+        $({
+            countNum: 0
+        }).animate({
+            countNum: maxval
+        }, {
+
+            duration: 2000,
+            easing: 'linear',
+
+            step: function () {
+
+                element.html(
+                    Math.floor(this.countNum).toLocaleString() + html
+                );
+
+            },
+
+            complete: function () {
+
+                element.html(
+                    Number(this.countNum).toLocaleString() + html
+                );
+
+            }
+        });
     }
-  }
+}
     $(function() {
         $(window).scroll(function() {
         $(".counternumber[data-max]").each(function() {

@@ -1,44 +1,29 @@
-<div class="{{ name }} baseModuleStyle switchingTCSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
-  <div class="switchingTCShape">
-    <svg  width="1400" height="230" viewBox="0 0 1400 230" fill="none">
-<g opacity="0.75" filter="url(#filter0_f_6003_1832)">
-<circle cx="889" cy="57" r="218" fill="#6347FF"/>
-</g>
-<g opacity="0.75" filter="url(#filter1_f_6003_1832)">
-<circle cx="512" cy="377" r="218" fill="#6347FF"/>
-</g>
-<defs>
-<filter id="filter0_f_6003_1832" x="171" y="-661" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6003_1832"/>
-</filter>
-<filter id="filter1_f_6003_1832" x="-206" y="-341" width="1436" height="1436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_6003_1832"/>
-</filter>
-</defs>
-</svg>
-  </div>
+<div class="{{ name }} baseModuleStyle SystemStatusBannerV1Section {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
   <span class="baseModuleOverlay"></span>
   <div class="baseModuleParent"> 
     <div class="content-wrapper">
       {# Custum Width Option #}
-      <div class="customWidthOption switchingTCInSec text-center ">
+      <div class="customWidthOption SystemStatusBannerV1InSec d_flex align_center">
+        {% if module.content_group.image.src %}
+        <div class="SystemStatusBannerLTCol">
+          <img src="{{ module.content_group.image.src }}" alt="{{ module.content_group.image.alt }}" class="SystemStatusBannerImg">
+        </div>
+        {% endif %}
+        <div class="SystemStatusBannerRTCol">
         {% if  module.content_group.title  %}
-        <div class="moduleTitle switchingTCTitle white_color">
+        <div class="moduleTitle SystemStatusBannerTitle white_color">
           {{ module.content_group.title }}
         </div>
           {% endif %}
           {% if module.content_group.content %}
-          <div class="moduleContent pt20 switchingTCContent {% if module.content_group.content_style == 'normal' %} white_75_color {% elif module.content_group.content_style == 'medium' %} white_color medium {% endif %} {% if module.content_group.want_cta %} pb20 {% endif %}">
+          <div class="moduleContent pt20 SystemStatusBannerCnt white_color">
             {{ module.content_group.content }}
           </div>
           {% endif %}
+          {# Button and Cta Option #}
 
-   {% if module.content_group.want_cta %}
-          <div class="moduleCTA d_flex align_center flex_center gap20 pt20 switchingTCCTA">
+          {% if module.content_group.want_cta %}
+          <div class="moduleCTA d_flex align_center gap20 pt20 SystemStatusBannerbtn">
             {% for item in module.content_group.cta_group %}
             {% set CTA = item %}
             <div class="cta-section">
@@ -85,8 +70,28 @@
           </div>
           {% endif %}
 
+          {# End Button and Cta Option #}
 
+          {% if module.content_group.back_btn_group.btn_text %}
+          <div class="SystemStatusbackbtn white_color pt20 text-center"> 
+              {% set href = module.content_group.back_btn_group.button_link.url.href %}
+                {% if module.content_group.back_btn_group.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + href %}
+                {% endif %}
+                {% if module.content_group.back_btn_group.button_link.url.type is equalto "PHONE_NUMBER" %}
+                {% set href = "tel:" + href %}
+                {% endif %}
 
+                <a href="{{ href }}" class="h6"
+                   {% if module.content_group.back_btn_group.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                   {% if module.content_group.back_btn_group.button_link.rel %}rel="{{ module.content_group.back_btn_group.button_link.rel }}"{% endif %}
+                   >
+                   {{ module.content_group.back_btn_group.btn_text }}
+                   </a>
+          </div>
+          {% endif %}
+
+          </div>
       </div>
           {# End Custum Width Option #}
 
@@ -98,15 +103,36 @@
 </div>
 
     {% require_css %}
+    <style>
+     {% scope_css %}
+      /****  Button Style  *****/
+      {% for item in module.content_group.cta_group %}
+            {% set CTA = item %}
+      {% if CTA.override_button_style %}
+
+      .baseModuleStyle .basebutton-{{ loop.index }} a{
+        background:{{ CTA.button_style_group.btn_bg_color.css}};
+        color:{{ CTA.button_style_group.btn_text_color.css }};
+        border-color:{{ CTA.button_style_group.btn_border_color.css }};
+      }
+
+      .baseModuleStyle .basebutton-{{ loop.index }} a:hover {
+        background-color:{{ CTA.button_style_group.btn_bg_color_hover.css}};
+        color:{{ CTA.button_style_group.btn_text_color_hover.css }};
+        border-color : {{ CTA.button_style_group.btn_border_color_hover.css }};
+      }
+
+      {% endif %}
+      {% endfor %}
+      /****  End Button Style  ****/
+     {% end_scope_css %}
+    </style>
     
+   
     <style>
 
 {#       {% scope_css %} #}
         
-
-      .{{ name }} .switchingTCInSec .switchingTCContent { max-width: {{ module.content_group.content_width }}px; width: 100%; margin-left: auto; margin-right: auto; }
-
-
       {# Desktop Styling #}
       .{{name}}.baseModuleStyle{
         position:relative;
@@ -120,7 +146,7 @@
         {% elif module.style.background_property.background_choice == 'gredient'  %}
         background:{{ module.style.background_property.background_gredient.css }};
         {% endif %}
-         margin-left : 20px;margin-right: 20px; border-radius : 30px;
+        margin-left : 20px;margin-right: 20px; border-radius : 30px;
       } 
       /****  Overlay Start  *****/
       {% if module.style.background_property.background_choice == 'bgImage'  %}
@@ -144,7 +170,7 @@
       @media(max-width:767px){
         .{{name}}.baseModuleStyle{
           {{ module.style.spacing.mobile_spacing.css  }}
-           margin-left : 10px;margin-right: 10px;
+          margin-left : 10px;margin-right: 10px;
         } 
       }
       

@@ -26,7 +26,7 @@
           </div>
           {% endif %}
 
-          <div class="Counterv1BoxSection d_flex pt30">
+          <div class="Counterv1BoxSection d_flex pt30 {% if module.content_group.want_four_columns %} Counterv1fourBoxSection {% endif %}">
             {% for item in module.content_group.counter_group %}
             <div class="Counterv1Box white_color">
               <div class="Counterv1Boxin">

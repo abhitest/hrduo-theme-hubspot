@@ -190,7 +190,8 @@
                 
            {% set image_items = item.menu_group|selectattr('item_choice', 'equalto', 'image')|list %}
 
-                <ul  class="hs-menu-children-wrapper bm-add-m{{ item.add_number_of_menu }}">
+                <ul  class="hs-menu-children-wrapper bm-add-m{{ item.add_number_of_menu }} {% if item.menu_style == 'style_1' %} {% if image_items|length > 0 %}has-image {% else %} no-img{% endif %}{% endif %}">
+                  {% if item.menu_style == "style_1" %}
                     <div class='headermegamenusection {% if image_items|length > 0 %}has-image {% else %} no-img{% endif %}'>
 
                       <div class="headermegamenuBoxSec d_flex align_start {% if image_items|length > 0 %} gap32 {% else %} gap48 {% endif %}">
@@ -260,6 +261,117 @@
                       </div>
 
                     </div>
+                     {% elif item.menu_style == "style_2" %}
+
+                    <div class="headermegamenus2Section">
+                      <div class="headermegamenus2InSec">
+                        <div class="headermegamenus2InSectp">
+
+                        
+                        {% for item2 in item.menu_group_style_2 %}
+                          <div class="headermegamenus2BoxMain ">
+                              {% if item2.inner_group_style_group == "content_menu" %} 
+                                <div class="headermegamenus2Box {{ item2.inner_group_style_group }}">
+                                  <div class="headermegamenus2BoxIn">
+                                    {% for item3 in item2.content_menu_group %}
+                                    <div class="headermegamenucntBoxgrp">
+                                      {% if item3.box_image %}
+                                      <div class="headermegamenucntBoxLTCol">
+                                        {{ item3.box_image }}
+                                      </div>
+                                      {% endif %}
+                                      <div class="headermegamenucntBoxRTCol">
+                                        {% if item3.box_title %}
+                                        <div class="headermegamenucntBoxTitle">
+                                          <h5>{{ item3.box_title }}</h5>
+                                        </div>
+                                        {% endif %}
+                                        {% if item3.box_content  %}
+                                        <div class="headermegamenucntBoxContent">
+                                          <p>{{ item3.box_content }}</p>
+                                        </div>
+                                        {%  endif %}
+                                      </div>
+                                      <div class="headermegamenucntBoxbtnarrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+<rect width="8.4916" height="1.06145" rx="0.46875" transform="matrix(-0.707103 -0.70711 0.707103 -0.70711 6.27734 7.02966)" fill="#6347FF" stroke="#6347FF" stroke-width="0.9375"/>
+<rect width="8.4916" height="1.06145" rx="0.46875" transform="matrix(0.707103 -0.70711 -0.707103 -0.70711 6.26953 7.02966)" fill="#6347FF" stroke="#6347FF" stroke-width="0.9375"/>
+</svg>
+                                        
+                                      </div>
+                                      {% if item3.box_link %}
+                                        {% set href = item3.box_link.url.href %}
+                                        {% if item3.box_link.url.type is equalto "EMAIL_ADDRESS" %}
+                                        {% set href = "mailto:" + href %}
+                                        {% endif %}
+                                        {% if item3.box_link.url.type is equalto "PHONE_NUMBER" %}
+                                        {% set href = "tel:" + href %}
+                                        {% endif %}
+
+                                        <a href="{{ href }}"
+                                           {% if item3.box_link.open_in_new_tab %}target="_blank"{% endif %}
+                                           {% if item3.box_link.rel %}rel="{{ item3.box_link.rel }}"{% endif %}
+                                           class="headermegamenucntBoxbtn"
+                                           >
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                  </div>
+                                </div>
+
+
+                              {% elif item2.inner_group_style_group == "simple_menu" %}
+
+                              <div class="headermegamenus2Boxsmenugrp">
+                                {% simple_menu menu_tree="{{ item2.menu_group.menu }}" %}
+                              </div>
+
+                              {% elif item2.inner_group_style_group == "card_menu" %}
+
+                                <div class="headermegamenus2BoxCardBox">
+                                  {% set card = item2.card_menu_group %}
+                                  <div class="headermegamenus2BoxCard">
+                                    <div class="headermegamenus2BoxCardimg">
+                                      <img src="{{ card.card_image.src }}" alt="{{ card.card_image.alt }}">
+                                    </div>
+                                    <div class="headermegamenus2BoxCardText white_color">
+                                      <h5>{{ card.card_title }}</h5>
+                                    </div>
+                                    <div class="headermegamenus2BoxCardbtn">
+
+                                   
+                                    {% set href = card.card_link.url.href %}
+                                    {% if card.card_link.url.type is equalto "EMAIL_ADDRESS" %}
+                                    {% set href = "mailto:" + href %}
+                                    {% endif %}
+                                    {% if card.card_link.url.type is equalto "PHONE_NUMBER" %}
+                                    {% set href = "tel:" + href %}
+                                    {% endif %}
+                                    <a href="{{ href }}"
+                                       {% if card.card_link.open_in_new_tab %}target="_blank"{% endif %}
+                                       {% if card.card_link.rel %}rel="{{ card.card_link.rel }}"{% endif %}
+                                       class="headermegamenus2BoxCardlink"
+                                       >
+                                       {{ card.card_link_text }}
+
+                                    </a>
+                                     </div>
+                                  </div>
+                              
+                                </div>
+
+                              {% endif %}
+                          </div>
+                          {% endfor %}
+                          </div>
+                          <div class="headermegamenus2InSecbt">
+
+                          </div>
+                      </div>
+                    </div>
+
+                     {% endif %}
                 </ul>
                 {% endfor %}
             </div>

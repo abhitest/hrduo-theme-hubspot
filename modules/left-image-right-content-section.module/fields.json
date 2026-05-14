@@ -11,8 +11,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
-    "type" : "text"
+    "type" : "text",
+    "display_width" : null
   }, {
     "id" : "section_id",
     "name" : "section_id",
@@ -20,14 +20,14 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
-    "type" : "text"
+    "type" : "text",
+    "display_width" : null
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : {
     "container_choice" : "content-wrapper"
   }
@@ -39,8 +39,8 @@
   "locked" : false,
   "children" : [ 
     {
-    "name": "bg_image",
-    "label": "Bg Image",
+    "name": "image",
+    "label": "Image",
     "required": false,
     "locked": false,
     "inline_help_text": "",
@@ -51,11 +51,11 @@
     "type": "image",
     "default": {
       "size_type" : "auto",
-      "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Group%201000002841%20(4).png",
-      "alt": "Group 1000002841 (4)",
+      "src": "https://6160003.fs1.hubspotusercontent-eu1.net/hubfs/6160003/hrduo-theme-2026/Group%207%20(3).png",
+      "alt": "Group 7 (3)",
       "loading": "disabled"}
     },
-    {
+  {
     "id" : "title",
     "name" : "title",
     "label" : "Title",
@@ -63,93 +63,19 @@
     "inline_help_text" : "",
     "required" : false,
     "locked" : false,
-    "display_width" : null,
     "type" : "richtext",
-    "default": "<h3>Human-backed HR automation</h3>"
-  }, 
-  {
+    "display_width" : null,
+    "default": "<h3>HR About the Guide"
+  }, {
     "id" : "content",
     "name" : "content",
     "label" : "Content",
     "required" : false,
     "locked" : false,
-    "display_width" : null,
     "type" : "richtext",
-    "default" : "<p>Automate essential HR processes to make your operations smarter, faster, and more efficient. Ensure compliance in every employment process and boost employee engagement - empowering your people and driving your business forward.</p>"
+    "display_width" : null,
+    "default" : "<p>This HR Management Software Checklist is a practical guide for HR and operations leaders looking to modernise their people systems and processes.</p><p>It helps you assess whether your current HR software truly supports the full employee lifecycle, from recruitment and onboarding to time tracking, payroll, and performance management. Packed with insights and a detailed evaluation framework, this guide walks you through what a high-performing HR management system (HRMS) should include:</p><ul><li>Core HRIS features: employee database, org charts, document storage</li><li>Talent management: applicant tracking, onboarding, performance reviews</li><li>Time and attendance: time tracking, leave management</li><li>Payroll and benefits administration</li><li>Integrations and reporting capabilities</li></ul><p>Whether you’re looking to upgrade your existing HR software or implement a new system for the first time, this checklist will help you identify critical features, evaluate potential vendors, and ensure you choose an HRMS that truly meets your organisation’s needs.</p>"
   }, 
-  {
-  "name": "want_four_columns",
-  "label": "Want Four Columns?",
-  "required": false,
-  "locked": false,
-  "type": "boolean",
-  "display":"toggle",
-  "inline_help_text": "",
-  "help_text": "",
-  "default": false 
-  },
-  {
-  "name": "counter_group",
-  "label": "Counter Group",
-  "required": false,
-  "locked": false,
-  "occurrence": {
-    "min": null,
-    "max": null,
-    "sorting_label_field": null,
-    "default": 3
-  },
-  "type": "group",
-  "inline_help_text": "",
-  "help_text": "",
-  "children": [
-    {
-    "name": "box_number",
-    "label": "Box Number",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "4" 
-    },
-    {
-    "name": "box_number_text",
-    "label": "Box Number Text",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "x" 
-    },
-    {
-    "name": "box_content",
-    "label": "Box Content",
-    "required": false,
-    "locked": false,
-    "validation_regex": "",
-    "validation_error_message": "",
-    "allow_new_line": false,
-    "show_emoji_picker": false,
-    "type": "text",
-    "placeholder": "",
-    "inline_help_text": "",
-    "help_text": "",
-    "default": "faster policy and contract management" 
-    }
-  ]
-  },
   {
     "id" : "content_group.want_cta",
     "name" : "want_cta",
@@ -159,11 +85,11 @@
     "required" : false,
     "locked" : false,
     "display" : "checkbox",
-    "display_width" : null,
     "type" : "boolean",
-    "default" : true
-  }, 
-  {
+    "display_width" : null,
+    "default" : false
+  },
+   {
     "id" : "content_group.cta_group",
     "name" : "cta_group",
     "label" : "CTA group",
@@ -173,7 +99,7 @@
     "locked" : false,
     "occurrence" : {
       "min" : null,
-      "max" : 1,
+      "max" : null,
       "sorting_label_field" : null,
       "default" : 1
     },
@@ -199,8 +125,8 @@
       "multiple" : false,
       "reordering_enabled" : true,
       "preset" : null,
-      "display_width" : null,
       "type" : "choice",
+      "display_width" : null,
       "default" : "normalcta"
     }, {
       "id" : "content_group.cta_group.choice_cta_style",
@@ -216,9 +142,9 @@
       "multiple" : false,
       "reordering_enabled" : true,
       "preset" : null,
-      "display_width" : null,
       "type" : "choice",
-      "default" : "secondary_button"
+      "display_width" : null,
+      "default" : "button"
     }, {
       "id" : "content_group.cta_group.button_alignment",
       "name" : "button_alignment",
@@ -233,8 +159,8 @@
       "multiple" : false,
       "reordering_enabled" : true,
       "preset" : null,
-      "display_width" : null,
-      "type" : "choice"
+      "type" : "choice",
+      "display_width" : null
     }, {
       "id" : "content_group.cta_group.want_arrow",
       "name" : "want_arrow",
@@ -244,8 +170,8 @@
       "required" : false,
       "locked" : false,
       "display" : "toggle",
-      "display_width" : null,
       "type" : "boolean",
+      "display_width" : null,
       "default" : false
     }, {
       "id" : "content_group.cta_group.button_text",
@@ -266,9 +192,9 @@
       },
       "placeholder" : "",
       "allow_new_line" : false,
-      "display_width" : null,
       "type" : "text",
-      "default" : "Request a Free demo"
+      "display_width" : null,
+      "default" : "Click Here"
     }, {
       "id" : "content_group.cta_group.button_link",
       "name" : "button_link",
@@ -287,8 +213,8 @@
       },
       "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
       "show_advanced_rel_options" : false,
-      "display_width" : null,
       "type" : "link",
+      "display_width" : null,
       "default" : {
         "url" : {
           "content_id" : null,
@@ -314,8 +240,8 @@
         "operator" : "EQUAL",
         "access" : null
       },
-      "display_width" : null,
-      "type" : "cta"
+      "type" : "cta",
+      "display_width" : null
     }, {
       "id" : "content_group.cta_group.override_button_style",
       "name" : "override_button_style",
@@ -325,8 +251,8 @@
       "required" : false,
       "locked" : false,
       "display" : "checkbox",
-      "display_width" : null,
       "type" : "boolean",
+      "display_width" : null,
       "default" : false
     }, {
       "id" : "content_group.cta_group.button_style_group",
@@ -352,8 +278,8 @@
         "inline_help_text" : "",
         "required" : false,
         "locked" : false,
-        "display_width" : null,
         "type" : "color",
+        "display_width" : null,
         "default" : {
           "color" : "#000",
           "opacity" : 100
@@ -366,8 +292,8 @@
         "inline_help_text" : "",
         "required" : false,
         "locked" : false,
-        "display_width" : null,
         "type" : "color",
+        "display_width" : null,
         "default" : {
           "color" : "#ffffff",
           "opacity" : 100
@@ -380,8 +306,8 @@
         "inline_help_text" : "",
         "required" : false,
         "locked" : false,
-        "display_width" : null,
         "type" : "color",
+        "display_width" : null,
         "default" : {
           "color" : "#000",
           "opacity" : 100
@@ -394,8 +320,8 @@
         "inline_help_text" : "",
         "required" : false,
         "locked" : false,
-        "display_width" : null,
         "type" : "color",
+        "display_width" : null,
         "default" : {
           "color" : "#ffffff",
           "opacity" : 100
@@ -408,8 +334,8 @@
         "inline_help_text" : "",
         "required" : false,
         "locked" : false,
-        "display_width" : null,
         "type" : "color",
+        "display_width" : null,
         "default" : {
           "color" : "#ffffff",
           "opacity" : 100
@@ -422,8 +348,8 @@
         "inline_help_text" : "",
         "required" : false,
         "locked" : false,
-        "display_width" : null,
         "type" : "color",
+        "display_width" : null,
         "default" : {
           "color" : "#ffffff",
           "opacity" : 100
@@ -432,21 +358,21 @@
       "tab" : "CONTENT",
       "expanded" : false,
       "group_occurrence_meta" : null,
-      "display_width" : null,
-      "type" : "group"
+      "type" : "group",
+      "display_width" : null
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "display_width" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   } 
 ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
-  "type" : "group"
+  "type" : "group",
+  "display_width" : null
 }, {
   "id" : "style",
   "name" : "style",
@@ -475,9 +401,8 @@
       "multiple" : false,
       "reordering_enabled" : true,
       "preset" : null,
-      "display_width" : null,
       "type" : "choice",
-      "default":"bgColor"
+      "display_width" : null
     }, {
       "id" : "style.background_property.background_image",
       "name" : "background_image",
@@ -497,8 +422,8 @@
       "responsive" : true,
       "resizable" : true,
       "show_loading" : false,
-      "display_width" : null,
       "type" : "image",
+      "display_width" : null,
       "default" : {
         "size_type" : "auto",
         "src" : "",
@@ -521,11 +446,11 @@
         "operator" : "EQUAL",
         "access" : null
       },
-      "display_width" : null,
       "type" : "color",
+      "display_width" : null,
       "default" : {
-        "color" : "#6347FF",
-        "opacity" : 100,
+        "color" : null,
+        "opacity" : null,
         "hex" : null,
         "rgba" : null,
         "rgb" : null
@@ -546,15 +471,15 @@
         "operator" : "EQUAL",
         "access" : null
       },
-      "display_width" : null,
       "type" : "gradient",
+      "display_width" : null,
       "default" : { }
     } ],
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "display_width" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   }, {
     "id" : "style.spacing",
     "name" : "spacing",
@@ -571,8 +496,8 @@
       "inline_help_text" : "",
       "required" : false,
       "locked" : false,
-      "display_width" : null,
       "type" : "spacing",
+      "display_width" : null,
       "default" : {
         "padding" : {
           "top" : {
@@ -580,7 +505,7 @@
             "units" : "px"
           },
           "bottom" : {
-            "value" : 100,
+            "value" : 75,
             "units" : "px"
           },
           "left" : {
@@ -601,8 +526,8 @@
       "inline_help_text" : "",
       "required" : false,
       "locked" : false,
-      "display_width" : null,
       "type" : "spacing",
+      "display_width" : null,
       "default" : {
         "padding" : {
           "top" : {
@@ -610,7 +535,7 @@
             "units" : "px"
           },
           "bottom" : {
-            "value" : 70,
+            "value" : 50,
             "units" : "px"
           },
           "left" : {
@@ -631,8 +556,8 @@
       "inline_help_text" : "",
       "required" : false,
       "locked" : false,
-      "display_width" : null,
       "type" : "spacing",
+      "display_width" : null,
       "default" : {
         "padding" : {
           "top" : {
@@ -657,12 +582,12 @@
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "display_width" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   } ],
   "tab" : "STYLE",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
-  "type" : "group"
+  "type" : "group",
+  "display_width" : null
 } ]

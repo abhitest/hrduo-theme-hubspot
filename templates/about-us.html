@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: About Us 
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+{# All templates are recommended to have an h1 present for both accessibility and SEO best practice. This should be at the top of the template before any other textual content. The h1 element below is within a dnd area to allow content editors the ability to adjust the content and alignment of the text. #}
+
+{% dnd_area "dnd_area"
+  label="Main section",
+  class="body-container body-container--home"
+%}
+
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/about-us-banner-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/two-column-content-only-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/trusted-by-teams-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/meet-team-slider-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/meet-team-slider-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/counter-section-version-1.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section padding={"top": "0", "bottom": "0", "left": "0", "right": "0"}, full_width=true %}
+{% dnd_module  path="../modules/switching-title-content-section.module" %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}
