@@ -10,25 +10,5 @@
 {% set pageTitle = "Error 404 | Page not found" %}
 
 {% block body %}
-<section class="content-wrapper">
-  <div class="error-page" data-error="404">
-    {% module "content"
-      path="@hubspot/rich_text",
-      html="<h1>Page not found.</h1>"
-    %}
-    {% module "button"
-      path="../../modules/button",
-      button_text="Go Home"
-      link={
-        "url":
-          {
-            "type": "EXTERNAL",
-            "href": "/"
-          },
-          "open_in_new_tab": false,
-          "no_follow": false
-      }
-    %}
-  </div>
-</section>
+{% module "module_17788439507901" path="/HRDuo-theme-2026/modules/error-banner-section", label="error-banner-section" %}
 {% endblock body %}

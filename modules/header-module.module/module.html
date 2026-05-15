@@ -269,7 +269,7 @@
 
                         
                         {% for item2 in item.menu_group_style_2 %}
-                          <div class="headermegamenus2BoxMain ">
+                          <div class="headermegamenus2BoxMain {{ item2.inner_group_style_group }}">
                               {% if item2.inner_group_style_group == "content_menu" %} 
                                 <div class="headermegamenus2Box {{ item2.inner_group_style_group }}">
                                   <div class="headermegamenus2BoxIn">
@@ -366,7 +366,44 @@
                           {% endfor %}
                           </div>
                           <div class="headermegamenus2InSecbt">
-
+                              <div class="headermegamenus2InSecbtcnt p2 white_color">
+                                <p>{{ item.menu_bottom_group.bt_text }}</p>
+                                   
+                              </div>
+                              <div class="headermegamenus2InSecbtctas">
+                                <div class="headermm2ISbutton">
+                                  {% set href = item.menu_bottom_group.pricing_btn_group.button_link.url.href %}
+                                  {% if item.menu_bottom_group.pricing_btn_group.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                                  {% set href = "mailto:" + href %}
+                                  {% endif %}
+                                  {% if item.menu_bottom_group.pricing_btn_group.button_link.url.type is equalto "PHONE_NUMBER" %}
+                                  {% set href = "tel:" + href %}
+                                  {% endif %}
+                                  <a href="{{ href }}"
+                                     {% if item.menu_bottom_group.pricing_btn_group.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                                     {% if item.menu_bottom_group.pricing_btn_group.button_link.rel %}rel="{{ item.menu_bottom_group.pricing_btn_group.button_link.rel }}"{% endif %}
+                                     class="p2"
+                                     >
+                                    {{ item.menu_bottom_group.pricing_btn_group.button_text }}
+                                  </a>
+                                </div>
+                                <div class="headermm2ISsecondarybutton {{ item.menu_bottom_group.secondary_button_group.choice_cta_style }}">
+                                {% set href = item.menu_bottom_group.secondary_button_group.button_link.url.href %}
+                                  {% if item.menu_bottom_group.secondary_button_group.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+                                  {% set href = "mailto:" + href %}
+                                  {% endif %}
+                                  {% if item.menu_bottom_group.button_link.url.type is equalto "PHONE_NUMBER" %}
+                                  {% set href = "tel:" + href %}
+                                  {% endif %}
+                                  <a href="{{ href }}"
+                                     {% if item.menu_bottom_group.secondary_button_group.button_link.open_in_new_tab %}target="_blank"{% endif %}
+                                     {% if item.menu_bottom_group.secondary_button_group.button_link.rel %}rel="{{ item.menu_bottom_group.secondary_button_group.button_link.rel }}"{% endif %}
+                                     
+                                     >
+                                    <span class="btn_text_gradient">{{ item.menu_bottom_group.secondary_button_group.button_text }}</span>
+                                  </a>
+                                </div>
+                              </div>
                           </div>
                       </div>
                     </div>
