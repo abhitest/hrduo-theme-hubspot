@@ -1,0 +1,89 @@
+<div class="{{ name }} baseModuleStyle BlogPostBannerSection {{ module.custom_style.custom_class }} " id="{{ module.custom_style.section_id }}">
+  <span class="baseModuleOverlay"></span>
+  <div class="baseModuleParent"> 
+    <div class="content-wrapper">
+      {# Custum Width Option #}
+      <div class="customWidthOption BlogPostBannerInSec">
+        <div class="BlogPostBannerTitleSec">
+          <div class="BlogPostBannerTitle white_color">
+            <h1>{{ content.name }}</h1>    
+          </div>
+          <div class="BlogPostBannerInfo">
+            <ul>
+              <li><span class="icn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.3116 12.1602C14.3114 12.3916 14.1241 12.5788 13.8927 12.5791H2.962C2.73057 12.5789 2.54327 12.3916 2.54306 12.1602V10.9023H11.3761C11.6697 10.9023 11.956 10.799 12.1837 10.6094C12.3752 10.4491 13.5032 9.44306 14.3116 7.45996V12.1602ZM14.2979 3.35449C14.1515 7.81276 11.7499 9.87768 11.6446 9.96582C11.5693 10.0285 11.4743 10.0635 11.3761 10.0635H0.419035C0.243042 10.0635 0.0857283 9.95296 0.0254804 9.78809C-0.0351225 9.62266 0.0147967 9.43609 0.149504 9.32227C0.185815 9.29177 2.384 7.38892 2.52939 3.35449H14.2979ZM11.3761 0C11.6107 0 11.7957 0.18436 11.796 0.418945V0.838867H13.8927C14.1272 0.839121 14.3115 1.02326 14.3116 1.25781V2.51562H2.54306V1.25781C2.54316 1.02324 2.72746 0.839089 2.962 0.838867H5.05868V0.418945C5.05893 0.18436 5.24395 0 5.47861 0C5.71308 0.000197557 5.89731 0.184486 5.89755 0.418945V0.838867H7.99423V0.418945C7.99447 0.184411 8.1786 7.9975e-05 8.41318 0C8.64783 0 8.83285 0.18436 8.8331 0.418945V0.838867H10.9571V0.418945C10.9574 0.184465 11.1416 0.000165089 11.3761 0Z" fill="white"/>
+</svg></span>{{ datetimeformat(content.publish_date_local_time, '%B %e, %Y') }} </li>
+{% set words = content.post_body|striptags|split(' ')|length %}
+{% set read_time = (words / 200)|round(0, 'ceil') %}
+              
+<li><span class="icn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<path d="M7 0C5.61553 0 4.26215 0.410543 3.11101 1.17971C1.95987 1.94888 1.06266 3.04213 0.532846 4.32122C0.00303301 5.6003 -0.13559 7.00776 0.134506 8.36563C0.404603 9.7235 1.07129 10.9708 2.05026 11.9497C3.02922 12.9287 4.2765 13.5954 5.63437 13.8655C6.99224 14.1356 8.3997 13.997 9.67878 13.4672C10.9579 12.9373 12.0511 12.0401 12.8203 10.889C13.5895 9.73785 14 8.38447 14 7C13.9978 5.14416 13.2596 3.36495 11.9473 2.05267C10.635 0.74039 8.85584 0.00218939 7 0ZM9.359 9.359C9.23966 9.4783 9.07783 9.54532 8.90909 9.54532C8.74035 9.54532 8.57852 9.4783 8.45918 9.359L6.55009 7.44991C6.43074 7.33059 6.36367 7.16876 6.36364 7V3.18182C6.36364 3.01304 6.43068 2.85118 6.55002 2.73184C6.66937 2.6125 6.83123 2.54545 7 2.54545C7.16878 2.54545 7.33064 2.6125 7.44998 2.73184C7.56932 2.85118 7.63636 3.01304 7.63636 3.18182V6.73654L9.359 8.45918C9.4783 8.57852 9.54532 8.74035 9.54532 8.90909C9.54532 9.07783 9.4783 9.23966 9.359 9.359Z" fill="white"/>
+</svg></span>{{ read_time }} Minutes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="BlogPostBannerimg">
+          <img src="{{ content.post_list_summary_featured_image }}" alt="{{ content.featured_image_alt_text }}" class="bannerImage">
+        </div>
+      </div>
+          {# End Custum Width Option #}
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    {% require_css %}
+   
+    <style>
+
+{#       {% scope_css %} #}
+        
+      .{{ name }} .BlogPostBannerInSec .BlogPostBannerTitleSec { max-width: {{ module.content_group.title_section_custom_width }}px; }
+
+      {# Desktop Styling #}
+      .{{name}}.baseModuleStyle{
+        position:relative;
+      
+        {{ module.style.spacing.desktop_spacing.css }}
+       
+        {% if module.style.background_property.background_choice == 'bgImage'  %}
+         background-image:url('{{ module.style.background_property.background_image.src|escape_url }}');  background-position: center center;  background-repeat: no-repeat; background-size : cover;
+        {% elif module.style.background_property.background_choice == 'bgColor'  %}
+        background-color:rgba({{ module.style.background_property.background_color.color|convert_rgb }},{{ module.style.background_property.background_color.opacity }}%);
+        {% elif module.style.background_property.background_choice == 'gredient'  %}
+        background:{{ module.style.background_property.background_gredient.css }};
+        {% endif %}
+        margin-left: 20px; margin-right: 20px; border-radius: 30px;
+      } 
+      /****  Overlay Start  *****/
+      {% if module.style.background_property.background_choice == 'bgImage'  %}
+      .{{name}} .baseModuleOverlay{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color:rgba({{ module.style.background_property.overlay_color.color|convert_rgb }},{{ module.style.background_property.overlay_color.opacity }}%); }
+      {% endif %}
+      /****  Overlay Start  *****/
+      .{{name}} .baseModuleParent{position:relative; z-index:5}
+
+
+
+      {# End Desktop Styling #}
+
+      {# Tablet Styling #}
+      @media(max-width:1300px){
+        .{{name}}.baseModuleStyle{
+           {{  module.style.spacing.tab_spacing.css }}
+        } 
+      }
+      {# End Tablet Styling #}
+      {# Mobile Styling #}
+      @media(max-width:767px){
+        .{{name}}.baseModuleStyle{
+          {{ module.style.spacing.mobile_spacing.css  }}
+          margin-left: 10px; margin-right: 10px;
+        } 
+      }
+      
+{#       {% end_scope_css %} #}
+    </style>
+  {% end_require_css %}

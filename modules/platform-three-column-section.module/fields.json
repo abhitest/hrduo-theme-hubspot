@@ -38,6 +38,7 @@
   "required" : false,
   "locked" : false,
   "children" : [ 
+   
     {
     "id" : "title",
     "name" : "title",
@@ -82,6 +83,7 @@
   "placeholder": "",
   "default": null 
   },
+  
   {
   "name": "column_group",
   "label": "Column Group",
@@ -126,6 +128,18 @@
         "alt": "Vector (37)",
         "loading": "disabled"}
       },
+       {
+  "name": "title_span_color",
+  "label": "Title Span Color",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "type": "color",
+  "default": {
+    "color": "#ffffff",
+    "opacity": 100 } 
+  },
       {
       "name": "box_title",
       "label": "Box Title",
@@ -137,7 +151,7 @@
       "show_emoji_picker": false,
       "type": "text",
       "placeholder": "",
-      "inline_help_text": "",
+      "inline_help_text": "Title Span Color to change its color",
       "help_text": "",
       "default": "Human Resources" 
       },

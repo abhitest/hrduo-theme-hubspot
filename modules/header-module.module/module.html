@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header check">
     <div class="content-wrapper">
         <div class="headerInnersec d_flex align_center">
             <div class="headerlogo">
@@ -230,6 +230,21 @@
                               <div class="headermegamenuBoxText white_color">
                                 <h5>{{ menu.title }}</h5>
                               </div>
+                              {% if menu.title_link.url.href %}
+                               {% set href = menu.title_link.url.href %}
+                                  {% if menu.title_link.url.type is equalto "EMAIL_ADDRESS" %}
+                                  {% set href = "mailto:" + href %}
+                                  {% endif %}
+                                  {% if menu.title_link.url.type is equalto "PHONE_NUMBER" %}
+                                  {% set href = "tel:" + href %}
+                                  {% endif %}
+
+                                  <a href="{{ href }}" class="headermegamenuBoxlink"
+                                    {% if menu.title_link.open_in_new_tab %}target="_blank"{% endif %}
+                                    {% if menu.title_link.rel %}rel="{{ menu.title_link.rel }}"{% endif %}
+                                    >
+                                    </a>
+                                    {% endif %}
                             </div>
                             <div class="headermegamenuBoxList ">
                               <ul>

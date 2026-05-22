@@ -98,8 +98,6 @@
 } %}
 
 
-
-
 /* 1c. Typography */
 
 {% set primary_font = theme.global_fonts.primary %}
@@ -721,7 +719,7 @@ header.header .headerInnersec .headerRTCol .headerNav >span > div > ul { gap: 50
     align-items: center; }
 header.header .headerInnersec .headerRTCol .headerdemobtn a span.text_gradient {    background: linear-gradient(90deg, #6347FF 25%, #8E7AFF 50%, #6347FF 75%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;}
 header.header .headerInnersec .headerRTCol .headerdemobtn a:hover span.text_gradient {    background: linear-gradient(90deg, #FFF 25%, rgb(255 255 255 / 60%) 50%, #FFF 75%);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;}
-header.header .headerInnersec .headerRTCol .headerdemobtn a:hover {    border-color: #fff;    background: transparent;}
+header.header .headerInnersec .headerRTCol .headerdemobtn a:hover {    border-color: {{ white_color }};    background: transparent;}
 
 
 ul.hs-menu-children-wrapper {  margin: 0;    width: 100%;    padding: 0;}
@@ -756,15 +754,15 @@ header.header .headerInnersec .headerRTCol ul li.hs-item-has-children > ul.hs-me
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxbtnarrow {    position: absolute;    right: 20px;    top: 50%;    transform: translateY(-50%);    background: #FFFFFF;    width: 28px;    height: 28px;    border-radius: 50%;    display: flex;    align-items: center;    justify-content: center;    transition: all ease-in-out 0.3s;}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxbtnarrow svg {  transition: all ease-in-out 0.3s;}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxRTCol .headermegamenucntBoxTitle h5 {  font-size: 20px;    line-height: 1;    font-weight: 500;    margin-bottom: 5px;    transition: all ease-in-out 0.3s;}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxRTCol  .headermegamenucntBoxContent p {  color: rgb(255 255 255 / 70%);    line-height: 1.25;    transition: all ease-in-out 0.3s;}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover {   background: #FFFFFF;    box-shadow: 0px 24px 24px 0px #3124804D;}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxRTCol  .headermegamenucntBoxContent p {  color: rgb(255 255 255 / 70%); color : rgba({{ color_variant(theme.global_colors.white_color.color, 70)|convert_rgb }}, 70%);  line-height: 1.25;    transition: all ease-in-out 0.3s;}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover {   background: {{ white_color }};    box-shadow: 0px 24px 24px 0px #3124804D;}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxLTCol {    background: rgb(99 71 255 / 10%);}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxLTCol svg path {   fill: #6347FF;}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxLTCol svg path {   fill: {{ purple_color }};}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxLTCol svg path {    transition: all ease-in-out 0.3s;}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxTitle h5 {    color: #000000;}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxContent p {    color: #000000;}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxbtnarrow {    background: #6347FF;    transform: translateY(-50%) rotate(-90deg);}
-.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxbtnarrow svg rect {   fill: #fff;    stroke: #fff;}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxTitle h5 {    color: {{ primary_color }};}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxContent p {    color: {{ primary_color }};}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxbtnarrow {    background: {{ purple_color }};    transform: translateY(-50%) rotate(-90deg);}
+.headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp:hover .headermegamenucntBoxbtnarrow svg rect {   fill: {{ white_color }};    stroke: {{ white_color }};}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp .headermegamenucntBoxbtnarrow svg rect {  transition: all ease-in-out 0.3s;}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp .headermegamenus2BoxMain.content_menu .headermegamenus2BoxIn .headermegamenucntBoxgrp a.headermegamenucntBoxbtn {  position: absolute;    width: 100%;    height: 100%;    top: 0;    left: 0;    z-index: 1;}
 .headermegamenus2Section .headermegamenus2InSec .headermegamenus2InSectp  .headermegamenus2BoxMain.card_menu {  max-width: 356px;    width: 100%;}
@@ -786,7 +784,8 @@ header.header .headerInnersec .headerRTCol ul li.hs-item-has-children > ul.hs-me
 .headermegamenus2InSecbt .headermegamenus2InSecbtctas {   display: flex;    align-items: center;    gap: 32px;  flex-wrap: wrap;}
 .headermegamenus2InSecbt .headermegamenus2InSecbtctas .headermm2ISbutton a {   text-decoration: underline;}
 .headermegamenus2InSecbt .headermegamenus2InSecbtcnt p a {   font-weight: 500;    text-decoration: underline;}
-
+ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox .headermegamenuBoxTitlecol {   position: relative;}
+ul.hs-menu-children-wrapper .headermegamenuBoxSec .headermegamenuBox .headermegamenuBoxTitlecol a.headermegamenuBoxlink {  position: absolute;    width: 100%;    height: 100%;    top: 0;    left: 0;    z-index: 1;}
 
 
 
@@ -1458,7 +1457,7 @@ color: {{ primary_color }};
 .AllourplanBoxSection .AllourplanBox {   max-width: calc(25% - 15px);    width: 100%;    padding: 10px 20px 10px 10px;    border: 1px solid #F1F3FB;    border-radius: 14px;    background: #fff;    position: relative;}
 .AllourplanBoxSection .AllourplanBox .AllourplanBoxImage {    width: 54px;    height: 54px;    border-radius: 10px;    display: flex;    align-items: center;    justify-content: center;}
 .AllourplanBoxSection .AllourplanBox .AllourplanBoxImage img {    width: 28px;    height: 28px;    object-fit: contain;}
-.AllourplanBoxSection:before {    position: absolute;    content: "";    width: 1140px;    background: #6347FF26;    height: 100%;    left: 50%;    transform: translate(-50%, -50%);    border-radius: 50%;    top: 50%;    filter: blur(300px);}
+.AllourplanBoxSection:before {    position: absolute;    content: "";    width: 1140px;    background: rgb(99 71 255 / 30%);    height: 100%;    left: 50%;    transform: translate(-50%, -50%);    border-radius: 50%;    top: 50%;    filter: blur(300px); pointer-events: none;}
 .AllourplanCTA a {  min-width: 348px;}
 .AllourplanBoxSection .AllourplanBox .AllourplanBoxText {   width: calc(100% - 64px);}
 
@@ -1470,7 +1469,7 @@ color: {{ primary_color }};
 .OurCustomerLogoBoxSection .OurCustomerLogoBox {  max-width: calc(20% - 9.6px);    width: 100%;    border: 1px solid #F1F3FB;    background: #fff;    padding: 34px;    border-radius: 14px;    position: relative;}
 .OurCustomerLogoBoxSection .OurCustomerLogoBox .OurCustomerLogoBoxImg {   width: 100%;    height: 54px;}
 .OurCustomerLogoBoxSection .OurCustomerLogoBox .OurCustomerLogoBoxImg img {   width: 100%;    height: 100%;    object-fit: scale-down;}
-.OurCustomerLogoBoxSection:before {    position: absolute;    content: "";    background: #6347FF26;    width: 100%;    max-width: 1140px;    height: 100%;    top: 50%;    left: 50%;    transform: translate(-50%, -50%);    border-radius: 50%;    filter: blur(300px);}
+.OurCustomerLogoBoxSection:before {    position: absolute;    content: "";    background: rgb(99 71 255 / 25%);    width: 100%;    max-width: 1140px;    height: 100%;    top: 50%;    left: 50%;    transform: translate(-50%, -50%);    border-radius: 50%;    filter: blur(300px); pointer-events: none;}
 
 .LContentRFormBannerInSec {  gap: 87px; justify-content: space-between;}
 .LContentRFormBannerInSec .LContentRFormBannerLTCol {  max-width: 636px;    width: 100%;}
@@ -1486,7 +1485,7 @@ color: {{ primary_color }};
 .LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .input {    margin: 0;}
 .LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field {    margin-bottom: 12px;}
 .LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset.form-columns-2 .hs-form-field {    width: calc(50% - 5px);}
-.LContentRFormBannerRTCol .LContentRFormBannerForm form .hs-richtext p {   margin: 0;    color: #fff;    font-weight: 500;    font-size: 14px;    line-height: 1.428;    font-family: "Poppins";}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form .hs-richtext p {   margin: 0;    color: #fff;    font-weight: 500;    font-size: 14px;    line-height: 1.428;  }
 .LContentRFormBannerRTCol .LContentRFormBannerForm form .hs-richtext {   margin-bottom: 12px;}
 .LContentRFormBannerForm form .hs_submit input[type="submit"] {  max-width: 326px;    width: 100%;    background: #FFFFFF;    color: #6347FF;    font-weight: 500;    font-size: 16px;    line-height: 20px;    padding: 15px;}
 .LContentRFormBannerlist ul {  margin: 0;    padding: 0;    list-style: none;}
@@ -1718,7 +1717,7 @@ color: {{ primary_color }};
 .AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox {    text-align: center;    position: relative;}
 .AUBannerTimelineSection .AUBannerTimelineTpCol {   gap: 173px;}
 .AUBannerTimelineSection  .AUBannerTimelineBtCol {   gap: 198px;    justify-content: flex-end;}
-.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {    position: absolute;    width: 17px;    height: 17px;    border: 5px solid #6347FF;    border-radius: 50%;    background: #fff;    box-shadow: 0px 0px 11px 0px #6347FF;    left: 50%;    transform: translateX(-50%);    bottom: -47px;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {    position: absolute;    width: 17px;    height: 17px;    border: 5px solid #6347FF;    border-radius: 50%;    background: #fff;    box-shadow: 0px 0px 11px 0px #6347FF;    left: 50%;    transform: translateX(-50%);    bottom: -49px;}
 .AUBannerTimelineSection .AUBannerTimelineBtCol .AUBannerTimelineBox span.AUBannerTimelineBoxshape {    bottom: unset;    top: -47px;}
 .AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox:before {    position: absolute;    content: "";    width: 2px;    height: 35px;    background: linear-gradient(117deg, #202640 0, #6347FF 100%);    left: 50%;    transform: translateX(-50%);    bottom: -38px;}
 .AUBannerTimelineSection .AUBannerTimelineBtCol .AUBannerTimelineBox:before {    bottom: unset;    top: -38px;    transform: rotate(180deg);    left: calc(50% - 1px);}
@@ -1739,7 +1738,7 @@ color: {{ primary_color }};
 .Counterv1Section  .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box {  width: auto;    padding-right: 20px;    margin-right: 20px;}
 .Counterv1Section .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box .Counterv1Boxin {  max-width: 110px;    width: 100%;}
 .Counterv1Section .Counterv1InSection .Counterv1InBoxSec .Counterv1Content p+* {  margin-top: 15px;}
-.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox p img {  width: 24px;    height: 24px;    object-fit: scale-down;}
+.AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox p img {  width: 24px;    height: 21px;    object-fit: scale-down; vertical-align: top;}
 
 .MeetteamSliderBoxSec .MeetteamSliderBox {  width: 410px !important;}
 
@@ -1794,7 +1793,7 @@ color: {{ primary_color }};
 .simpletextsection .simpletextInSec .simpletext ol {  margin: 40px 0;}
 .simpletextsection .simpletextInSec .simpletext ul {  padding: 0;    list-style: none;}
 .simpletextsection .simpletextInSec .simpletext ul li {  padding-left: 30px;    position: relative;}
-.simpletextsection .simpletextInSec .simpletext ul li:before {  position: absolute;    content: "";    width: 3px;    height: 3px;    background: #202640;    opacity: 75%;    left: 15px;    top: 50%;    transform: translateY(-50%);}
+.simpletextsection .simpletextInSec .simpletext ul li:before {  position: absolute;    content: "";    width: 3px;    height: 3px;    background: #202640;    opacity: 75%;    left: 15px;    top: 10px;}
 
 
 .errorbannerInSec  .errorbannerLTCol {  max-width: 610px;    width: 100%; height: 649px;    position: relative;    border-radius: 30px;    background: rgb(0 0 0 / 20%);    overflow: hidden;}
@@ -1811,12 +1810,7 @@ color: {{ primary_color }};
 .errorbannerInSec .errorbannerLTCol {    display: flex;    align-items: center;    justify-content: center;    flex-direction: column;}
 .errorbannerInSec .errorbannerLTCol .errorbannerLTColText {    margin-top: -65px;    width: 100%;    height: 100%;}
 .errorbannerLTColText{    position: relative;    display: inline-block;    text-align: center;    font-family: Tenon;    font-size: 286px;    font-style: normal;    font-weight: 500;    line-height: normal;    position: relative;    color: rgba(255,255,255,0.2);
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.2) 0%,
-        rgba(255,255,255,0.20) 35%,
-        rgba(255,255,255,0.20) 100%
-      );
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.20) 35%,rgba(255,255,255,0.20) 100% );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1866,24 +1860,71 @@ color: {{ primary_color }};
     bottom: 141px;
 }
 
-.errorbannerInSec .errorbannerRTCol  a.secondary_button:hover {
+.errorbannerInSec .errorbannerRTCol  a.secondary_button:hover, .errorbannerInSec .errorbannerRTCol  a.secondary_button:focus {
     border-color: #fff;
+}
+.errorbannerInSec .errorbannerRTCol  a.secondary_button:hover .btn_text_gradient, .errorbannerInSec .errorbannerRTCol  a.secondary_button:focus .btn_text_gradient {
+        background: linear-gradient(90deg, #FFF 25%, #FFF 50%, #FFF 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
+.BlogPostBannerInSec .BlogPostBannerTitleSec {  max-width: 650px;    width: 100%;    margin: 0 auto;    text-align: center;}
+.BlogPostBannerInSec .BlogPostBannerTitleSec .BlogPostBannerInfo {    padding-top: 20px;}
+.BlogPostBannerInSec .BlogPostBannerTitleSec .BlogPostBannerInfo ul {   display: flex;    align-items: center;    justify-content: center;    margin: 0;    padding: 0;  list-style: none;    gap: 10px;}
+.BlogPostBannerInSec .BlogPostBannerTitleSec .BlogPostBannerInfo ul li {    border-radius: 46px;    border: 1px solid rgba(255, 255, 255, 0.25);    padding: 5px 15px;    display: flex;    align-items: center;    gap: 5px;    color: #fff;    font-size: 14px;    font-weight: 500;    line-height: 1.28;}
+.BlogPostBannerInSec .BlogPostBannerTitleSec .BlogPostBannerInfo ul li span {    line-height: 0;}
+.BlogPostBannerInSec .BlogPostBannerimg {   margin-top: 75px;    border-radius: 30px;    box-shadow: 0 100px 50px 0 rgba(0, 0, 0, 0.05), 0 0 200px 0 rgba(255, 255, 255, 0.25);    overflow: hidden;    height: 659px;    margin-bottom: -297px;}
+.BlogPostBannerInSec .BlogPostBannerimg img {    width: 100%;    height: 100%;    object-fit: cover;}
+.BlogPostBodyInSec {  max-width: 820px;    width: 100%;    margin: 0 auto;}
+div#hs_cos_wrapper_blog_post_audio {  max-width: calc(1029px + 30px);   width: 100%;    margin: 0 auto;    padding: 50px 15px 0;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player {   background: #6347FF !important;    border-radius: 46px;    padding: 24px 32px;    height: 68px !important;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls .hs-audio-player__play-pause-button {    width: auto;    height: auto;    background: transparent;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls .hs-audio-player__play-pause-button span.hs-audio-player__play-icon svg path {    fill: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls .hs-audio-player__play-pause-button span.hs-audio-player__pause-icon svg {   fill: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls {gap: 10px;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls .hs-audio-player__skip-button {  background: transparent;    width: auto;    height: auto;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls .hs-audio-player__skip-button span.hs-audio-player__skip-icon svg {   fill: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__controls  ._play-pause-skip_1nxo7_117.hs-audio-player__controls {   gap: 10px;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__duration {   color: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player ._tooltip-wrapper_1x94v_1 svg {    fill: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player  .hs-audio-player__title {    color: #fff;    font-size: 14px;    line-height: 1;    font-weight: 500;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__volume {   border: unset;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__volume ._tooltip-wrapper_1x94v_1 {   background: transparent;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__volume ._tooltip-wrapper_1x94v_1 .hs-audio-player__mute-button {   width: auto;    height: auto;    background: transparent;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__volume ._tooltip-wrapper_1x94v_1 ._slider-container_1nxo7_168 ._slider-played_1nxo7_206 {   background: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__playback-rate ._tooltip-wrapper_1x94v_1 .hs-audio-player__playback-rate-button {   background: transparent;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player .hs-audio-player__playback-rate-current {   color: #fff;}
+div#hs_cos_wrapper_blog_post_audio .hs-audio-player span.hs-audio-player__playback-rate-value {  color: #fff;}
+
+.BlogPostBodyInSec .BlogPostBody p {   color: #0C0F3199 !important;}
+.BlogPostBodyInSec .BlogPostBody p+* {  margin-top: 20px;}
+.BlogPostBodyInSec .BlogPostBody p a {    color: rgba(99, 71, 255,100%);    text-decoration: underline !important;}
+.BlogPostBodyInSec .BlogPostBody ul {   margin: 20px 0;    padding: 0;    list-style: none !important;}
+.BlogPostBodyInSec .BlogPostBody ul li {    color: #0C0F3199;  position: relative;}
+.BlogPostBodyInSec .BlogPostBody ul li p { padding-left: 20px;  }
+.BlogPostBodyInSec .BlogPostBody ul li+* {   margin-top: 10px;}
+
+.BlogPostBodyInSec .BlogPostBody h2 {    margin-bottom: 32px;    margin-top: 56px;}
+.BlogPostBodyInSec .BlogPostBody h6 {   margin: 32px 0 16px;}
+
+.blogpostbodyv1InSec {  max-width: 820px;    width: 100%;    margin: 0 auto;}
+.blogpostbodyv1InSec h3 {    margin-bottom: 32px;    color: #000;}
+.blogpostbodyv1InSec * {   color: #0C0F3199;}
+.blogpostbodyv1InSec p+* {   margin-top: 32px;}
+.blogpostbodyv1InSec ul {   margin: 32px 0;    padding: 0;    list-style: none;}
+.blogpostbodyv1InSec ul li+* {    margin-top: 20px;}
+.blogpostbodyv1InSec ul li {   padding-left: 30px;    position: relative;}
+.blogpostbodyv1InSec ul li:before {   position: absolute;    content: "";    width: 3px;    height: 3px;    background: #0C0F3199;    left: 10px;    top: 10px;}
 
 
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs_error_rollup {  display: none;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form ul.no-list.hs-error-msgs {  display: none;}
 
-
-
-
-
-
-
-
-
-
-
+.LContentRFormBannerRTCol .LContentRFormBannerForm form fieldset .hs-form-field ul.no-list.hs-error-msgs.inputs-list { display: none;}
+.LContentRFormBannerRTCol .LContentRFormBannerForm form .hs_error_rollup {  display: none;}
+.LContentRFormBannerInSec .LContentRFormBannerRTCol .LContentRFormBannerForm .submitted-message {  color: #fff;}
 
 
 
@@ -1896,6 +1937,7 @@ color: {{ primary_color }};
 
 @media (max-width : 1440px){
   .BookDemoCTASection .BookDemoCTAImge { left: 0; }
+  .Counterv1Section .Counterv1Image {  left: 0;}
 }
 
 @media (max-width:1366px){
@@ -1952,6 +1994,8 @@ color: {{ primary_color }};
 .ResourcesCntListingSection {  padding: 100px 0;}
 
 .BannerVideoInSec .BannerVideoBox {  height: 550px;    max-width: 90%;    margin: 0 auto -473px;}
+
+.BlogPostBannerInSec .BlogPostBannerimg {  height: 600px;}
 
 }
 
@@ -2021,8 +2065,20 @@ color: {{ primary_color }};
 .errorbannerInSec span.errorbannerLTColline {  height: 198px;}
 .errorbannerInSec .errorbannerLTCol span.errorbannerLTColbtshape {  bottom: 100px;    width: 200px;    height: 30px;}
 
+.BlogPostBannerInSec .BlogPostBannerimg {   height: 500px;}
+
+.SystemStatusBannerInSec .SystemStatusBannerRTCol {  padding-left: 20px;}
+
+  .AUBannerTimelineSection .AUBannerTimelineTpCol {   gap: 15%;}
+      .AUBannerTimelineSection .AUBannerTimelineBtCol {      gap: 15%;    }
 
 }
+
+@media (max-width : 1200px){
+    .AUBannerTimelineSection .AUBannerTimelineBtCol {      gap: 13%;    }
+            .AUBannerTimelineSection .AUBannerTimelineTpCol {      gap: 10%;    }
+}
+
 
 @media (max-width : 1080px){
 h4, .h4 {   font-size: 22px;}
@@ -2057,13 +2113,39 @@ h4, .h4 {   font-size: 22px;}
 .CaseStudyOverBoxSec .CaseStudyOverLTCol .CaseStudyOverviewBox {   padding: 30px;}
 
 .Counterv1Section .Counterv1Image {  width: 68%;}
-.AUBannerTimelineSection .AUBannerTimelineTpCol {  gap: 50px;}
-.AUBannerTimelineSection .AUBannerTimelineBtCol {  gap: 50px;}
+    .AUBannerTimelineSection .AUBannerTimelineBtCol {
+        gap: 10%;
+    }
+
 .MeetteamSliderBoxSec .MeetteamSliderBox {   width: 310px !important;}
 
 .errorbannerInSec .errorbannerRTCol h1 br {  display: none;}
 
+.SystemStatusBannerInSec .SystemStatusBannerLTCol {
+    max-width: 500px;
 }
+
+.SystemStatusBannerInSec .SystemStatusBannerLTCol img {
+    width: 350px;
+}
+
+.SystemStatusBannerInSec .SystemStatusBannerRTCol {
+    max-width: calc(100% - 500px);
+}
+
+}
+
+
+@media (max-width : 1024px){
+      .AUBannerTimelineSection .AUBannerTimelineTpCol {
+        gap: 7%;
+    }
+
+        .AUBannerTimelineSection .AUBannerTimelineBtCol {
+        gap: 10%;
+    }
+}
+
 
 @media (max-width : 991px){
 h1, .h1 {   font-size: 40px;}
@@ -2169,47 +2251,43 @@ h2, .h2 {    font-size: 37px;}
 .TwoColCntinSection {  gap: 20px;}
 .AUBannerTimelineSection .AUBannerTimelineTpCol {  flex-direction: column;    align-items: center;    padding-bottom: 50px;    width: 90%;  margin: 0 0 0 auto;}
 .AUBannerTimelineSection .AUBannerTimelineBtCol {  flex-direction: column;    align-items: center; padding-top: 0;    width: 90%;  margin: 0 0 0 auto;}
-.AUBannerTimelineSection span.AUBannerTimelineShape {  border-left: 2px dashed #6347FF;    border-bottom: unset;    width: 1px;    height: 100%;    left: 43px;}
+.AUBannerTimelineSection span.AUBannerTimelineShape {  border-left: 2px dashed #6347FF;    border-bottom: unset;    width: 1px;    height: 100%;    left: 7%;}
 .AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox {  padding-left: 0;    width: 100%;    text-align: left;}
 .AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox br {   display: none;}
-.AUBannerTimelineSection:before {  height: 85px;    width: 100%;    background: linear-gradient(90deg, #202640 -7%, rgba(32, 38, 64, 0) 74%);}
+.AUBannerTimelineSection:before { left: 0; height: 85px; width: 100%; top: 0; background: linear-gradient(180deg, #202640 17.44%, rgba(32, 38, 64, 0) 100%); }
 .AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox span.AUBannerTimelineBoxshape {   left: -46px;    top: 50%;    transform: translateY(-50%);}
 .AUBannerTimelineSection .AUBannerTimelineInBox .AUBannerTimelineBox:before {  left: -20px;    transform: translateY(-50%) rotate(90deg);    top: 50%;}
-.AUBannerTimelineSection:after {    width: 100%;    height: 85px;    top: unset;    background: linear-gradient(90deg, #202640db 82%, rgba(32, 38, 64, 0) 100%);    transform: rotate(0);}
+.AUBannerTimelineSection:after { left: 0; height: 85px; width: 100%; top: unset;  background: linear-gradient(180deg, #202640 17.44%, rgba(32, 38, 64, 0) 100%);    bottom: 0;}
 
 
-.LImageRContentSection .LImageRContentInSec .LImageRContentLeftCol {
-    max-width: 100%;
+.LImageRContentSection .LImageRContentInSec .LImageRContentLeftCol {  max-width: 100%;}
+.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol {   max-width: 100%;    padding: 30px 0 0;}
+.errorbannerInSec .errorbannerRTCol {   max-width: 100%;}
+.errorbannerInSec .errorbannerRTCol a {    max-width: 70%;}
+.errorbannerInSec .errorbannerRTCol {    text-align: center;    display: flex;    flex-direction: column;    justify-content: center;    align-items: center;}
+.errorbannerInSec .errorbannerLTCol {    max-width: 500px;}
+.errorbannerInSec {    justify-content: center;}
+.BlogPostBannerInSec .BlogPostBannerimg {   margin-top: 50px;    height: 350px;    margin-bottom: -150px;}
+.BlogPostBannerSection {   margin-bottom: 150px !important;}
+
+
+.SystemStatusBannerInSec .SystemStatusBannerRTCol {  max-width: 100%;    padding-left: 0;   padding-top: 30px;}
+.SystemStatusBannerInSec .SystemStatusBannerLTCol {  max-width: 100%;}
+.SystemStatusBannerInSec .SystemStatusBannerRTCol .SystemStatusBannerCnt {  max-width: 100%;}
+
+
+
+.AUBannerTimelineSection .AUBannerTimelineBtCol {
+    gap: 50px;
 }
 
-.LImageRContentSection .LImageRContentInSec .LImageRContentRightCol {
-    max-width: 100%;
-    padding: 30px 0 0;
+.AUBannerTimelineSection .AUBannerTimelineTpCol {
+    gap: 50px;
 }
 
-.errorbannerInSec .errorbannerRTCol {
-    max-width: 100%;
-}
 
-.errorbannerInSec .errorbannerRTCol a {
-    max-width: 70%;
-}
 
-.errorbannerInSec .errorbannerRTCol {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.errorbannerInSec .errorbannerLTCol {
-    max-width: 500px;
-}
-
-.errorbannerInSec {
-    justify-content: center;
-}
 
 }
 
@@ -2255,6 +2333,11 @@ h2, .h2 {    font-size: 37px;}
 .errorbannerInSec .errorbannerRTCol a {
     max-width: 100%;
 }
+.switchingTCInSec .switchingTCTitle {
+    max-width: 411px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 }
 
@@ -2270,7 +2353,7 @@ h2, .h2 {    font-size: 37px;}
 .CounterBoxSection {  padding-top: 30px;}
 .Countercta {    padding-top: 30px;}
 .TwoColumnImgCntBoxSec .TwoColumnImgCntImgcol {    max-width: 100%;}
-.TestimonialSection {    margin: 0 10px !important;}
+
 .softwaresolutionBoxSec {    padding-top: 30px;}
 .automatetwoColSection {    margin: 0 10px !important;}
 h2, .h2 {    font-size: 28px;}
@@ -2370,7 +2453,16 @@ h2, .h2 {    font-size: 28px;}
 .errorbannerInSec .errorbannerLTCol span.errorbannerLTColbtshape {
     bottom: 50px;
 }
+.BlogPostBannerInSec .BlogPostBannerimg {
+    height: 250px;
+}
 
+.SystemStatusBannerInSec .SystemStatusBannerLTCol {
+    min-height: 350px;
+}
+
+
+.LContentRFormBannerlist ul li br{ display: none;}
 
 }
 
@@ -2387,7 +2479,7 @@ h4, .h4 {   font-size: 20px;}
 a.tertiary_button, .tertiary_button a {  padding: 10px 15px;}
 a.secondary_button, .secondary_button a {    padding: 10px 15px;}
 a.button, .button a, .hs-button, .hs-blog-post-listing__post-button {   padding: 10px 15px;}
-.TestimonialSection .testimonialInSection {   padding: 0;}
+
 h2, .h2 {    font-size: 26px;}
 h5, .h5 {   font-size: 18px;}
 .softwaresolutionBoxSec .softwaresolutionBox .softwaresolutionBoxListgrp ul li+* {    margin-top: 15px;}
@@ -2453,6 +2545,17 @@ h5, .h5 {   font-size: 18px;}
     bottom: 40px;
 }
 
+.SystemStatusBannerInSec .SystemStatusBannerLTCol img {  width: 100%;}
 
+.SystemStatusBannerInSec .SystemStatusBannerLTCol {min-height: 300px;}
+.BadformBannerTitleSec .BadformBannerFormSec .BadformBannerForm form .hs_submit {  display: flex;    align-items: center;    justify-content: center;    width: 100%;}
+.switchingTCInSec .switchingTCTitle { max-width: 306px; }
+.Counterv1Section .Counterv1BoxSection.Counterv1fourBoxSection .Counterv1Box {
+    width: calc(50% - 10px);
+}
 }
 
+@media (max-width : 400px){
+  .AllourplanCTA a {  min-width: 100%;    width: 100%;}
+.AllourplanCTA  .basebutton-1 {  width: 100%;}
+}

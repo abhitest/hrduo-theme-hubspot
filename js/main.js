@@ -23,7 +23,33 @@
 
 
 
+
 $(document).ready(function() {
+
+$(document).on("click", 'a[href*="#"]', function (e) {
+
+  const targetId = $(this).attr("href");
+
+  // Ignore empty hash
+  if (
+    targetId === "#" ||
+    targetId === "/#"
+  ) return;
+
+  // Get target section
+  const target = $(targetId.split("#")[1] ? "#" + targetId.split("#")[1] : targetId);
+
+  if (target.length) {
+    e.preventDefault();
+
+    $("html, body").animate({
+      scrollTop: target.offset().top
+    }, 800);
+  }
+
+});
+
+
 
 // HeaderMenu js
 var element=$('.headerNav').find('ul').find('li.hs-menu-depth-1');
@@ -80,6 +106,7 @@ $(document).on("mouseleave","header.header .headerInnersec .headerRTCol .headerN
     $(this).removeClass("hovered").siblings("li").removeClass("hovered")
 })
  
+if($(".TrustedbyteamLogoBoxSec").length > 0){
   $(".TrustedbyteamLogoBoxSec").slick({
       autoplay: true,
     autoplaySpeed: 0,
@@ -92,6 +119,7 @@ $(document).on("mouseleave","header.header .headerInnersec .headerRTCol .headerN
     pauseOnHover: false,
     variableWidth: true,
   });
+}
 
 if($('.MeetteamSliderBoxSec').length > 0){
   $(".MeetteamSliderBoxSec").slick({
@@ -310,6 +338,8 @@ $(window).on('load resize',function() {
   equalheight('.PlanThreeColBoxList');
   equalheight('.workforceThreeColBoxTitlesecIn');
   minequalheight('.workforceThreeColBoxListgrp');
+  minequalheight('.PlatformThreeColumnBoxTitleIn');
+
   
   setEqualHeights();
 });

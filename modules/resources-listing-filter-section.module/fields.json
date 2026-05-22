@@ -113,6 +113,17 @@
     "default": "Categories" 
     },
     {
+    "name": "select_hubdb_table",
+    "label": "Select HubDB Table",
+    "required": false,
+    "locked": false,
+    "type": "hubdbtable",
+    "placeholder": "",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": "2472785094" 
+  },
+    {
     "name": "resources_library",
     "label": "Resources Library",
     "required": false,

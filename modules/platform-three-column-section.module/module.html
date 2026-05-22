@@ -23,14 +23,16 @@
         <div class="PlatformThreeColumnBoxSec pt75 d_flex gap20 align_start">
           {% for item in module.content_group.column_group %}
           {% set mainloop = loop.index %}
-          <div class="PlatformThreeColumnBox">
+          <div class="PlatformThreeColumnBox PlatformThreeColumnBox-{{ loop.index }}">
             {% if item.box_image.src %}
             <div class="PlatformThreeColumnBoxLogo" style="background-color: {{ item.image_background_color.css }};">
               <img src="{{ item.box_image.src }}" alt="{{ item.box_image.alt }}">
             </div>
             {% endif %}
             <div class="PlatformThreeColumnBoxTitle pt20">
+              <div class="PlatformThreeColumnBoxTitleIn">
               <h4 class="{{ module.content_group.box_title_heading_choice }}">{{ item.box_title }}</h4>
+              </div>
             </div>
             <div class="PlatformThreeColumnBoxCnt pt15 dark_navy_blue_color">
               <div class="PlatformThreeColumnBoxCntIn">
@@ -139,6 +141,11 @@
 {#       {% scope_css %} #}
         
       {# Desktop Styling #}
+
+      {% for item in module.content_group.column_group %}
+.{{ name }} .PlatformThreeColumnBox-{{ loop.index }} .PlatformThreeColumnBoxTitle span { color : {{ item.title_span_color.css }} }
+      {% endfor %}
+
       .{{name}}.baseModuleStyle{
         position:relative;
       
